@@ -39,8 +39,7 @@ CREATE TABLE SALA (
 
 INSERT INTO SALA(IdSala,Capienza,IdCinemaFk)
 VALUES
-(1,100,1),
-(2,50,1);
+(1,100,1);
 
 
 CREATE TABLE POSTO(
