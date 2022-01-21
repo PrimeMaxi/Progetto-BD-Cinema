@@ -28,7 +28,7 @@ CREATE TYPE AUDIO AS ENUM ('Dolby Digital Surround','Doby Digital Plus');
 
 
 CREATE TABLE SALA (
-	IdSala SERIAL PRIMARY KEY,
+	IdSala INTEGER PRIMARY KEY,
 	Capienza INTEGER NOT NULL,
 	Tecnologia TECNOLOGIA DEFAULT NULL,
 	Audio AUDIO DEFAULT NULL,
@@ -37,15 +37,24 @@ CREATE TABLE SALA (
 	CONSTRAINT fk_Cinema FOREIGN KEY (IdCinemaFk) REFERENCES CINEMA(IdCinema)
 );
 
+INSERT INTO SALA(IdSala,Capienza,IdCinemaFk)
+VALUES
+(1,100,1),
+(2,50,1);
+
 
 CREATE TABLE POSTO(
 	IdPosto SERIAL PRIMARY KEY,
+	FilaX CHAR(1) NOT NULL, --CHECK (UPPER(FilaX) = FilaX) restituisce errore se non si inserisce il carrattere in UPPER
 	PostoY SMALLINT CHECK(PostoY BETWEEN 1 AND 28) NOT NULL,
-	FilaX CHAR(1) NOT NULL,
 	DisponibilePosto BOOLEAN DEFAULT 'True' NOT NULL,
 	IdSalaFk INTEGER NOT NULL,
-	CONSTRAINT fk_Sala FOREIGN KEY (IdSalaFk) REFERENCES SALA(IdSala) ON DELETE CASCADE
+	CONSTRAINT fk_Sala FOREIGN KEY (IdSalaFk) REFERENCES SALA(IdSala) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
+
+
 
 CREATE TYPE GENERE AS ENUM ('Azione','Horror','Fantascienza','Comico','Thriller','Western','Documentario');
 
@@ -88,6 +97,8 @@ CREATE TABLE BIGLIETTO(
 
 --TRIGGER E FUNZIONI
 
+
+--Funzione e Trigger che gestisce la creare di una sala rispettando il numero di sala che il cinema può contenere
 DROP FUNCTION if exists limit_sala();
 DROP TRIGGER if exists controllo_numero_sala ON Sala;
 
@@ -109,3 +120,25 @@ LANGUAGE PLPGSQL;
 create trigger controllo_numero_sala
 before insert on SALA
 EXECUTE PROCEDURE limit_sala();
+
+--Funzione e Trigger che genera il automaticamente le entità POSTO in base alla capienza data dall'entità SALA
+
+CREATE O REPLACE FUNCTION generate_Posto() 
+RETURN TRIGGER
+LANGUAGE plpgsql AS $func$
+DECLARE
+	
+	capienza_sala INTEGER;
+	filx TEXT[] := '{"A","B","C","D","E","F","G","H","I","L","M","N","O","P"}';
+BEGIN
+
+	select Capienza into capienza_sala from SALA;
+	FOR item in 1..capienza_sala
+	LOOP
+		insert into 
+	END LOOP;
+
+
+END
+
+--Funzione e Trigger che converte i dati digitati prima di inserire in Posto affinché la fila X ha lettere in maiuscolo
