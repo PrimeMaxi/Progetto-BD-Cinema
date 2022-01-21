@@ -53,9 +53,6 @@ CREATE TABLE POSTO(
 );
 
 
-
-
-
 CREATE TYPE GENERE AS ENUM ('Azione','Horror','Fantascienza','Comico','Thriller','Western','Documentario');
 
 
@@ -123,22 +120,37 @@ EXECUTE PROCEDURE limit_sala();
 
 --Funzione e Trigger che genera il automaticamente le entità POSTO in base alla capienza data dall'entità SALA
 
-CREATE O REPLACE FUNCTION generate_Posto() 
-RETURN TRIGGER
-LANGUAGE plpgsql AS $func$
+CREATE OR REPLACE FUNCTION generate_Posto() 
+RETURNS TRIGGER AS 
+$BODY$
 DECLARE
-	
 	capienza_sala INTEGER;
-	filx TEXT[] := '{"A","B","C","D","E","F","G","H","I","L","M","N","O","P"}';
+	filx char[];
+	IdSalafk INTEGER;
+	coun INTEGER := 1;
+	curr varchar;
 BEGIN
-
-	select Capienza into capienza_sala from SALA;
+	filx :=ARRAY['A','B','C','D','E','F','G','H','I','L','M','N','O','P'];
+	select MAX(IdSala) into IdSalafk from SALA;
+	select capienza into capienza_sala from sala where IdSala = (select MAX(idsala) from sala);
 	FOR item in 1..capienza_sala
 	LOOP
-		insert into 
+		curr := filx[coun];
+		INSERT INTO POSTO(FilaX,PostoY,IdSalaFk)
+		VALUES
+		(curr,coun,IdSalafk);
+		coun:=coun+1;
+		IF coun = 15 then coun:=1;
+		END IF;
 	END LOOP;
+	RETURN NEW;
+END;
+$BODY$
+LANGUAGE PLPGSQL;
 
+create trigger generate_posto
+AFTER insert on SALA
+EXECUTE PROCEDURE generate_Posto();  
 
-END
 
 --Funzione e Trigger che converte i dati digitati prima di inserire in Posto affinché la fila X ha lettere in maiuscolo
