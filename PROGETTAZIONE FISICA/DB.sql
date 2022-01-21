@@ -21,7 +21,7 @@ CREATE TABLE CINEMA (
 
 INSERT INTO CINEMA (NomeCinema,Indirizzo,Provincia,NumeroSala,Città,Telefono)
 VALUES
-('Happy MaxiCinema Afragola','Centro Commerciale Le Porte di Napoli, Via Santa Maria la Nova, 1, 80021 Afragola NA','NA',10,'Afragola','0818607136');
+('Happy MaxiCinema Afragola','Centro Commerciale Le Porte di Napoli, Via Santa Maria la Nova, 1, 80021 Afragola NA','NA',2,'Afragola','0818607136');
 
 CREATE TYPE TECNOLOGIA AS ENUM ('IMAX','ISense','ScreenX','3D');
 CREATE TYPE AUDIO AS ENUM ('Dolby Digital Surround','Doby Digital Plus');
@@ -30,10 +30,11 @@ CREATE TYPE AUDIO AS ENUM ('Dolby Digital Surround','Doby Digital Plus');
 CREATE TABLE SALA (
 	IdSala SERIAL PRIMARY KEY,
 	Capienza INTEGER NOT NULL,
-	Tecnologia TECNOLOGIA NOT NULL,
-	Audio AUDIO NOT NULL,
+	Tecnologia TECNOLOGIA DEFAULT NULL,
+	Audio AUDIO DEFAULT NULL,
 	DisponibileSala BOOLEAN DEFAULT 'True' NOT NULL,
-	CONSTRAINT fk_Cinema FOREIGN KEY (IdSala) REFERENCES CINEMA(IdCinema)
+	IdCinemaFk INTEGER NOT NULL,
+	CONSTRAINT fk_Cinema FOREIGN KEY (IdCinemaFk) REFERENCES CINEMA(IdCinema)
 );
 
 
@@ -42,7 +43,8 @@ CREATE TABLE POSTO(
 	PostoY SMALLINT CHECK(PostoY BETWEEN 1 AND 28) NOT NULL,
 	FilaX CHAR(1) NOT NULL,
 	DisponibilePosto BOOLEAN DEFAULT 'True' NOT NULL,
-	CONSTRAINT fk_Sala FOREIGN KEY (IdPosto) REFERENCES SALA(IdSala) ON DELETE CASCADE
+	IdSalaFk INTEGER NOT NULL,
+	CONSTRAINT fk_Sala FOREIGN KEY (IdSalaFk) REFERENCES SALA(IdSala) ON DELETE CASCADE
 );
 
 CREATE TYPE GENERE AS ENUM ('Azione','Horror','Fantascienza','Comico','Thriller','Western','Documentario');
@@ -69,13 +71,41 @@ CREATE TABLE PROIEZIONE(
 	Data DATE NOT NULL,
 	OraInizio TIME NOT NULL,
 	OraFine TIME NOT NULL,
-	CONSTRAINT fk_Film FOREIGN KEY (IdProiezione) REFERENCES FILM(IdFilm),
-	CONSTRAINT fk_SalaP FOREIGN KEY (IdProiezione) REFERENCES SALA(IdSala)
+	IdFilmFk INTEGER NOT NULL,
+	IdSalaFk INTEGER NOT NULL,
+	CONSTRAINT fk_Film FOREIGN KEY (IdFilmFk) REFERENCES FILM(IdFilm),
+	CONSTRAINT fk_SalaP FOREIGN KEY (IdSalaFk) REFERENCES SALA(IdSala)
 );
 
 CREATE TABLE BIGLIETTO(
 	IdBiglietto SERIAL PRIMARY KEY,
 	Prezzo FLOAT NOT NULL,
-	CONSTRAINT fk_Proiezione FOREIGN KEY (IdBiglietto) REFERENCES PROIEZIONE(IdProiezione)
+	IdProiezioneFk INTEGER NOT NULL,
+	CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione)
 );
 
+
+
+--TRIGGER E FUNZIONI
+
+DROP FUNCTION if exists limit_sala();
+DROP TRIGGER if exists controllo_numero_sala ON Sala;
+
+create function limit_sala() returns trigger as $BODY$
+DECLARE
+	limite INTEGER;
+	capienza INTEGER;
+BEGIN
+	select NumeroSala into limite from cinema;
+	select count(*) into capienza from sala;
+	
+	if(capienza > limite - 1) then RAISE EXCEPTION $$Non ci sono più sale disponibili$$;
+		ELSE RETURN NEW;
+	END IF;
+END;
+$BODY$
+LANGUAGE PLPGSQL;
+	
+create trigger controllo_numero_sala
+before insert on SALA
+EXECUTE PROCEDURE limit_sala();
