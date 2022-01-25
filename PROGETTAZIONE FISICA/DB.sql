@@ -52,7 +52,7 @@ CREATE TABLE POSTO(
 );
 
 
-CREATE TYPE GENERE AS ENUM ('Azione','Horror','Fantascienza','Comico','Thriller','Western','Documentario');
+CREATE TYPE GENERE AS ENUM ('Azione','Horror','Fantascienza','Comico','Thriller','Western','Documentario','Drammatico');
 
 
 CREATE TABLE FILM (
@@ -69,7 +69,9 @@ CREATE TABLE FILM (
 INSERT INTO FILM (Titolo,Trama,Regia,Anno,Durata,Genere)
 VALUES 
 ('Spider-Man: No Way Home',DEFAULT,'Jon Watts',2021,'02:28:00','Fantascienza'),
-('Matrix Resurrections',DEFAULT,'Lana Wachowski',2022,'02:28:00','Fantascienza');
+('Matrix Resurrections',DEFAULT,'Lana Wachowski',2022,'02:28:00','Fantascienza'),
+('House of Gucci',DEFAULT,'Ridley Scott',2021,'02:38:00','Drammatico'),
+('No Time To Die',DEFAULT,'Cary Fukunaga',2021,'02:43:00','Azione');
 
 CREATE TABLE PROIEZIONE(
 	IdProiezione SERIAL PRIMARY KEY,
@@ -95,8 +97,8 @@ CREATE TABLE BIGLIETTO(
 
 
 --Funzione e Trigger che gestisce la creare di una sala rispettando il numero di sala che il cinema può contenere
-DROP FUNCTION if exists limit_sala();
 DROP TRIGGER if exists controllo_numero_sala ON Sala;
+DROP FUNCTION if exists limit_sala();
 
 create function limit_sala() returns trigger as $BODY$
 DECLARE
@@ -118,6 +120,9 @@ before insert on SALA
 EXECUTE PROCEDURE limit_sala();
 
 --Funzione e Trigger che genera il automaticamente le entità POSTO in base alla capienza data dall'entità SALA
+
+DROP TRIGGER if exists generate_posto ON Sala;
+DROP FUNCTION if exists generate_Posto();
 
 CREATE OR REPLACE FUNCTION generate_Posto() 
 RETURNS TRIGGER AS 
@@ -150,6 +155,3 @@ LANGUAGE PLPGSQL;
 create trigger generate_posto
 AFTER insert on SALA
 EXECUTE PROCEDURE generate_Posto();  
-
-
---Funzione e Trigger che converte i dati digitati prima di inserire in Posto affinché la fila X ha lettere in maiuscolo
