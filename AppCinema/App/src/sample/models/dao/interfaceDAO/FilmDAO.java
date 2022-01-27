@@ -1,6 +1,8 @@
 package sample.models.dao.interfaceDAO;
 
+import sample.models.entity.Film;
+
 public interface FilmDAO {
-    public void insertFilm(String titolo,String trama, String regia, String anno, String durata, String genere);
+    public void insertFilm(Film film);
     public boolean deleteFilm();
 }

@@ -49,12 +49,12 @@
       </Label>
       <HBox layoutX="91.0" layoutY="293.0" prefHeight="59.0" prefWidth="399.0">
          <children>
-            <Button fx:id="SalvaButton" mnemonicParsing="false" onAction="#saveBook" prefHeight="58.0" prefWidth="200.0" text="Salva">
+            <Button fx:id="SalvaButton" mnemonicParsing="false" onAction="#saveFilm" prefHeight="58.0" prefWidth="200.0" text="Salva">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="AnnullaButton" mnemonicParsing="false" onAction="#cancel" prefHeight="58.0" prefWidth="200.0" text="Annulla">
+            <Button fx:id="AnnullaButton" mnemonicParsing="false" onAction="#cancelFilm" prefHeight="58.0" prefWidth="200.0" text="Annulla">
                <font>
                   <Font size="20.0" />
                </font>
