@@ -1,6 +1,10 @@
 package sample.controllers;
 
 import java.net.URL;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Year;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
@@ -10,6 +14,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import sample.models.entity.Film;
 import sample.models.enumerations.GENERE;
 import sample.service.DateValidator;
 
@@ -38,11 +43,12 @@ public class FilmController implements Initializable {
     String trama = Trama.getText();
     String regia = Regia.getText();
     String genere = GENERE.getValue().toString();
-    System.out.println(genere);
+    String annoFilm = AnnoFilm.getText();
     String ore = Hour.getText();
     String minut = minutes.getText();
     String secondi = second.getText();
-    String annoFilm = AnnoFilm.getText();
+    String durataFilm = ore+":"+minut+":"+secondi;
+    boolean allert;
 
     if(titolo.isEmpty() || annoFilm.isEmpty() || genere.isEmpty()){
       Alert alert = new Alert(AlertType.ERROR);
@@ -56,14 +62,11 @@ public class FilmController implements Initializable {
       alert.setContentText("Errore campo anno (YYYY)");
       alert.showAndWait();
     }
-
-    if(ore.length() + minut.length() + secondi.length() != 6){
+    if(!DateValidator.isValidFilmLength(durataFilm))
       errorFormatLenght();
+    if (!annoFilm.isEmpty()) {
+      Film film = new Film(titolo, trama, regia, Year.parse(annoFilm), durataFilm, genere);
     }
-    if( Pattern.matches("[a-zA-Z]+",ore) && Pattern.matches("[a-zA-Z]+",minut) && Pattern.matches("[a-zA-Z]+",secondi)){
-      errorFormatLenght();
-    }
-
   }
 
   private void errorFormatLenght() {

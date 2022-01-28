@@ -11,9 +11,20 @@ public class Film {
   private String trama;
   private String regia;
   private Year annoUscita;
-  private Date durataFilm;
-  private GENERE genere;
+  private String durataFilm;
+  private String genere;
   private String recensione;
+
+  public Film(){}
+  public Film(String titolo, String trama, String regia, Year annoUscita, String durataFilm,
+      String genere) {
+    this.titolo = titolo;
+    this.trama = trama;
+    this.regia = regia;
+    this.annoUscita = annoUscita;
+    this.durataFilm = durataFilm;
+    this.genere = genere;
+  }
 
   public String getIdFilm() {
     return IdFilm;
@@ -55,19 +66,19 @@ public class Film {
     this.annoUscita = annoUscita;
   }
 
-  public Date getDurataFilm() {
+  public String getDurataFilm() {
     return durataFilm;
   }
 
-  public void setDurataFilm(Date durataFilm) {
+  public void setDurataFilm(String durataFilm) {
     this.durataFilm = durataFilm;
   }
 
-  public GENERE getGenere() {
+  public String getGenere() {
     return genere;
   }
 
-  public void setGenere(GENERE genere) {
+  public void setGenere(String genere) {
     this.genere = genere;
   }
 

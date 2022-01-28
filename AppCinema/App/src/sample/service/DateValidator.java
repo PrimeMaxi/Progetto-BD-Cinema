@@ -18,7 +18,7 @@ public class DateValidator {
     return true;
   }
   public static boolean isValidFilmLength(String inDate) {
-    if(inDate.length() != 4)
+    if(inDate.length() != 8)
       return false;
 
     SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");

@@ -23,7 +23,7 @@ public class FilmDaoImpl implements FilmDAO {
       insertFilm.setString(2,film.getTrama().isEmpty() ? "DEFAULT" : film.getTrama());
       insertFilm.setString(3,film.getRegia());
       insertFilm.setInt(4,film.getAnnoUscita().getValue());
-      insertFilm.setString(5,film.getDurataFilm().toString());
+      insertFilm.setString(5,film.getDurataFilm());
       insertFilm.setString(6,film.getGenere().toString());
     } catch (SQLException e) {
       e.printStackTrace();
