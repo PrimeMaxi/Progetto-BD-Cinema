@@ -4,11 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-class DatabaseConnection {
+public class DatabaseConnection {
 
   private static Connection conn = null;
-  private DatabaseConnection(){}
-
   static{
     final String url = "jdbc:postgresql://localhost/cinema";
     final String user = "postgres";

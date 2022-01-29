@@ -1,7 +1,8 @@
 package sample.models.entity;
 
+import java.sql.Time;
+import java.time.LocalTime;
 import java.time.Year;
-import java.util.Date;
 import sample.models.enumerations.GENERE;
 
 public class Film {
@@ -11,13 +12,13 @@ public class Film {
   private String trama;
   private String regia;
   private Year annoUscita;
-  private String durataFilm;
-  private String genere;
+  private Time durataFilm;
+  private GENERE genere;
   private String recensione;
 
   public Film(){}
-  public Film(String titolo, String trama, String regia, Year annoUscita, String durataFilm,
-      String genere) {
+  public Film(String titolo, String trama, String regia, Year annoUscita, Time durataFilm,
+      GENERE genere) {
     this.titolo = titolo;
     this.trama = trama;
     this.regia = regia;
@@ -66,19 +67,19 @@ public class Film {
     this.annoUscita = annoUscita;
   }
 
-  public String getDurataFilm() {
+  public Time getDurataFilm() {
     return durataFilm;
   }
 
-  public void setDurataFilm(String durataFilm) {
+  public void setDurataFilm(Time durataFilm) {
     this.durataFilm = durataFilm;
   }
 
-  public String getGenere() {
+  public GENERE getGenere() {
     return genere;
   }
 
-  public void setGenere(String genere) {
+  public void setGenere(GENERE genere) {
     this.genere = genere;
   }
 

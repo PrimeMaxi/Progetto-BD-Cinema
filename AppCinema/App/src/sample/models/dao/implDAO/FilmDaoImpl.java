@@ -3,8 +3,10 @@ package sample.models.dao.implDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Types;
 import sample.models.dao.interfaceDAO.FilmDAO;
 import sample.models.entity.Film;
+import sample.models.enumerations.GENERE;
 
 public class FilmDaoImpl implements FilmDAO {
 
@@ -23,8 +25,9 @@ public class FilmDaoImpl implements FilmDAO {
       insertFilm.setString(2,film.getTrama().isEmpty() ? "DEFAULT" : film.getTrama());
       insertFilm.setString(3,film.getRegia());
       insertFilm.setInt(4,film.getAnnoUscita().getValue());
-      insertFilm.setString(5,film.getDurataFilm());
-      insertFilm.setString(6,film.getGenere().toString());
+      insertFilm.setTime(5,film.getDurataFilm());
+      insertFilm.setObject(6, film.getGenere(), Types.OTHER);
+      insertFilm.executeUpdate();
     } catch (SQLException e) {
       e.printStackTrace();
     }

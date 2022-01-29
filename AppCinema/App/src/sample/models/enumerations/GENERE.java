@@ -1,11 +1,11 @@
 package sample.models.enumerations;
 
 public enum GENERE {
-  AZIONE,
-  HORROR,
-  FANTASCIENZA,
-  COMICO,
-  THRILLER,
-  WESTERN,
-  DOCUMENTARIO
+  Azione,
+  Horror,
+  Fantascienza,
+  Comico,
+  Thriller,
+  Western,
+  Documentario
 }
