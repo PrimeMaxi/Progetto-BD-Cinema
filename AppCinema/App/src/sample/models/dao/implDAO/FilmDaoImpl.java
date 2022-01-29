@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Types;
+import javax.swing.JOptionPane;
 import sample.models.dao.interfaceDAO.FilmDAO;
 import sample.models.entity.Film;
 import sample.models.enumerations.GENERE;
@@ -29,7 +30,7 @@ public class FilmDaoImpl implements FilmDAO {
       insertFilm.setObject(6, film.getGenere(), Types.OTHER);
       insertFilm.executeUpdate();
     } catch (SQLException e) {
-      e.printStackTrace();
+      JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
     }
   }
 
