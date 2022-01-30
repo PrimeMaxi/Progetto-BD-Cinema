@@ -1,20 +1,20 @@
 package sample.models.entity;
 
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.time.Year;
 import sample.models.enumerations.GENERE;
 
 public class Film {
 
-  private String IdFilm;
-  private String titolo;
-  private String trama;
-  private String regia;
+  private final static String PATTERNDATE = "dd-MM-yyyy";
+  private String IdFilm, titolo, trama = "DEFAULT", regia;
   private Year annoUscita;
   private Time durataFilm;
   private GENERE genere;
-  private String recensione;
+  private SimpleDateFormat inizioData, fineData;
+
 
   public Film(){}
   public Film(String titolo, String trama, String regia, Year annoUscita, Time durataFilm,
@@ -83,11 +83,4 @@ public class Film {
     this.genere = genere;
   }
 
-  public String getRecensione() {
-    return recensione;
-  }
-
-  public void setRecensione(String recensione) {
-    this.recensione = recensione;
-  }
 }

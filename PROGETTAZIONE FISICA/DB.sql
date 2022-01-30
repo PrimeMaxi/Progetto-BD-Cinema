@@ -63,6 +63,8 @@ CREATE TABLE FILM (
 	Anno SMALLINT CHECK(Anno BETWEEN 0 AND EXTRACT(YEAR FROM CURRENT_DATE)) NOT NULL, --Garantisce l'inserimento di Anno in formato YYYY e verifica che non venga inserito un anno superio a quella corrente
 	Durata TIME NOT NULL,
 	Genere GENERE NOT NULL,
+	InizioData DATE DEFAULT CURRENT_DATE, --Se il campo è vuoto, imposta la data corrente
+	FineData DATE DEFAULT (CURRENT_DATE + interval '28' DAY), -- se il campo è vuoto, imposta 28 giorni di disponibilità
 	CONSTRAINT chk_durata CHECK(durata > TIME '01:19:00' AND durata < TIME '03:20:00') --Verifica che l'inserimento della durata sia compreso dall'intervallo indicato
 );
 
@@ -80,6 +82,7 @@ CREATE TABLE PROIEZIONE(
 	OraFine TIME NOT NULL,
 	IdFilmFk INTEGER NOT NULL,
 	IdSalaFk INTEGER NOT NULL,
+	OrariProiezioni TIME NOT NULL,
 	CONSTRAINT fk_Film FOREIGN KEY (IdFilmFk) REFERENCES FILM(IdFilm),
 	CONSTRAINT fk_SalaP FOREIGN KEY (IdSalaFk) REFERENCES SALA(IdSala)
 );
@@ -155,3 +158,5 @@ LANGUAGE PLPGSQL;
 create trigger generate_posto
 AFTER insert on SALA
 EXECUTE PROCEDURE generate_Posto();  
+
+---Funzion e Trigger che elemina un film dopo la scadenza di proiezione FineData
