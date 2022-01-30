@@ -17,6 +17,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import javax.swing.JRootPane;
 import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.FilmDaoImpl;
 import sample.models.entity.Film;
@@ -36,6 +39,7 @@ public class FilmController implements Initializable {
   public TextField Hour;
   public TextField minutes;
   public TextField second;
+  public StackPane rootPane;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -89,5 +93,7 @@ public class FilmController implements Initializable {
   }
 
   public void cancelFilm(ActionEvent actionEvent) {
+    Stage stage = (Stage) rootPane.getScene().getWindow();
+    stage.close();
   }
 }
