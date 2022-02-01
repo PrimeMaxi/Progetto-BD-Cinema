@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="471.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.CinemaController">
+   <children>
+      <AnchorPane prefHeight="471.0" prefWidth="179.0" style="-fx-background-color: #DCDCDC;">
+         <children>
+            <Label fx:id="cinemaName" layoutX="29.0" layoutY="51.0" prefHeight="18.0" prefWidth="121.0" text="Nome Cinema">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="96.0" text="Numero Sala:" />
+            <Label fx:id="numeroSala" layoutX="100.0" layoutY="96.0" text="Label" />
+            <Button fx:id="modifica" layoutX="52.0" layoutY="431.0" mnemonicParsing="false" onAction="#modificaCinema" text="Modifica" />
+         </children>
+      </AnchorPane>
+      <Pane layoutY="-2.0" prefHeight="44.0" prefWidth="808.0" style="-fx-background-color: #000000;">
+         <children>
+            <Button layoutX="736.0" layoutY="10.0" mnemonicParsing="false" onAction="#back" text="Indietro" />
+         </children>
+      </Pane>
+      <Button layoutX="180.0" layoutY="410.0" mnemonicParsing="false" onAction="#listFilm" prefHeight="62.0" prefWidth="628.0" text="Lista film">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Button>
+      <Button layoutX="180.0" layoutY="347.0" mnemonicParsing="false" onAction="#booking" prefHeight="62.0" prefWidth="628.0" text="Ticket">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
