@@ -28,7 +28,7 @@ public class FilmDaoImpl implements FilmDAO {
       insertFilm.setInt(4,film.getAnnoUscita().getValue());
       insertFilm.setTime(5,film.getDurataFilm());
       insertFilm.setObject(6, film.getGenere(), Types.OTHER);
-      insertFilm.executeUpdate();
+      System.out.println(insertFilm.executeUpdate());
     } catch (SQLException e) {
       JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
     }
