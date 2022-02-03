@@ -10,13 +10,13 @@
    <children>
       <AnchorPane prefHeight="471.0" prefWidth="179.0" style="-fx-background-color: #DCDCDC;">
          <children>
-            <Label fx:id="cinemaName" layoutX="29.0" layoutY="51.0" prefHeight="18.0" prefWidth="121.0" text="Nome Cinema">
+            <Label fx:id="cinemaName" layoutX="5.0" layoutY="51.0" prefHeight="102.0" prefWidth="168.0" text="Nome Cinema">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label layoutX="16.0" layoutY="96.0" text="Numero Sala:" />
-            <Label fx:id="numeroSala" layoutX="100.0" layoutY="96.0" text="Label" />
+            <Label layoutX="14.0" layoutY="154.0" text="Numero Sala:" />
+            <Label fx:id="numeroSala" layoutX="98.0" layoutY="154.0" text="Label" />
             <Button fx:id="modifica" layoutX="52.0" layoutY="431.0" mnemonicParsing="false" onAction="#modificaCinema" text="Modifica" />
          </children>
       </AnchorPane>

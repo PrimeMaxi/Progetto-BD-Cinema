@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import sample.service.SceneCreator;
 
-public class MainController {
+public class Main {
 
   public Button buttonEntra;
 

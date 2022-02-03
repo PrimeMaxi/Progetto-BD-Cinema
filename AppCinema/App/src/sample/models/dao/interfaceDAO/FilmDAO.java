@@ -4,5 +4,6 @@ import sample.models.entity.Film;
 
 public interface FilmDAO {
     public void insertFilm(Film film);
-    public boolean deleteFilm();
+    public boolean deleteFilm(Integer id);
+    public Integer queryFilmById(String titolo);
 }

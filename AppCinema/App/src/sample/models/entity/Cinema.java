@@ -5,11 +5,12 @@ import java.util.List;
 public class Cinema {
 
   private Integer IdCinema;
-  private String NomeCinema, indirizzo, provincia, numeroSala, città;
-  private Integer telefono;
+  private String NomeCinema, indirizzo, provincia, città;
+  private Integer telefono, numeroSala;
   private List<Sala> salaList;
 
-  public Cinema(String nomeCinema, String indirizzo, String provincia, String numeroSala,
+  public Cinema(){}
+  public Cinema(String nomeCinema, String indirizzo, String provincia, Integer numeroSala,
       String città, Integer telefono) {
     NomeCinema = nomeCinema;
     this.indirizzo = indirizzo;
@@ -51,11 +52,11 @@ public class Cinema {
     this.provincia = provincia;
   }
 
-  public String getNumeroSala() {
+  public Integer getNumeroSala() {
     return numeroSala;
   }
 
-  public void setNumeroSala(String numeroSala) {
+  public void setNumeroSala(Integer numeroSala) {
     this.numeroSala = numeroSala;
   }
 

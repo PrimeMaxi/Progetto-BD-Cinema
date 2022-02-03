@@ -24,7 +24,6 @@ public class Main extends Application {
     public void start(Stage stage) {
 
         primaryStage = stage;
-        root = null;
         try {
             root = FXMLLoader.load(
                 Objects.requireNonNull(getClass().getResource("views/Main.fxml")));
