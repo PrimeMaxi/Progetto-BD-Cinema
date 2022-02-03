@@ -1,5 +1,6 @@
 package sample.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.CinemaDAOImpl;
 import sample.models.dao.interfaceDAO.CinemaDAO;
 import sample.models.entity.Cinema;
+import sample.service.SceneCreator;
 
 public class CinemaController implements Initializable {
 
@@ -27,14 +29,17 @@ public class CinemaController implements Initializable {
     } catch (SQLException e) {
       e.printStackTrace();
     }
-
-    Cinema cinema = cinemaDAO.retriveCinema();
-    cinemaName.setText(cinema.getNomeCinema());
-    numeroSala.setText(cinema.getNumeroSala().toString());
+    Cinema cinema = cinemaDAO != null ? cinemaDAO.retriveCinema() : null;
+    cinemaName.setText(cinema != null ? cinema.getNomeCinema() : null);
+    numeroSala.setText(cinema != null ? cinema.getNumeroSala().toString() : null);
   }
 
   public void modificaCinema(ActionEvent actionEvent) {
-
+    try {
+      SceneCreator.launchScene("views/modificaCinema.fxml");
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   public void back(ActionEvent actionEvent) {

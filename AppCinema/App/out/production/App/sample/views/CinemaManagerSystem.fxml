@@ -10,19 +10,19 @@
    <children>
       <AnchorPane prefHeight="471.0" prefWidth="179.0" style="-fx-background-color: #DCDCDC;">
          <children>
-            <Label fx:id="cinemaName" layoutX="5.0" layoutY="51.0" prefHeight="102.0" prefWidth="168.0" text="Nome Cinema">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Label>
-            <Label layoutX="14.0" layoutY="154.0" text="Numero Sala:" />
-            <Label fx:id="numeroSala" layoutX="98.0" layoutY="154.0" text="Label" />
+            <Label layoutX="14.0" layoutY="60.0" text="Numero Sala:" />
+            <Label fx:id="numeroSala" layoutX="98.0" layoutY="60.0" text="Label" />
             <Button fx:id="modifica" layoutX="52.0" layoutY="431.0" mnemonicParsing="false" onAction="#modificaCinema" text="Modifica" />
          </children>
       </AnchorPane>
       <Pane layoutY="-2.0" prefHeight="44.0" prefWidth="808.0" style="-fx-background-color: #000000;">
          <children>
             <Button layoutX="736.0" layoutY="10.0" mnemonicParsing="false" onAction="#back" text="Indietro" />
+            <Label fx:id="cinemaName" layoutX="14.0" layoutY="-3.0" prefHeight="52.0" prefWidth="635.0" text="Nome Cinema" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Button layoutX="180.0" layoutY="410.0" mnemonicParsing="false" onAction="#listFilm" prefHeight="62.0" prefWidth="628.0" text="Lista film">

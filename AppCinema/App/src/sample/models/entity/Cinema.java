@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Cinema {
 
-  private Integer IdCinema;
+  private final static Integer IdCinema = 1;
   private String NomeCinema, indirizzo, provincia, città;
   private Integer telefono, numeroSala;
   private List<Sala> salaList;
@@ -22,10 +22,6 @@ public class Cinema {
 
   public Integer getIdCinema() {
     return IdCinema;
-  }
-
-  public void setIdCinema(Integer idCinema) {
-    IdCinema = idCinema;
   }
 
   public String getNomeCinema() {
