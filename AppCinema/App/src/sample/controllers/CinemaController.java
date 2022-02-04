@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.CinemaDAOImpl;
 import sample.models.dao.interfaceDAO.CinemaDAO;
@@ -21,6 +22,15 @@ public class CinemaController implements Initializable {
   public Label numeroSala;
   public Button modifica;
 
+  public TableColumn idFilmColumn;
+  public TableColumn titoloColumn;
+  public TableColumn annoColumn;
+  public TableColumn regiaColumn;
+  public TableColumn genereColumn;
+  public TableColumn durataColumn;
+  public TableColumn azioneBox;
+
+
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     CinemaDAO cinemaDAO = null;
@@ -32,6 +42,9 @@ public class CinemaController implements Initializable {
     Cinema cinema = cinemaDAO != null ? cinemaDAO.retriveCinema() : null;
     cinemaName.setText(cinema != null ? cinema.getNomeCinema() : null);
     numeroSala.setText(cinema != null ? cinema.getNumeroSala().toString() : null);
+
+    //Rimpiere tabella di film
+    
   }
 
   public void modificaCinema(ActionEvent actionEvent) {

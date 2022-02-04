@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Types;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import sample.models.dao.interfaceDAO.FilmDAO;
 import sample.models.entity.Film;
@@ -14,12 +17,14 @@ public class FilmDaoImpl implements FilmDAO {
 
   private Connection connection;
   private PreparedStatement insertFilm, deleteFilm, queryFilmById;
+  private Statement queryListFilm;
 
   public FilmDaoImpl(Connection connection) throws SQLException {
     this.connection=connection;
     insertFilm = connection.prepareStatement("INSERT INTO FILM (Titolo,Trama,Regia,Anno,Durata,Genere) VALUES (?,?,?,?,?,?)");
     deleteFilm = connection.prepareStatement("DELETE FROM FILM WHERE idfilm = ?");
     queryFilmById = connection.prepareStatement("SELECT idfilm FROM FILM WHERE titolo= ?");
+    queryListFilm = connection.createStatement();
   }
 
   @Override
@@ -58,5 +63,19 @@ public class FilmDaoImpl implements FilmDAO {
       JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
     }
     return 0;
+  }
+
+  @Override
+  public List<Film> queryListFilm() {
+    List<Film> filmList = new ArrayList<>();
+    try {
+      ResultSet rs = queryListFilm.executeQuery("SELECT * FROM FILM");
+      while (rs.next()){
+        Film film = new Film();
+        film.set
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
   }
 }
