@@ -40,14 +40,13 @@
       <TableView fx:id="tableFilms" layoutX="180.0" layoutY="42.0" prefHeight="306.0" prefWidth="680.0">
         <columns>
             <TableColumn fx:id="idFilm" prefWidth="75.0" text="ID Film" />
-          <TableColumn fx:id="titolo" prefWidth="75.0" text="Titolo" />
+          <TableColumn fx:id="titolo" onEditCommit="#changeTitoloCell" prefWidth="75.0" text="Titolo" />
           <TableColumn fx:id="annoUscita" prefWidth="75.0" text="Anno" />
             <TableColumn fx:id="regia" prefWidth="75.0" text="Regia" />
             <TableColumn fx:id="genere" prefWidth="75.0" text="Genere" />
             <TableColumn fx:id="durataFilm" prefWidth="75.0" text="Durata" />
             <TableColumn fx:id="inizioData" prefWidth="75.0" text="Inizio Data" />
             <TableColumn fx:id="fineData" prefWidth="75.0" text="Fine Data" />
-            <TableColumn fx:id="azione" prefWidth="75.0" text="Azione" />
         </columns>
       </TableView>
    </children>

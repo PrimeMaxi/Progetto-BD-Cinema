@@ -17,8 +17,8 @@ import sample.models.enumerations.GENERE;
 public class FilmDaoImpl implements FilmDAO {
 
   private Connection connection;
-  private PreparedStatement insertFilm, deleteFilm, queryFilmById;
-  private Statement queryListFilm;
+  private PreparedStatement insertFilm, deleteFilm, queryFilmById, updateFilm;
+  private Statement queryListFilm, updateFilmTitolo;
 
   public FilmDaoImpl(Connection connection){
     this.connection=connection;
@@ -27,6 +27,8 @@ public class FilmDaoImpl implements FilmDAO {
       deleteFilm = connection.prepareStatement("DELETE FROM FILM WHERE idfilm = ?");
       queryFilmById = connection.prepareStatement("SELECT idfilm FROM FILM WHERE titolo= ?");
       queryListFilm = connection.createStatement();
+      updateFilmTitolo = connection.createStatement();
+      updateFilm = connection.prepareStatement("UPDATE FILM SET titolo=?,trama=?,regia=?,anno=?,durata=?,genere=? where idfilm=?");
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -83,7 +85,7 @@ public class FilmDaoImpl implements FilmDAO {
         film.setRegia(rs.getString("regia"));
         film.setAnnoUscita(Year.of(rs.getInt("anno")));
         film.setDurataFilm(rs.getTime("durata"));
-        film.setGenere(GENERE.Azione);                            //Da Impostare bene.
+        film.setGenere(GENERE.valueOf(rs.getString("genere")));                            //Da Impostare bene.
         film.setInizioData(rs.getDate("iniziodata"));
         film.setFineData(rs.getDate("finedata"));
         filmList.add(film);
@@ -91,7 +93,50 @@ public class FilmDaoImpl implements FilmDAO {
       return filmList;
     } catch (SQLException e) {
       JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
+    }finally{
+      try {
+        queryListFilm.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
     }
     return null;
+  }
+
+  @Override
+  public void updateFilmTitolo(String newTitolo, String oldTitolo) {
+    try {
+      String sql = "update film SET titolo='"+newTitolo+"' WHERE titolo='"+oldTitolo+"'";
+      updateFilmTitolo.executeUpdate(sql);
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }finally{
+      try {
+        updateFilmTitolo.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+
+  public void updateFilm(Film film){
+    try {
+      updateFilm.setString(1,film.getTitolo());
+      updateFilm.setString(2,film.getTrama().isEmpty() ? "DEFAULT" : film.getTrama());
+      updateFilm.setString(3,film.getRegia());
+      updateFilm.setInt(4,film.getAnnoUscita().getValue());
+      updateFilm.setTime(5,film.getDurataFilm());
+      updateFilm.setObject(6, film.getGenere(), Types.OTHER);
+      updateFilm.setInt(7,film.getIdFilm());
+      updateFilm.executeUpdate();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }finally{
+      try {
+        updateFilm.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+    }
   }
 }

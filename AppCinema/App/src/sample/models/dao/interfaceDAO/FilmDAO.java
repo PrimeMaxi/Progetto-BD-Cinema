@@ -8,4 +8,5 @@ public interface FilmDAO {
     public boolean deleteFilm(Integer id);
     public Integer queryFilmById(String titolo);
     public List<Film> queryListFilm();
+    public void updateFilmTitolo(String newTitolo, String oldTitolo);
 }
