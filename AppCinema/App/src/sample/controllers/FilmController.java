@@ -76,12 +76,8 @@ public class FilmController implements Initializable {
     if (!annoFilm.isEmpty()) {
       final var durata = Time.valueOf(LocalTime.of(Integer.parseInt(ore),Integer.parseInt(minut),Integer.parseInt(secondi)));
       Film film = new Film(titolo, trama, regia, Year.parse(annoFilm), durata, genere);
-      try {
         var dao = new FilmDaoImpl(DatabaseConnection.getConnection());
         dao.insertFilm(film);
-      } catch (SQLException e) {
-        e.printStackTrace();
-      }
     }
   }
 

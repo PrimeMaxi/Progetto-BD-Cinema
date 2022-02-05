@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -19,12 +20,16 @@ public class FilmDaoImpl implements FilmDAO {
   private PreparedStatement insertFilm, deleteFilm, queryFilmById;
   private Statement queryListFilm;
 
-  public FilmDaoImpl(Connection connection) throws SQLException {
+  public FilmDaoImpl(Connection connection){
     this.connection=connection;
-    insertFilm = connection.prepareStatement("INSERT INTO FILM (Titolo,Trama,Regia,Anno,Durata,Genere) VALUES (?,?,?,?,?,?)");
-    deleteFilm = connection.prepareStatement("DELETE FROM FILM WHERE idfilm = ?");
-    queryFilmById = connection.prepareStatement("SELECT idfilm FROM FILM WHERE titolo= ?");
-    queryListFilm = connection.createStatement();
+    try {
+      insertFilm = connection.prepareStatement("INSERT INTO FILM (Titolo,Trama,Regia,Anno,Durata,Genere) VALUES (?,?,?,?,?,?)");
+      deleteFilm = connection.prepareStatement("DELETE FROM FILM WHERE idfilm = ?");
+      queryFilmById = connection.prepareStatement("SELECT idfilm FROM FILM WHERE titolo= ?");
+      queryListFilm = connection.createStatement();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
   }
 
   @Override
@@ -72,10 +77,21 @@ public class FilmDaoImpl implements FilmDAO {
       ResultSet rs = queryListFilm.executeQuery("SELECT * FROM FILM");
       while (rs.next()){
         Film film = new Film();
-        film.set
+        film.setIdFilm(Integer.parseInt(rs.getString("idfilm")));
+        film.setTitolo(rs.getString("titolo"));
+        film.setTrama(rs.getString("regia"));
+        film.setRegia(rs.getString("regia"));
+        film.setAnnoUscita(Year.of(rs.getInt("anno")));
+        film.setDurataFilm(rs.getTime("durata"));
+        film.setGenere(GENERE.Azione);                            //Da Impostare bene.
+        film.setInizioData(rs.getDate("iniziodata"));
+        film.setFineData(rs.getDate("finedata"));
+        filmList.add(film);
       }
+      return filmList;
     } catch (SQLException e) {
-      e.printStackTrace();
+      JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
     }
+    return null;
   }
 }

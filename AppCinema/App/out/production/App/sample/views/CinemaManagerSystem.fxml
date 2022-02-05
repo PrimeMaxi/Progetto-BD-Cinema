@@ -2,11 +2,13 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="471.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.CinemaController">
+<AnchorPane prefHeight="472.0" prefWidth="859.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.CinemaController">
    <children>
       <AnchorPane prefHeight="471.0" prefWidth="179.0" style="-fx-background-color: #DCDCDC;">
          <children>
@@ -15,9 +17,9 @@
             <Button fx:id="modifica" layoutX="52.0" layoutY="431.0" mnemonicParsing="false" onAction="#modificaCinema" text="Modifica" />
          </children>
       </AnchorPane>
-      <Pane layoutY="-2.0" prefHeight="44.0" prefWidth="808.0" style="-fx-background-color: #000000;">
+      <Pane layoutY="-2.0" prefHeight="44.0" prefWidth="860.0" style="-fx-background-color: #000000;">
          <children>
-            <Button layoutX="736.0" layoutY="10.0" mnemonicParsing="false" onAction="#back" text="Indietro" />
+            <Button layoutX="782.0" layoutY="10.0" mnemonicParsing="false" onAction="#back" text="Indietro" />
             <Label fx:id="cinemaName" layoutX="14.0" layoutY="-3.0" prefHeight="52.0" prefWidth="635.0" text="Nome Cinema" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="17.0" />
@@ -25,15 +27,28 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="180.0" layoutY="410.0" mnemonicParsing="false" onAction="#listFilm" prefHeight="62.0" prefWidth="628.0" text="Lista film">
+      <Button layoutX="180.0" layoutY="410.0" mnemonicParsing="false" onAction="#listFilm" prefHeight="62.0" prefWidth="680.0" text="Lista film">
          <font>
             <Font size="28.0" />
          </font>
       </Button>
-      <Button layoutX="180.0" layoutY="347.0" mnemonicParsing="false" onAction="#booking" prefHeight="62.0" prefWidth="628.0" text="Ticket">
+      <Button layoutX="180.0" layoutY="347.0" mnemonicParsing="false" onAction="#booking" prefHeight="62.0" prefWidth="680.0" text="Ticket">
          <font>
             <Font size="28.0" />
          </font>
       </Button>
+      <TableView fx:id="tableFilms" layoutX="180.0" layoutY="42.0" prefHeight="306.0" prefWidth="680.0">
+        <columns>
+            <TableColumn fx:id="idFilm" prefWidth="75.0" text="ID Film" />
+          <TableColumn fx:id="titolo" prefWidth="75.0" text="Titolo" />
+          <TableColumn fx:id="annoUscita" prefWidth="75.0" text="Anno" />
+            <TableColumn fx:id="regia" prefWidth="75.0" text="Regia" />
+            <TableColumn fx:id="genere" prefWidth="75.0" text="Genere" />
+            <TableColumn fx:id="durataFilm" prefWidth="75.0" text="Durata" />
+            <TableColumn fx:id="inizioData" prefWidth="75.0" text="Inizio Data" />
+            <TableColumn fx:id="fineData" prefWidth="75.0" text="Fine Data" />
+            <TableColumn fx:id="azione" prefWidth="75.0" text="Azione" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

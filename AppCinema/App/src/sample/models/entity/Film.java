@@ -1,5 +1,6 @@
 package sample.models.entity;
 
+import java.sql.Date;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
@@ -9,11 +10,12 @@ import sample.models.enumerations.GENERE;
 public class Film {
 
   private final static String PATTERNDATE = "dd-MM-yyyy";
-  private String IdFilm, titolo, trama = "DEFAULT", regia;
+  private Integer idFilm;
+  private String titolo, trama = "DEFAULT", regia;
   private Year annoUscita;
   private Time durataFilm;
   private GENERE genere;
-  private SimpleDateFormat inizioData, fineData;
+  private Date inizioData, fineData;
 
 
   public Film(){}
@@ -27,12 +29,12 @@ public class Film {
     this.genere = genere;
   }
 
-  public String getIdFilm() {
-    return IdFilm;
+  public Integer getIdFilm() {
+    return idFilm;
   }
 
-  public void setIdFilm(String idFilm) {
-    IdFilm = idFilm;
+  public void setIdFilm(Integer idFilm) {
+    this.idFilm = idFilm;
   }
 
   public String getTitolo() {
@@ -83,4 +85,19 @@ public class Film {
     this.genere = genere;
   }
 
+  public Date getInizioData() {
+    return inizioData;
+  }
+
+  public void setInizioData(Date inizioData) {
+    this.inizioData = inizioData;
+  }
+
+  public Date getFineData() {
+    return fineData;
+  }
+
+  public void setFineData(Date fineData) {
+    this.fineData = fineData;
+  }
 }
