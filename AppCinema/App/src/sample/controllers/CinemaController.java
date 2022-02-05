@@ -11,21 +11,16 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import sample.Main;
 import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.CinemaDAOImpl;
@@ -41,7 +36,6 @@ public class CinemaController implements Initializable {
   public Label cinemaName;
   public Label numeroSala;
   public Button modifica;
-
   public TableColumn<Film,Integer> idFilm;
   public TableColumn<Film,String> titolo;
   public TableColumn<Film,Year> annoUscita;
@@ -68,25 +62,43 @@ public class CinemaController implements Initializable {
     numeroSala.setText(cinema != null ? cinema.getNumeroSala().toString() : null);
 
     //Rimpiere tabella di film
-    filmDao = new FilmDaoImpl(DatabaseConnection.getConnection());
-    List<Film> filmList = filmDao.queryListFilm();
-    final ObservableList<Film> data = FXCollections.observableList(filmList);
-    idFilm.setCellValueFactory(new PropertyValueFactory<>("idFilm"));
-    titolo.setCellValueFactory(new PropertyValueFactory<>("titolo"));
-    annoUscita.setCellValueFactory(new PropertyValueFactory<>("annoUscita"));
-    regia.setCellValueFactory(new PropertyValueFactory<>("regia"));
-    genere.setCellValueFactory(new PropertyValueFactory<>("genere"));
-    durataFilm.setCellValueFactory(new PropertyValueFactory<>("durataFilm"));
-    inizioData.setCellValueFactory(new PropertyValueFactory<>("inizioData"));
-    fineData.setCellValueFactory(new PropertyValueFactory<>("fineData"));
-    tableFilms.getColumns().addAll(idFilm,titolo,annoUscita,regia,genere,durataFilm,inizioData,fineData);
-    tableFilms.setItems(data);
+    setupTableView();
 
-    //Celle tabella modificiale
+    //Colonna Titolo tabella modificiale
     tableFilms.setEditable(true);
     titolo.setCellFactory(TextFieldTableCell.forTableColumn());
 
     // Doppio click sulla lista
+    modifyRowTableViewDoubleClick();
+  }
+
+
+
+
+  public void modificaCinema(ActionEvent actionEvent) {
+    try {
+      SceneCreator.launchScene("views/modificaCinema.fxml");
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+
+
+  public void addFilm(ActionEvent actionEvent) {
+    
+  }
+
+  public void booking(ActionEvent actionEvent) {
+  }
+
+  public void changeTitoloCell(CellEditEvent<Film, String> filmStringCellEditEvent) {
+    filmDao = new FilmDaoImpl(DatabaseConnection.getConnection());
+    filmDao.updateFilmTitolo(filmStringCellEditEvent.getNewValue(),filmStringCellEditEvent.getOldValue());
+    Film filmSelected = (Film) tableFilms.getSelectionModel().getSelectedItem();
+    filmSelected.setTitolo(filmStringCellEditEvent.getNewValue());
+  }
+  private void modifyRowTableViewDoubleClick() {
     tableFilms.setOnMouseClicked(
         mouseEvent -> {
           if (mouseEvent.getClickCount() == 2) {
@@ -106,29 +118,19 @@ public class CinemaController implements Initializable {
           }
         });
   }
-
-
-  public void modificaCinema(ActionEvent actionEvent) {
-    try {
-      SceneCreator.launchScene("views/modificaCinema.fxml");
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
-  public void back(ActionEvent actionEvent) {
-  }
-
-  public void listFilm(ActionEvent actionEvent) {
-  }
-
-  public void booking(ActionEvent actionEvent) {
-  }
-
-  public void changeTitoloCell(CellEditEvent<Film, String> filmStringCellEditEvent) {
+  private void setupTableView() {
     filmDao = new FilmDaoImpl(DatabaseConnection.getConnection());
-    filmDao.updateFilmTitolo(filmStringCellEditEvent.getNewValue(),filmStringCellEditEvent.getOldValue());
-    Film filmSelected = (Film) tableFilms.getSelectionModel().getSelectedItem();
-    filmSelected.setTitolo(filmStringCellEditEvent.getNewValue());
+    List<Film> filmList = filmDao.queryListFilm();
+    final ObservableList<Film> data = FXCollections.observableList(filmList);
+    idFilm.setCellValueFactory(new PropertyValueFactory<>("idFilm"));
+    titolo.setCellValueFactory(new PropertyValueFactory<>("titolo"));
+    annoUscita.setCellValueFactory(new PropertyValueFactory<>("annoUscita"));
+    regia.setCellValueFactory(new PropertyValueFactory<>("regia"));
+    genere.setCellValueFactory(new PropertyValueFactory<>("genere"));
+    durataFilm.setCellValueFactory(new PropertyValueFactory<>("durataFilm"));
+    inizioData.setCellValueFactory(new PropertyValueFactory<>("inizioData"));
+    fineData.setCellValueFactory(new PropertyValueFactory<>("fineData"));
+    tableFilms.getColumns().addAll(idFilm,titolo,annoUscita,regia,genere,durataFilm,inizioData,fineData);
+    tableFilms.setItems(data);
   }
 }

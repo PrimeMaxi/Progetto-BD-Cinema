@@ -19,7 +19,6 @@
       </AnchorPane>
       <Pane layoutY="-2.0" prefHeight="44.0" prefWidth="860.0" style="-fx-background-color: #000000;">
          <children>
-            <Button layoutX="782.0" layoutY="10.0" mnemonicParsing="false" onAction="#back" text="Indietro" />
             <Label fx:id="cinemaName" layoutX="14.0" layoutY="-3.0" prefHeight="52.0" prefWidth="635.0" text="Nome Cinema" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="17.0" />
@@ -27,7 +26,7 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="180.0" layoutY="410.0" mnemonicParsing="false" onAction="#listFilm" prefHeight="62.0" prefWidth="680.0" text="Lista film">
+      <Button fx:id="addFilm" layoutX="180.0" layoutY="410.0" mnemonicParsing="false" onAction="#addFilm" prefHeight="62.0" prefWidth="680.0" text="Aggiungi film">
          <font>
             <Font size="28.0" />
          </font>
