@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="918.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="495.0" prefWidth="704.0">
+         <children>
+            <AnchorPane prefHeight="649.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="78.0" layoutY="22.0" text="Data">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <DatePicker layoutX="12.0" layoutY="60.0" />
+                  <Label layoutX="78.0" layoutY="105.0" text="Film">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="77.0" layoutY="184.0" text="Time">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="52.0" layoutY="563.0" mnemonicParsing="false" text="Annulla">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <ChoiceBox layoutX="23.0" layoutY="136.0" prefWidth="150.0" />
+                  <ChoiceBox layoutX="23.0" layoutY="215.0" prefWidth="150.0" />
+                  <Button layoutX="52.0" layoutY="499.0" mnemonicParsing="false" text="Prenota">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="202.0" layoutY="7.0" prefHeight="650.0" prefWidth="737.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
