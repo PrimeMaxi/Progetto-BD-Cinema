@@ -21,7 +21,7 @@ import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import sample.Main;
+import sample.Application;
 import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.CinemaDAOImpl;
 import sample.models.dao.implDAO.FilmDaoImpl;
@@ -103,18 +103,18 @@ public class CinemaController implements Initializable {
         mouseEvent -> {
           if (mouseEvent.getClickCount() == 2) {
             FXMLLoader loader =
-                new FXMLLoader(Main.class.getResource("views/newFilm.fxml"));
+                new FXMLLoader(Application.class.getResource("views/newFilm.fxml"));
             try {
-              Main.setRoot(loader.load());
+              Application.setRoot(loader.load());
             } catch (IOException e) {
               e.printStackTrace();
             }
             NewFilmController newFilmController = loader.getController();
             ObservableList<Film> list = tableFilms.getSelectionModel().getSelectedItems();
             newFilmController.setData(list);
-            Scene scene = new Scene(Main.getRoot());
-            Main.getPrimaryStage().setScene(scene);
-            Main.getPrimaryStage().show();
+            Scene scene = new Scene(Application.getRoot());
+            Application.getPrimaryStage().setScene(scene);
+            Application.getPrimaryStage().show();
           }
         });
   }

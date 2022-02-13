@@ -2,6 +2,7 @@
   <library name="lib">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/../../../../../../JavaFX/javafx-sdk-17.0.2/lib" />
+      <root url="jar://$PROJECT_DIR$/../../../../../../JFoenix/jfoenix-9.0.10.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

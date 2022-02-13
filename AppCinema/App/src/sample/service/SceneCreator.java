@@ -3,7 +3,7 @@ package sample.service;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import sample.Main;
+import sample.Application;
 
 public class SceneCreator {
 
@@ -12,10 +12,10 @@ public class SceneCreator {
   public static void launchScene (String sceneName) throws IOException {
 
     // Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    FXMLLoader loader = new FXMLLoader(Main.class.getResource(sceneName));
-    Main.setRoot(loader.load());
-    Scene scene = new Scene(Main.getRoot());
-    Main.getPrimaryStage().setScene(scene);
-    Main.getPrimaryStage().show();
+    FXMLLoader loader = new FXMLLoader(Application.class.getResource(sceneName));
+    Application.setRoot(loader.load());
+    Scene scene = new Scene(Application.getRoot());
+    Application.getPrimaryStage().setScene(scene);
+    Application.getPrimaryStage().show();
   }
 }

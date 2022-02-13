@@ -1,17 +1,13 @@
 package sample;
 
-import java.awt.Image;
 import java.io.IOException;
 import java.util.Objects;
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Application extends javafx.application.Application {
 
     static Parent root;
     static Stage primaryStage;
@@ -27,12 +23,12 @@ public class Main extends Application {
         try {
             root = FXMLLoader.load(
                 Objects.requireNonNull(getClass().getResource("views/Main.fxml")));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 
     public static Parent getRoot() {
@@ -40,7 +36,7 @@ public class Main extends Application {
     }
 
     public static void setRoot(Parent root) {
-        Main.root = root;
+        Application.root = root;
     }
 
     public static Stage getPrimaryStage() {
@@ -48,6 +44,6 @@ public class Main extends Application {
     }
 
     public void setPrimaryStage(Stage primaryStage) {
-        Main.primaryStage = primaryStage;
+        Application.primaryStage = primaryStage;
     }
 }

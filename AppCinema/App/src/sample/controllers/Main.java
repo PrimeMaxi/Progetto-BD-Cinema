@@ -11,6 +11,6 @@ public class Main {
 
 
   public void entra(ActionEvent actionEvent) throws IOException {
-    SceneCreator.launchScene("views/CinemaManagerSystem.fxml");
+    SceneCreator.launchScene("viewsRefactor/Dashboard.fxml");
   }
 }
