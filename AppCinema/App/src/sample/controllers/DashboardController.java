@@ -41,6 +41,7 @@ public class DashboardController implements Initializable {
   public void initialize(URL url, ResourceBundle resourceBundle) {
     initializeCinema();
     tastoModifica();
+    loadDashboard();
   }
 
 
@@ -67,9 +68,20 @@ public class DashboardController implements Initializable {
         });
   }
 
+  private void loadDashboard(){
+    try {
+      final var pane = FXMLLoader.load(Objects.requireNonNull(
+          Application.class.getResource("viewsRefactor/ChartsDashboard.fxml")));
+      dashboardPane.getChildren().add((Node) pane);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
   public void buttonDashboardAction(ActionEvent actionEvent) {
     try {
-      final var pane = FXMLLoader.load(Application.class.getResource("views/AddFilm.fxml"));
+      final var pane = FXMLLoader.load(
+          Objects.requireNonNull(Application.class.getResource("views/AddFilm.fxml")));
       dashboardPane.getChildren().add((Node) pane);
     } catch (IOException e) {
       e.printStackTrace();

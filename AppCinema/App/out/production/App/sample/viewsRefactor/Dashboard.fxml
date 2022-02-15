@@ -44,11 +44,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="664.0" prefWidth="864.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.DashboardController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="969.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.DashboardController">
    <children>
-      <BorderPane prefHeight="672.0" prefWidth="870.0">
+      <BorderPane prefHeight="672.0" prefWidth="949.0" AnchorPane.bottomAnchor="-11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <HBox prefHeight="59.0" prefWidth="870.0" style="-fx-background-color: #a52a2a;" BorderPane.alignment="CENTER">
+            <HBox prefHeight="59.0" prefWidth="922.0" style="-fx-background-color: #a52a2a;" BorderPane.alignment="CENTER">
                <children>
                   <VBox alignment="CENTER_LEFT" prefHeight="59.0" prefWidth="524.0">
                      <children>
@@ -62,7 +62,7 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </VBox>
-                  <VBox alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="338.0">
+                  <VBox alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="433.0">
                      <children>
                         <ImageView fx:id="modificaCinema" fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -108,10 +108,14 @@
             </VBox>
          </left>
          <center>
-            <AnchorPane prefHeight="329.0" prefWidth="320.0" BorderPane.alignment="CENTER">
+            <AnchorPane BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="10.0" />
+               </BorderPane.margin>
                <children>
-                  <Pane fx:id="dashboardPane" layoutY="6.0" prefHeight="598.0" prefWidth="650.0" />
-               </children></AnchorPane>
+                  <Pane fx:id="dashboardPane" prefHeight="601.0" prefWidth="734.0" AnchorPane.rightAnchor="0.0" />
+               </children>
+            </AnchorPane>
          </center>
       </BorderPane>
    </children>
