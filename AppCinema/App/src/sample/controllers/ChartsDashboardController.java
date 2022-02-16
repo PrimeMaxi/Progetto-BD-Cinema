@@ -1,6 +1,7 @@
 package sample.controllers;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.ChartDAOImpl;
+import sample.models.entity.FasciOrari;
 import sample.models.entity.Ricavi;
 import sample.models.enumerations.ORARI;
 
@@ -32,11 +34,18 @@ public class ChartsDashboardController implements Initializable {
   }
 
   private void setPieChart(){
+    chartDAO = new ChartDAOImpl(DatabaseConnection.getConnection());
+    var list = chartDAO.queryFasciOrari();
+    var fascio16 = list.stream().filter(src -> Objects.equals(src.getFascioOrario(), "16-18")).findFirst();
+    var fascio18 = list.stream().filter(src -> Objects.equals(src.getFascioOrario(), "18-20")).findFirst();
+    var fascio20 = list.stream().filter(src -> Objects.equals(src.getFascioOrario(), "20-22")).findFirst();
+    var fascio22 = list.stream().filter(src -> Objects.equals(src.getFascioOrario(), "22-24")).findFirst();
+
     ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-        new PieChart.Data(ORARI.FASCIA_16_18.toString(),1),
-        new PieChart.Data(ORARI.FASCIA_18_20.toString(),5),
-        new PieChart.Data(ORARI.FASCIA_20_22.toString(),15),
-        new PieChart.Data(ORARI.FASCIA_22_24.toString(),20)
+        new PieChart.Data(ORARI.FASCIA_16_18.toString(),fascio16.isPresent() ? fascio16.get().getCount() : 0),
+        new PieChart.Data(ORARI.FASCIA_18_20.toString(),fascio18.isPresent() ? fascio18.get().getCount() : 0),
+        new PieChart.Data(ORARI.FASCIA_20_22.toString(),fascio20.isPresent() ? fascio20.get().getCount() : 0),
+        new PieChart.Data(ORARI.FASCIA_22_24.toString(),fascio22.isPresent() ? fascio22.get().getCount() : 0)
     );
     pieChart.setData(pieChartData);
     pieChart.setTitle("FASCI ORARI");

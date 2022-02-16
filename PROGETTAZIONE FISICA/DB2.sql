@@ -7,6 +7,7 @@
 	drop type if exists tecnologia;
 	drop type if exists audio;
 	drop table if exists cinema;
+	drop type if exists fasciorari;
 
 
 
@@ -58,11 +59,14 @@
 		CONSTRAINT chk_durata CHECK(durata > TIME '01:19:00' AND durata < TIME '03:20:00') --Verifica che l'inserimento della durata sia compreso dall'intervallo indicato
 	);
 
+	CREATE TYPE FASCIORARI AS ENUM ('16-18','18-20','20-22','22-24');
+
 	CREATE TABLE PROIEZIONE(
 		IdProiezione SERIAL PRIMARY KEY,
 		Data DATE NOT NULL,
 		OraInizio TIME NOT NULL,
 		OraFine TIME NOT NULL, --Trigger che imposta automaticamente l'orario di fine proiezione
+		OrarioProiezione FASCIORARI DEFAULT NULL, ---Trigger gestito
 		IdFilmFk INTEGER NOT NULL,
 		IdSalaFk INTEGER NOT NULL,
 		CONSTRAINT fk_Film FOREIGN KEY (IdFilmFk) REFERENCES FILM(IdFilm),
@@ -153,6 +157,43 @@
 	---Non necessario.
 	
 	---Funzione e Trigger che elimina i posti dopo la proiezione oppure imposta i posti disponibili a true.
+	
+	
+	---Funzione e Trigger che assegna la fascia oraria appropriata per la proiezione.
+	DROP TRIGGER IF EXISTS assignsFasciaOraria ON PROIEZIONE;
+	DROP FUNCTION IF EXISTS assignsFasciaOraria();
+	
+	CREATE OR REPLACE FUNCTION assignsFasciaOraria() 
+	RETURNS TRIGGER AS 
+	$$
+	DECLARE
+	BEGIN
+		IF(NEW.OraInizio >= TIME '16:00:00' AND NEW.OraInizio < TIME '18:00:00') then 
+			UPDATE PROIEZIONE
+			SET OrarioProiezione = '16-18'::FASCIORARI
+			WHERE IdProiezione = NEW.IdProiezione;
+		ELSIF(NEW.OraInizio >= TIME '18:00:00' AND NEW.OraInizio < TIME '20:00:00') THEN
+				UPDATE PROIEZIONE
+				SET OrarioProiezione = '18-20'::FASCIORARI
+				WHERE IdProiezione = NEW.IdProiezione;
+		ELSIF(NEW.OraInizio >= TIME '20:00:00' AND NEW.OraInizio < TIME '22:00:00') THEN
+				UPDATE PROIEZIONE
+				SET OrarioProiezione = '20-22'::FASCIORARI
+				WHERE IdProiezione = NEW.IdProiezione;
+		ELSIF(NEW.OraInizio >= TIME '22:00:00' AND NEW.OraInizio < TIME '01:00:00') THEN
+				UPDATE PROIEZIONE
+				SET OrarioProiezione = '22-24'::FASCIORARI
+				WHERE IdProiezione = NEW.IdProiezione;
+		END IF;
+		RETURN NEW;
+	END;
+	$$
+	LANGUAGE PLPGSQL;
+
+	CREATE TRIGGER assignsFasciaOraria
+	AFTER INSERT on PROIEZIONE
+	FOR EACH ROW
+	EXECUTE PROCEDURE assignsFasciaOraria();
 
 	---Funzione e Trigger che una volta comprato un biglietto, imposti automaticamente il campo DisponibilePosto da TRUE a FALSE
 

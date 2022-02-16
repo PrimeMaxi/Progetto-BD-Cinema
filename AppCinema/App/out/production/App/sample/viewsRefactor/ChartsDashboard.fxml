@@ -25,8 +25,8 @@
                      <children>
                         <TableView fx:id="moreIncomeTable" prefHeight="238.0" prefWidth="362.0">
                           <columns>
-                            <TableColumn prefWidth="150.40002745389938" text="Film" />
-                            <TableColumn minWidth="0.0" prefWidth="116.80003356933594" text="Incassi" />
+                            <TableColumn fx:id="titoloFilm" prefWidth="150.40002745389938" text="Film" />
+                            <TableColumn fx:id="incassi" minWidth="0.0" prefWidth="116.80003356933594" text="Ricavi" />
                           </columns>
                         </TableView>
                      </children>
