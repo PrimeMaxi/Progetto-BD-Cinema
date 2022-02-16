@@ -42,6 +42,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="969.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.DashboardController">
@@ -82,25 +85,76 @@
                <children>
                   <HBox fx:id="buttonDashboard1" alignment="CENTER" prefHeight="34.0" prefWidth="214.0">
                      <children>
-                        <JFXButton onAction="#buttonDashboardAction" prefHeight="26.0" prefWidth="208.0" text="Dashboard" />
+                        <JFXButton onAction="#buttonDashboardAction" prefHeight="26.0" prefWidth="208.0" text="Dashboard">
+                           <font>
+                              <Font name="Segoe UI Symbol" size="18.0" />
+                           </font>
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.15789473056793213" green="0.13742689788341522" blue="0.13742689788341522" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill></JFXButton>
                      </children>
                   </HBox>
                   <HBox fx:id="loadCinema" alignment="CENTER" prefHeight="34.0" prefWidth="214.0">
                      <children>
-                        <Label text="Cinema">
+                        <JFXButton onAction="#buttonCinemaAction" prefHeight="26.0" prefWidth="208.0" text="Cinema">
                            <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
+                              <Font name="Segoe UI Symbol" size="18.0" />
                            </font>
-                        </Label>
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.15789473056793213" green="0.13742689788341522" blue="0.13742689788341522" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                        </JFXButton>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="34.0" prefWidth="214.0">
                      <children>
-                        <Label text="Ticket">
+                        <JFXButton onAction="#buttonTicketAction" prefHeight="26.0" prefWidth="208.0" text="Ticket">
                            <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
+                              <Font name="Segoe UI Symbol" size="18.0" />
                            </font>
-                        </Label>
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.15789473056793213" green="0.13742689788341522" blue="0.13742689788341522" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                        </JFXButton>
                      </children>
                   </HBox>
                   <VBox prefHeight="414.0" prefWidth="214.0" />

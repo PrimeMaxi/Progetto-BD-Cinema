@@ -9,18 +9,26 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import sample.database.DatabaseConnection;
+import sample.models.dao.implDAO.ChartDAOImpl;
+import sample.models.entity.Ricavi;
 import sample.models.enumerations.ORARI;
 
 public class ChartsDashboardController implements Initializable {
 
   public PieChart pieChart;
-  public TableView moreIncomeTable;
+  public TableView<Ricavi> moreIncomeTable;
   public LineChart lineChart;
+  public TableColumn<Ricavi,String> titoloFilm;
+  public TableColumn<Ricavi,Float> incassi;
+  private ChartDAOImpl chartDAO;
 
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     setPieChart();
+    setMoreIncomeTable();
   }
 
   private void setPieChart(){
@@ -35,9 +43,13 @@ public class ChartsDashboardController implements Initializable {
   }
 
   private void setMoreIncomeTable(){
-    TableColumn titoloFilm = new TableColumn("Titolo");
-    TableColumn incassi = new TableColumn("Incassi");
+    moreIncomeTable.getColumns().clear();
+    titoloFilm.setCellValueFactory(new PropertyValueFactory<>("titoloFilm"));
+    incassi.setCellValueFactory(new PropertyValueFactory<>("incassi"));
+    chartDAO = new ChartDAOImpl(DatabaseConnection.getConnection());
+    final var data = FXCollections.observableList(chartDAO.queryRicavi());
     moreIncomeTable.getColumns().addAll(titoloFilm,incassi);
+    moreIncomeTable.setItems(data);
   }
 
 

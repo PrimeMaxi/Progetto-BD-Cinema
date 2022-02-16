@@ -147,9 +147,12 @@
 	EXECUTE PROCEDURE generate_Posto();  
 
 	---Funzion e Trigger che elemina un film dopo la scadenza di proiezione FineData
-
+	---Non necessario, la lista di film disponibili per l'acquisto di biglietto terrà conto da backend 
 
 	---Funzione e Trigger che calcola l'ora di fine proiezione in seguito dell'inserimento di tale in base alla durata del film.
+	---Non necessario.
+	
+	---Funzione e Trigger che elimina i posti dopo la proiezione oppure imposta i posti disponibili a true.
 
 	---Funzione e Trigger che una volta comprato un biglietto, imposti automaticamente il campo DisponibilePosto da TRUE a FALSE
 
@@ -197,8 +200,25 @@
 
 	INSERT INTO PROIEZIONE (data,orainizio,orafine,idfilmfk,idsalafk)
 	VALUES
-	('2022-02-16','20:00','22:30',1,1);
+	('2022-02-16','20:00','22:30',1,1),
+	('2022-02-16','17:00','19:00',2,1);
 
 	INSERT INTO BIGLIETTO (prezzo,idproiezionefk,idsalafk,idpostofk)
 	VALUES
-	(10.00,1,1,1)
+	(10.00,1,1,1),
+	(10.00,1,1,2),
+	(10.00,1,1,3),
+	(10.00,1,1,4),
+	(10.00,1,1,5),
+	(10.00,1,1,6),
+	(10.00,1,1,7),
+	(10.00,1,1,8),
+	(10.00,1,1,9),
+	(10.00,1,1,10),
+	(8.00,2,1,1);
+	
+	--QUERY lista di film più remunerativi
+	SELECT f.titolo AS Film, SUM(b.prezzo) AS Ricavi
+	FROM film AS f INNER JOIN proiezione AS pr ON f.idfilm=pr.idfilmfk INNER JOIN biglietto AS b ON pr.idproiezione = b.idproiezionefk
+	GROUP BY f.titolo 
+	ORDER BY Ricavi DESC

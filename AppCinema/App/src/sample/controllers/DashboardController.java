@@ -44,10 +44,15 @@ public class DashboardController implements Initializable {
     loadDashboard();
   }
 
+  public void buttonCinemaAction(ActionEvent actionEvent) {
+  }
+
+  public void buttonTicketAction(ActionEvent actionEvent) {
+  }
 
 
   private void initializeCinema(){
-    try {
+    try{
       cinemaDAO = new CinemaDAOImpl(DatabaseConnection.getConnection());
     } catch (SQLException e) {
       e.printStackTrace();
@@ -81,7 +86,7 @@ public class DashboardController implements Initializable {
   public void buttonDashboardAction(ActionEvent actionEvent) {
     try {
       final var pane = FXMLLoader.load(
-          Objects.requireNonNull(Application.class.getResource("views/AddFilm.fxml")));
+          Objects.requireNonNull(Application.class.getResource("viewsRefactor/ChartsDashboard.fxml")));
       dashboardPane.getChildren().add((Node) pane);
     } catch (IOException e) {
       e.printStackTrace();

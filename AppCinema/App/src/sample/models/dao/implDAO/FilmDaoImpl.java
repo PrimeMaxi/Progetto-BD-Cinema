@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.sql.Types;
 import java.time.Year;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.swing.JOptionPane;
 import sample.models.dao.interfaceDAO.FilmDAO;
@@ -100,7 +101,7 @@ public class FilmDaoImpl implements FilmDAO {
         e.printStackTrace();
       }
     }
-    return null;
+    return Collections.emptyList();
   }
 
   @Override
