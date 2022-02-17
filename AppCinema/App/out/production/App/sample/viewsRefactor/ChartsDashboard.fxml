@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.TableColumn?>
@@ -37,14 +37,14 @@
                <children>
                   <HBox prefHeight="242.0" prefWidth="750.0">
                      <children>
-                        <LineChart fx:id="lineChart" prefHeight="242.0" prefWidth="751.0">
+                        <BarChart fx:id="barChart" prefHeight="242.0" prefWidth="751.0" title="Sale con maggior affluenza">
                           <xAxis>
-                            <CategoryAxis side="BOTTOM" />
+                            <CategoryAxis fx:id="sale" prefHeight="31.0" prefWidth="694.0" />
                           </xAxis>
                           <yAxis>
-                            <NumberAxis side="LEFT" />
+                            <NumberAxis fx:id="affluenza" side="LEFT" />
                           </yAxis>
-                        </LineChart>
+                        </BarChart>
                      </children>
                   </HBox>
                </children>
