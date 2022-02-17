@@ -1,10 +1,8 @@
 package sample.controllers;
 
-import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.Collection;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -13,15 +11,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import sample.Application;
 import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.CinemaDAOImpl;
@@ -41,10 +35,11 @@ public class DashboardController implements Initializable {
   public void initialize(URL url, ResourceBundle resourceBundle) {
     initializeCinema();
     tastoModifica();
-    loadDashboard();
+    loadDashboardCharts();
   }
 
   public void buttonCinemaAction(ActionEvent actionEvent) {
+
   }
 
   public void buttonTicketAction(ActionEvent actionEvent) {
@@ -73,7 +68,7 @@ public class DashboardController implements Initializable {
         });
   }
 
-  private void loadDashboard(){
+  private void loadDashboardCharts(){
     try {
       final var pane = FXMLLoader.load(Objects.requireNonNull(
           Application.class.getResource("viewsRefactor/ChartsDashboard.fxml")));

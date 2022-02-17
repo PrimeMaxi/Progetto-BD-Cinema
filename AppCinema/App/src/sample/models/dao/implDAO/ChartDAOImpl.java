@@ -7,12 +7,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.JOptionPane;
+import sample.models.dao.interfaceDAO.ChartDAO;
 import sample.models.entity.FasciOrari;
 import sample.models.entity.MaxAffluenza;
 import sample.models.entity.Ricavi;
 import sample.models.entity.SalaAmount;
 
-public class ChartDAOImpl {
+public class ChartDAOImpl implements ChartDAO {
 
   private final static String sqlRicavi = "select f.titolo as Film, SUM(b.prezzo) as Ricavi from film as f inner join proiezione as pr on f.idfilm=pr.idfilmfk inner join biglietto as b on pr.idproiezione = b.idproiezionefk GROUP BY f.titolo ORDER BY Ricavi DESC";
   private final static String sqlFasciORari = "select pr.orarioproiezione, SUM(b.idproiezionefk) as affluenza from proiezione as pr inner join biglietto as b on pr.idproiezione = b.idproiezionefk  group by pr.orarioproiezione ORDER by affluenza DESC";
@@ -31,6 +32,7 @@ public class ChartDAOImpl {
       e.printStackTrace();
     }
   }
+  @Override
   public List<Ricavi> queryRicavi(){
     var ricaviList = new ArrayList<Ricavi>();
     try {
@@ -53,6 +55,7 @@ public class ChartDAOImpl {
     }
     return Collections.emptyList();
   }
+  @Override
   public List<FasciOrari> queryFasciOrari(){
     var fasciOrari = new ArrayList<FasciOrari>();
     try {
@@ -77,6 +80,7 @@ public class ChartDAOImpl {
     }
     return Collections.emptyList();
   }
+  @Override
   public List<MaxAffluenza> queryChartSalaOrari(){
     var maxAffluenza = new ArrayList<MaxAffluenza>();
     try {
@@ -102,6 +106,7 @@ public class ChartDAOImpl {
     }
     return Collections.emptyList();
   }
+  @Override
   public List<SalaAmount> queryAmountSala(){
     var salaAmount = new ArrayList<SalaAmount>();
     try {

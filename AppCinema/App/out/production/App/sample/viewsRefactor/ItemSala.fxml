@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="142.0" prefWidth="150.0" styleClass="sala-item" stylesheets="@../resources/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ItemSalaController">
+   <children>
+      <VBox prefHeight="150.0" prefWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="65.0" prefWidth="150.0">
+               <children>
+                  <Label text="SALA " textFill="#f20000">
+                     <font>
+                        <Font name="Bell MT" size="46.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="102.0" prefWidth="150.0">
+               <children>
+                  <Label fx:id="numeroSalaITem" prefHeight="108.0" prefWidth="92.0" text="10" textFill="#ff0000">
+                     <font>
+                        <Font name="Forte" size="96.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <ImageView fitHeight="179.0" fitWidth="150.0" opacity="0.1" pickOnBounds="true" preserveRatio="true" styleClass="sala-item">
+         <image>
+            <Image url="@../resources/Icons/Hall.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -12,12 +12,12 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.chart.XYChart.Data;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.ChartDAOImpl;
+import sample.models.dao.interfaceDAO.ChartDAO;
 import sample.models.entity.Ricavi;
 import sample.models.entity.SalaAmount;
 import sample.models.enumerations.ORARI;
@@ -32,7 +32,7 @@ public class ChartsDashboardController implements Initializable {
   public BarChart<String,Integer> barChart;
   public CategoryAxis sale;
   public NumberAxis affluenza;
-  private ChartDAOImpl chartDAO;
+  private ChartDAO chartDAO;
 
 
   @Override

@@ -5,13 +5,21 @@ import sample.models.enumerations.AUDIO;
 import sample.models.enumerations.TECNOLOGIA;
 
 public class Sala {
-  private String idSala;
+  private Integer idSala;
   private Integer capienza;
   private TECNOLOGIA tecnologia;
   private AUDIO audio;
   private Cinema cinema;
   private List<Posto> postoList;
   private List<Proiezione> proiezioneList;
+
+  public Sala(Integer idSala, Integer capienza, String tecnologia,
+      String audio) {
+    this.idSala = idSala;
+    this.capienza = capienza;
+    this.tecnologia = TECNOLOGIA.valueOf(tecnologia);
+    this.audio = AUDIO.valueOf(audio);
+  }
 
   public Sala(Integer capienza, TECNOLOGIA tecnologia, AUDIO audio,
       Cinema cinema) {
@@ -21,11 +29,11 @@ public class Sala {
     this.cinema = cinema;
   }
 
-  public String getIdSala() {
+  public Integer getIdSala() {
     return idSala;
   }
 
-  public void setIdSala(String idSala) {
+  public void setIdSala(Integer idSala) {
     this.idSala = idSala;
   }
 
