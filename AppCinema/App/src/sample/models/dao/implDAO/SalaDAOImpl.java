@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.JOptionPane;
+import sample.models.dao.interfaceDAO.SalaDAO;
 import sample.models.entity.Sala;
 
-public class SalaDAOImpl {
+public class SalaDAOImpl implements SalaDAO {
 
   private static final String sqlRetriveSala = "select idsala,capienza,tecnologia,audio from sala";
 
@@ -23,6 +24,7 @@ public class SalaDAOImpl {
     }
   }
 
+  @Override
   public List<Sala> queryRetriveSala(){
     var salaList = new ArrayList<Sala>();
     try {

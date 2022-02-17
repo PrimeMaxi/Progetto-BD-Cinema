@@ -1,6 +1,7 @@
 package sample.models.enumerations;
 
 public enum AUDIO {
+  DEFAULT("null"),
   DOLBY_SURROUND("Dolby Digital Surround"),
   DOLBY_PLUS("Dolby digital plus");
 

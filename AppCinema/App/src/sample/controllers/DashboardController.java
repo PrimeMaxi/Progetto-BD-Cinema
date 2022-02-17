@@ -39,7 +39,14 @@ public class DashboardController implements Initializable {
   }
 
   public void buttonCinemaAction(ActionEvent actionEvent) {
-
+    dashboardPane.getChildren().clear();
+    try {
+      final var pane = FXMLLoader.load(
+          Objects.requireNonNull(Application.class.getResource("viewsRefactor/CinemaDashboard.fxml")));
+      dashboardPane.getChildren().add((Node) pane);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   public void buttonTicketAction(ActionEvent actionEvent) {
@@ -79,6 +86,7 @@ public class DashboardController implements Initializable {
   }
 
   public void buttonDashboardAction(ActionEvent actionEvent) {
+    dashboardPane.getChildren().clear();
     try {
       final var pane = FXMLLoader.load(
           Objects.requireNonNull(Application.class.getResource("viewsRefactor/ChartsDashboard.fxml")));

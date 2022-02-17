@@ -17,8 +17,8 @@ public class Sala {
       String audio) {
     this.idSala = idSala;
     this.capienza = capienza;
-    this.tecnologia = TECNOLOGIA.valueOf(tecnologia);
-    this.audio = AUDIO.valueOf(audio);
+    this.tecnologia = tecnologia != null ? TECNOLOGIA.valueOf(tecnologia) : TECNOLOGIA.DEFAULT;
+    this.audio = audio != null ? AUDIO.valueOf(audio) : AUDIO.DEFAULT;
   }
 
   public Sala(Integer capienza, TECNOLOGIA tecnologia, AUDIO audio,
