@@ -243,6 +243,7 @@
 	VALUES
 	('2022-02-16','20:00','22:30',1,1),
 	('2022-02-16','17:00','19:00',2,1);
+	
 
 	INSERT INTO BIGLIETTO (prezzo,idproiezionefk,idsalafk,idpostofk)
 	VALUES
@@ -263,3 +264,18 @@
 	FROM film AS f INNER JOIN proiezione AS pr ON f.idfilm=pr.idfilmfk INNER JOIN biglietto AS b ON pr.idproiezione = b.idproiezionefk
 	GROUP BY f.titolo 
 	ORDER BY Ricavi DESC
+	
+	--VIEW Lista maggior affluenza
+	CREATE VIEW List_affluenza AS
+	select pr.orarioproiezione, SUM(b.idproiezionefk) as MAXaffluenza 
+	from proiezione as pr inner join biglietto as b on pr.idproiezione = b.idproiezionefk  
+	group by pr.orarioproiezione 
+	ORDER by MAXaffluenza DESC;
+	
+	--VIEW Fascia oraria con massima affluenza
+	CREATE VIEW Max_affluenza AS
+	select *
+	from List_affluenza
+	where maxaffluenza = (
+		select MAX(Maxaffluenza)
+		from List_affluenza);

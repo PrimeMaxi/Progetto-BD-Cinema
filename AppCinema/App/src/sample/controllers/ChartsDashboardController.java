@@ -6,24 +6,32 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.LineChart;
+import javafx.geometry.Side;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
+import javafx.scene.chart.XYChart.Data;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.ChartDAOImpl;
-import sample.models.entity.FasciOrari;
 import sample.models.entity.Ricavi;
+import sample.models.entity.SalaAmount;
 import sample.models.enumerations.ORARI;
 
 public class ChartsDashboardController implements Initializable {
 
   public PieChart pieChart;
   public TableView<Ricavi> moreIncomeTable;
-  public LineChart lineChart;
+
   public TableColumn<Ricavi,String> titoloFilm;
   public TableColumn<Ricavi,Float> incassi;
+  public BarChart<String,Integer> barChart;
+  public CategoryAxis sale;
+  public NumberAxis affluenza;
   private ChartDAOImpl chartDAO;
 
 
@@ -31,6 +39,7 @@ public class ChartsDashboardController implements Initializable {
   public void initialize(URL url, ResourceBundle resourceBundle) {
     setPieChart();
     setMoreIncomeTable();
+    setBarChart();
   }
 
   private void setPieChart(){
@@ -49,6 +58,24 @@ public class ChartsDashboardController implements Initializable {
     );
     pieChart.setData(pieChartData);
     pieChart.setTitle("FASCI ORARI");
+    pieChart.setLabelLineLength(10);
+    pieChart.setLegendSide(Side.LEFT);
+  }
+
+  private void setBarChart(){
+    chartDAO = new ChartDAOImpl(DatabaseConnection.getConnection());
+    var listMaxAffluenza = chartDAO.queryChartSalaOrari();
+    var listSala = chartDAO.queryAmountSala();
+
+    for(SalaAmount idSala : listSala){
+      var series = new XYChart.Series<String,Integer>();
+      series.setName(String.format("SALA %d",idSala.getIdSala()));
+      for(ORARI fasciaOrario : ORARI.values()){
+        var data = listMaxAffluenza.stream().filter(src -> Objects.equals(src.getFasciaOraria(), fasciaOrario.toString())).findFirst();
+        series.getData().add(new XYChart.Data<>(fasciaOrario.toString(),data.isPresent() ? data.get().getSumAffluenza() : 0));
+      }
+      barChart.getData().add(series);
+    }
   }
 
   private void setMoreIncomeTable(){
@@ -60,6 +87,4 @@ public class ChartsDashboardController implements Initializable {
     moreIncomeTable.getColumns().addAll(titoloFilm,incassi);
     moreIncomeTable.setItems(data);
   }
-
-
 }
