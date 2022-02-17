@@ -15,7 +15,6 @@ public class Film {
   private Year annoUscita;
   private Time durataFilm;
   private GENERE genere;
-  private Date inizioData, fineData;
 
 
   public Film(){}
@@ -85,19 +84,4 @@ public class Film {
     this.genere = genere;
   }
 
-  public Date getInizioData() {
-    return inizioData;
-  }
-
-  public void setInizioData(Date inizioData) {
-    this.inizioData = inizioData;
-  }
-
-  public Date getFineData() {
-    return fineData;
-  }
-
-  public void setFineData(Date fineData) {
-    this.fineData = fineData;
-  }
 }

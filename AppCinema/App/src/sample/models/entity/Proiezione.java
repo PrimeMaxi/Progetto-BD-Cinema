@@ -6,11 +6,79 @@ import javafx.scene.layout.BackgroundImage;
 import sample.models.enumerations.ORARI;
 
 public class Proiezione {
-  private String idProiezione;
-  private ORARI orarioProiezione;
+  private Integer idProiezione;
+  private String orarioProiezione;
   private Date inizioData;
   private Date fineData;
   private Sala sala;
   private List<Biglietto> bigliettoList;
   private Film film;
+
+  public Proiezione(Integer idProiezione, String orarioProiezione, Date inizioData,
+      Date fineData, Integer idfilm, String titolo, Integer idSala ) {
+    this.idProiezione = idProiezione;
+    this.orarioProiezione = orarioProiezione;
+    this.inizioData = inizioData;
+    this.fineData = fineData;
+    this.sala = new Sala(idSala);
+    this.film = new Film();
+    film.setIdFilm(idfilm);
+    film.setTitolo(titolo);
+  }
+
+  public Integer getIdProiezione() {
+    return idProiezione;
+  }
+
+  public void setIdProiezione(Integer idProiezione) {
+    this.idProiezione = idProiezione;
+  }
+
+  public String getOrarioProiezione() {
+    return orarioProiezione;
+  }
+
+  public void setOrarioProiezione(String orarioProiezione) {
+    this.orarioProiezione = orarioProiezione;
+  }
+
+  public Date getInizioData() {
+    return inizioData;
+  }
+
+  public void setInizioData(Date inizioData) {
+    this.inizioData = inizioData;
+  }
+
+  public Date getFineData() {
+    return fineData;
+  }
+
+  public void setFineData(Date fineData) {
+    this.fineData = fineData;
+  }
+
+  public Sala getSala() {
+    return sala;
+  }
+
+  public void setSala(Sala sala) {
+    this.sala = sala;
+  }
+
+  public List<Biglietto> getBigliettoList() {
+    return bigliettoList;
+  }
+
+  public void setBigliettoList(List<Biglietto> bigliettoList) {
+    this.bigliettoList = bigliettoList;
+  }
+
+  public Film getFilm() {
+    return film;
+  }
+
+  public void setFilm(Film film) {
+    this.film = film;
+  }
 }

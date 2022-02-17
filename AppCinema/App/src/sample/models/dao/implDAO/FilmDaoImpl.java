@@ -87,8 +87,6 @@ public class FilmDaoImpl implements FilmDAO {
         film.setAnnoUscita(Year.of(rs.getInt("anno")));
         film.setDurataFilm(rs.getTime("durata"));
         film.setGenere(GENERE.valueOf(rs.getString("genere")));                            //Da Impostare bene.
-        film.setInizioData(rs.getDate("iniziodata"));
-        film.setFineData(rs.getDate("finedata"));
         filmList.add(film);
       }
       return filmList;

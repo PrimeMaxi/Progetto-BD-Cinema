@@ -13,6 +13,10 @@ public class Sala {
   private List<Posto> postoList;
   private List<Proiezione> proiezioneList;
 
+  public Sala(Integer idSala){
+    this.idSala = idSala;
+  }
+
   public Sala(Integer idSala, Integer capienza, String tecnologia,
       String audio) {
     this.idSala = idSala;

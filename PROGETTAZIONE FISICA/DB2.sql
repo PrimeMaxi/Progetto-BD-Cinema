@@ -1,3 +1,5 @@
+	drop view if exists Max_affluenza;
+	drop view if exists List_affluenza;
 	drop table if exists Biglietto ;
 	drop table if exists proiezione;
 	drop table if exists film;
@@ -8,6 +10,7 @@
 	drop type if exists audio;
 	drop table if exists cinema;
 	drop type if exists fasciorari;
+
 
 
 
@@ -54,8 +57,6 @@
 		Anno SMALLINT CHECK(Anno BETWEEN 0 AND EXTRACT(YEAR FROM CURRENT_DATE)) NOT NULL, --Garantisce l'inserimento di Anno in formato YYYY e verifica che non venga inserito un anno superio a quella corrente
 		Durata TIME NOT NULL,
 		Genere GENERE NOT NULL,
-		InizioData DATE DEFAULT CURRENT_DATE, --Se il campo è vuoto, imposta la data corrente
-		FineData DATE DEFAULT (CURRENT_DATE + interval '28' DAY), -- se il campo è vuoto, imposta 28 giorni di disponibilità
 		CONSTRAINT chk_durata CHECK(durata > TIME '01:19:00' AND durata < TIME '03:20:00') --Verifica che l'inserimento della durata sia compreso dall'intervallo indicato
 	);
 
@@ -63,7 +64,8 @@
 
 	CREATE TABLE PROIEZIONE(
 		IdProiezione SERIAL PRIMARY KEY,
-		Data DATE NOT NULL,
+		InizioData DATE DEFAULT CURRENT_DATE, --Se il campo è vuoto, imposta la data corrente
+		FineData DATE DEFAULT (CURRENT_DATE + interval '28' DAY), -- se il campo è vuoto, imposta 28 giorni di disponibilità
 		OraInizio TIME NOT NULL,
 		OraFine TIME NOT NULL, --Trigger che imposta automaticamente l'orario di fine proiezione
 		OrarioProiezione FASCIORARI DEFAULT NULL, ---Trigger gestito
@@ -230,7 +232,8 @@
 
 	INSERT INTO SALA(IdSala,Capienza,IdCinemaFk)
 	VALUES
-	(1,100,1);
+	(1,100,1),
+	(2,100,1);
 
 	INSERT INTO FILM (Titolo,Trama,Regia,Anno,Durata,Genere)
 	VALUES 
@@ -239,10 +242,10 @@
 	('House of Gucci',DEFAULT,'Ridley Scott',2021,'02:38:00','Drammatico'),
 	('No Time To Die',DEFAULT,'Cary Fukunaga',2021,'02:43:00','Azione');
 
-	INSERT INTO PROIEZIONE (data,orainizio,orafine,idfilmfk,idsalafk)
+	INSERT INTO PROIEZIONE (InizioData,FineData,orainizio,orafine,idfilmfk,idsalafk)
 	VALUES
-	('2022-02-16','20:00','22:30',1,1),
-	('2022-02-16','17:00','19:00',2,1);
+	('2022-02-16',DEFAULT,'20:00','22:30',1,1),
+	('2022-02-16',DEFAULT,'17:00','19:00',2,1);
 	
 
 	INSERT INTO BIGLIETTO (prezzo,idproiezionefk,idsalafk,idpostofk)
@@ -263,7 +266,7 @@
 	SELECT f.titolo AS Film, SUM(b.prezzo) AS Ricavi
 	FROM film AS f INNER JOIN proiezione AS pr ON f.idfilm=pr.idfilmfk INNER JOIN biglietto AS b ON pr.idproiezione = b.idproiezionefk
 	GROUP BY f.titolo 
-	ORDER BY Ricavi DESC
+	ORDER BY Ricavi DESC;
 	
 	--VIEW Lista maggior affluenza
 	CREATE VIEW List_affluenza AS
