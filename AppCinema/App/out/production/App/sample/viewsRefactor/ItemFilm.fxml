@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="142.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ItemFilmController">
+<AnchorPane prefHeight="142.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ItemFilmController">
    <children>
       <VBox alignment="CENTER" prefHeight="142.0" prefWidth="150.0" AnchorPane.bottomAnchor="-0.4000000000000057" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.4000000000000057" AnchorPane.topAnchor="0.0">
          <children>
@@ -21,7 +21,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="116.0" prefHeight="194.0" prefWidth="150.0">
                <children>
-                  <Label fx:id="nomeFilmItem" text="Label">
+                  <Label fx:id="nomeFilmItem" alignment="CENTER" contentDisplay="CENTER" prefHeight="102.0" prefWidth="143.0" text="Label">
                      <font>
                         <Font name="Arial Black" size="12.0" />
                      </font>
