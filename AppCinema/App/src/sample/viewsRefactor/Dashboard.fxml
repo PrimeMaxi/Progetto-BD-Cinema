@@ -157,8 +157,12 @@
                         </JFXButton>
                      </children>
                   </HBox>
-                  <HBox prefHeight="67.0" prefWidth="214.0" />
-                  <Pane fx:id="paneLeftDetails" prefHeight="414.0" prefWidth="214.0" />
+                  <HBox prefHeight="24.0" prefWidth="214.0" />
+                  <AnchorPane prefHeight="460.0" prefWidth="214.0">
+                     <children>
+                        <Pane fx:id="paneLeftDetails" layoutX="7.0" prefHeight="459.0" prefWidth="200.0" />
+                     </children>
+                  </AnchorPane>
                </children>
             </VBox>
          </left>

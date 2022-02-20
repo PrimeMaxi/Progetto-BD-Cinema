@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -8,14 +9,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="paneDetailsCinema" prefHeight="391.0" prefWidth="224.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.Items.PaneDetailsCinemaController">
+<AnchorPane fx:id="paneDetailsCinema" prefHeight="424.0" prefWidth="208.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.Items.PaneDetailsCinemaController">
    <children>
-      <Pane fx:id="paneLeftDetails" prefHeight="424.0" prefWidth="224.0">
+      <Pane fx:id="paneLeftDetails" prefHeight="424.0" prefWidth="210.0">
          <children>
             <VBox layoutX="-4.0" prefHeight="424.0" prefWidth="230.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="78.0" prefWidth="230.0" style="-fx-background-color: #7077F3;">
+                  <HBox alignment="CENTER" prefHeight="71.0" prefWidth="208.0" style="-fx-background-color: #7077F3;">
                      <children>
                         <Label prefHeight="38.0" prefWidth="106.0" text="Sala">
                            <font>
@@ -24,14 +24,17 @@
                         </Label>
                         <Label fx:id="salaNumeroDetailsCinema" text="10">
                            <font>
-                              <Font name="Bauhaus 93" size="41.0" />
+                              <Font name="Arial Nova Cond" size="41.0" />
                            </font>
                         </Label>
                      </children>
+                     <VBox.margin>
+                        <Insets right="15.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="54.0" prefWidth="230.0">
                      <children>
-                        <Label prefHeight="38.0" prefWidth="106.0" text="Tot:">
+                        <Label prefHeight="38.0" prefWidth="112.0" text="Tot:">
                            <font>
                               <Font size="26.0" />
                            </font>
@@ -45,7 +48,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="56.0" prefWidth="230.0">
                      <children>
-                        <Label prefHeight="38.0" prefWidth="106.0" text="Disp:">
+                        <Label prefHeight="38.0" prefWidth="121.0" text="Disp:">
                            <font>
                               <Font size="26.0" />
                            </font>
@@ -59,7 +62,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="53.0" prefWidth="230.0">
                      <children>
-                        <Label prefHeight="38.0" prefWidth="77.0" text="Tecn:">
+                        <Label prefHeight="38.0" prefWidth="90.0" text="Tecn:">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -73,7 +76,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="230.0">
                      <children>
-                        <Label prefHeight="38.0" prefWidth="90.0" text="AUDIO:">
+                        <Label prefHeight="38.0" prefWidth="98.0" text="AUDIO:">
                            <font>
                               <Font size="20.0" />
                            </font>

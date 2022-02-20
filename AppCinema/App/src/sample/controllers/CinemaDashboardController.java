@@ -40,8 +40,6 @@ public class CinemaDashboardController implements Initializable {
   }
 
   public void setGridPaneCinema(){
-
-
     proiezioneDAO = new ProiezioneDAOImpl(DatabaseConnection.getConnection());
     final var listProiezioni = proiezioneDAO.queryListProiezioniFilm();
 
@@ -49,8 +47,6 @@ public class CinemaDashboardController implements Initializable {
     final var listSala = salaDAO.queryRetriveSala();
     //Colonna di sale
     setColumnSala(listSala,listProiezioni);
-
-
   }
 
   private void setRowsProiezioni(Integer idSala, List<Proiezione> listProiezioni) {
@@ -104,6 +100,7 @@ public class CinemaDashboardController implements Initializable {
         var pane = itemSalaFXML.load();
         ItemSala2Controller itemController = itemSalaFXML.getController();
         itemController.setNumeroSalaITem(item.getIdSala());
+        itemController.setSala(item);
         gridPaneCinema.add(
             (Node) pane,
             0,

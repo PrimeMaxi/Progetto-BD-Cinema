@@ -26,4 +26,23 @@ public class PaneDetailsCinemaController implements Initializable {
   public void buttonModificaDetailsCinema(ActionEvent actionEvent) {
   }
 
+  public void setSalaNumeroDetailsCinema(Integer numero) {
+    salaNumeroDetailsCinema.setText("11");
+  }
+
+  public void setTotNumero(Label totNumero) {
+    this.totNumero = totNumero;
+  }
+
+  public void setDispNumero(Label dispNumero) {
+    this.dispNumero = dispNumero;
+  }
+
+  public void setTecnInfo(Label tecnInfo) {
+    this.tecnInfo = tecnInfo;
+  }
+
+  public void setAudioInfo(Label audioInfo) {
+    this.audioInfo = audioInfo;
+  }
 }
