@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import sample.Application;
+import sample.controllers.Items.ItemSala2Controller;
 import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.FilmDaoImpl;
 import sample.models.dao.implDAO.ProiezioneDAOImpl;
@@ -32,7 +33,6 @@ public class CinemaDashboardController implements Initializable {
   public GridPane gridPaneCinema;
   private SalaDAO salaDAO;
   private ProiezioneDAO proiezioneDAO;
-  private ItemSalaController itemSalaController;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -100,9 +100,9 @@ public class CinemaDashboardController implements Initializable {
     try {
       for (var item : listSala){
         FXMLLoader itemSalaFXML = new FXMLLoader();
-        itemSalaFXML.setLocation(Application.class.getResource("viewsRefactor/ItemSala.fxml"));
+        itemSalaFXML.setLocation(Application.class.getResource("viewsRefactor/ItemSala2.fxml"));
         var pane = itemSalaFXML.load();
-        ItemSalaController itemController = itemSalaFXML.getController();
+        ItemSala2Controller itemController = itemSalaFXML.getController();
         itemController.setNumeroSalaITem(item.getIdSala());
         gridPaneCinema.add(
             (Node) pane,

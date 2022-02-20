@@ -1,4 +1,4 @@
-package sample.controllers;
+package sample.controllers.MERDA;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +22,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import sample.Application;
+import sample.controllers.NewFilmController;
 import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.CinemaDAOImpl;
 import sample.models.dao.implDAO.FilmDaoImpl;

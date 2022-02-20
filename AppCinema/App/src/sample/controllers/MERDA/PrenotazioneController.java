@@ -1,4 +1,4 @@
-package sample.controllers;
+package sample.controllers.MERDA;
 
 import java.net.URL;
 import java.sql.Time;
