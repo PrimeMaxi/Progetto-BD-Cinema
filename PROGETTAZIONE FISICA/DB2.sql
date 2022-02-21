@@ -131,7 +131,7 @@
 		curr varchar;
 	BEGIN
 		filx :=ARRAY['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-		select MAX(IdSala) into IdSalafk from SALA;
+		IdSalafk := NEW.IdSala;
 		select capienza into capienza_sala from sala where IdSala = (select MAX(idsala) from sala);
 		FOR itemX in 1..capienza_sala
 		LOOP
@@ -150,6 +150,7 @@
 
 	create trigger generate_posto
 	AFTER insert on SALA
+	FOR EACH ROW
 	EXECUTE PROCEDURE generate_Posto();  
 
 	---Funzion e Trigger che elemina un film dopo la scadenza di proiezione FineData
