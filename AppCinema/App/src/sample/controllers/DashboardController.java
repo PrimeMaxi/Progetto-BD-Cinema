@@ -58,6 +58,17 @@ public class DashboardController implements Initializable {
   }
 
   public void buttonTicketAction(ActionEvent actionEvent) {
+    dashboardPane.getChildren().clear();
+    try {
+      final var pane = FXMLLoader.load(
+          Objects.requireNonNull(Application.class.getResource("viewsRefactor/Ticket.fxml")));
+      dashboardPane.getChildren().add((Node) pane);
+      var paneCinemaDetails = FXMLLoader.load(
+          Objects.requireNonNull(Application.class.getResource("viewsRefactor/Booking.fxml")));
+      paneLeftDetails.getChildren().add((Node) paneCinemaDetails);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
 
@@ -95,6 +106,7 @@ public class DashboardController implements Initializable {
 
   public void buttonDashboardAction(ActionEvent actionEvent) {
     dashboardPane.getChildren().clear();
+    paneLeftDetails.getChildren().clear();
     paneLeftDetails.getChildren().clear();
     try {
       final var pane = FXMLLoader.load(

@@ -24,7 +24,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="23.0" prefWidth="214.0">
                <children>
-                  <DatePicker onAction="#choiceDataTicket" />
+                  <DatePicker fx:id="dataTicket" onAction="#choiceDataTicket" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="32.0" prefWidth="214.0">
