@@ -49,6 +49,29 @@ public class CinemaDashboardController implements Initializable {
     setColumnSala(listSala,listProiezioni);
   }
 
+  private void setColumnSala(List<Sala> listSala, List<Proiezione> listProiezioni) {
+    int row = 0;
+    try {
+      for (var item : listSala){
+        FXMLLoader itemSalaFXML = new FXMLLoader();
+        itemSalaFXML.setLocation(Application.class.getResource("viewsRefactor/ItemSala2.fxml"));
+        var pane = itemSalaFXML.load();
+        ItemSala2Controller itemController = itemSalaFXML.getController();
+        itemController.setNumeroSalaITem(item.getIdSala());
+        itemController.setSala(item);
+        gridPaneCinema.add(
+            (Node) pane,
+            0,
+            row++);
+        setMarginGrid();
+        GridPane.setMargin((Node) pane, new Insets(10));
+        setRowsProiezioni(item.getIdSala(),listProiezioni);
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
   private void setRowsProiezioni(Integer idSala, List<Proiezione> listProiezioni) {
     int column =1;
     int row = idSala-1;
@@ -85,29 +108,6 @@ public class CinemaDashboardController implements Initializable {
                 row);
           }
         }
-      }
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
-  private void setColumnSala(List<Sala> listSala, List<Proiezione> listProiezioni) {
-    int row = 0;
-    try {
-      for (var item : listSala){
-        FXMLLoader itemSalaFXML = new FXMLLoader();
-        itemSalaFXML.setLocation(Application.class.getResource("viewsRefactor/ItemSala2.fxml"));
-        var pane = itemSalaFXML.load();
-        ItemSala2Controller itemController = itemSalaFXML.getController();
-        itemController.setNumeroSalaITem(item.getIdSala());
-        itemController.setSala(item);
-        gridPaneCinema.add(
-            (Node) pane,
-            0,
-            row++);
-        setMarginGrid();
-        GridPane.setMargin((Node) pane, new Insets(10));
-        setRowsProiezioni(item.getIdSala(),listProiezioni);
       }
     } catch (IOException e) {
       e.printStackTrace();

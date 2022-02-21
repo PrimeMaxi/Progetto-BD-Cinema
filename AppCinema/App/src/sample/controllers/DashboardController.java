@@ -17,10 +17,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import sample.Application;
+import sample.controllers.Items.PaneDetailsCinemaController;
 import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.CinemaDAOImpl;
 import sample.models.dao.interfaceDAO.CinemaDAO;
 import sample.models.entity.Cinema;
+import sample.models.entity.Sala;
+import sample.service.ActionListener;
 import sample.service.SceneCreator;
 
 public class DashboardController implements Initializable {
@@ -31,6 +34,7 @@ public class DashboardController implements Initializable {
   public Pane dashboardPane;
   public Pane paneLeftDetails;
   private CinemaDAO cinemaDAO;
+  private ActionListener actionListener;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
