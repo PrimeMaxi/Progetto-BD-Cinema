@@ -29,7 +29,6 @@ public class TicketDaoImpl implements TicketDao {
   public List<Ticket> queryTicket(Date date){
     var ticketList = new ArrayList<Ticket>();
     try {
-      System.out.println(date);
       queryTicket.setDate(1,date);
       queryTicket.setDate(2,date);
       var rs = queryTicket.executeQuery();
