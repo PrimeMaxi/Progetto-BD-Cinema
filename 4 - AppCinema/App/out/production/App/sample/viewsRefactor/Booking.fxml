@@ -55,11 +55,20 @@
                   <ChoiceBox fx:id="listOrarioTicket" prefWidth="150.0" />
                </children>
             </HBox>
+            <HBox alignment="CENTER" prefHeight="138.0" prefWidth="214.0">
+               <children>
+                  <Button fx:id="buttonCerca" mnemonicParsing="false" onAction="#buttonCerca" text="Cerca">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
             <HBox alignment="CENTER" prefHeight="85.0" prefWidth="214.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#acquistaTicket" text="Acquista">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="13.0" />
                      </font>
                   </Button>
                </children>

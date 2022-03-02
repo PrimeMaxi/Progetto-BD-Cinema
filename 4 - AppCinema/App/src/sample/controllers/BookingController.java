@@ -1,6 +1,5 @@
 package sample.controllers;
 
-import com.sun.javafx.collections.ObservableListWrapper;
 import java.net.URL;
 import java.time.chrono.Chronology;
 import java.util.List;
@@ -8,9 +7,9 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import sample.database.DatabaseConnection;
@@ -23,6 +22,7 @@ public class BookingController implements Initializable {
   public ChoiceBox<String> listFilmTicket;
   public ChoiceBox<String> listOrarioTicket;
   public DatePicker dataTicket;
+  public Button buttonCerca;
   private TicketDao ticketDao;
   private List<Ticket> ticketList;
 
@@ -43,5 +43,9 @@ public class BookingController implements Initializable {
   }
 
   public void acquistaTicket(ActionEvent actionEvent) {
+  }
+
+  public void buttonCerca(ActionEvent actionEvent) {
+
   }
 }
