@@ -44,6 +44,7 @@ public class DashboardController implements Initializable {
   }
 
   public void buttonCinemaAction(ActionEvent actionEvent) {
+    paneLeftDetails.getChildren().clear();
     dashboardPane.getChildren().clear();
     try {
       final var pane = FXMLLoader.load(
@@ -58,6 +59,7 @@ public class DashboardController implements Initializable {
   }
 
   public void buttonTicketAction(ActionEvent actionEvent) {
+    paneLeftDetails.getChildren().clear();
     dashboardPane.getChildren().clear();
     try {
       final var pane = FXMLLoader.load(
@@ -106,7 +108,6 @@ public class DashboardController implements Initializable {
 
   public void buttonDashboardAction(ActionEvent actionEvent) {
     dashboardPane.getChildren().clear();
-    paneLeftDetails.getChildren().clear();
     paneLeftDetails.getChildren().clear();
     try {
       final var pane = FXMLLoader.load(
