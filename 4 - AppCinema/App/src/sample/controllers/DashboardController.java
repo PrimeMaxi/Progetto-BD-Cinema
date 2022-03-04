@@ -42,7 +42,10 @@ public class DashboardController implements Initializable {
     tastoModifica();
     loadDashboardCharts();
   }
-
+  /**
+   * Bottone Cinema
+   * mostra le proiezioni nelle sale in data odierna
+   * **/
   public void buttonCinemaAction(ActionEvent actionEvent) {
     paneLeftDetails.getChildren().clear();
     dashboardPane.getChildren().clear();
@@ -58,6 +61,10 @@ public class DashboardController implements Initializable {
     }
   }
 
+  /**
+   * Bottone TICKET
+   * mostra la sala con i posti disponibile per generare il ticket
+   * **/
   public void buttonTicketAction(ActionEvent actionEvent) {
     paneLeftDetails.getChildren().clear();
     dashboardPane.getChildren().clear();
@@ -73,6 +80,35 @@ public class DashboardController implements Initializable {
     }
   }
 
+  /**
+   * MAIN DASHBOARD
+   * carica la dashboard con i charts al primo accesso
+   * **/
+  private void loadDashboardCharts(){
+    try {
+      final var pane = FXMLLoader.load(Objects.requireNonNull(
+          Application.class.getResource("viewsRefactor/ChartsDashboard.fxml")));
+      dashboardPane.getChildren().add((Node) pane);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * Bottone DASHBOARD
+   * mostra la dashboard principale con i charts, come al primo accesso
+   * **/
+  public void buttonDashboardAction(ActionEvent actionEvent) {
+    dashboardPane.getChildren().clear();
+    paneLeftDetails.getChildren().clear();
+    try {
+      final var pane = FXMLLoader.load(
+          Objects.requireNonNull(Application.class.getResource("viewsRefactor/ChartsDashboard.fxml")));
+      dashboardPane.getChildren().add((Node) pane);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 
   private void initializeCinema(){
     try{
@@ -95,27 +131,4 @@ public class DashboardController implements Initializable {
           }
         });
   }
-
-  private void loadDashboardCharts(){
-    try {
-      final var pane = FXMLLoader.load(Objects.requireNonNull(
-          Application.class.getResource("viewsRefactor/ChartsDashboard.fxml")));
-      dashboardPane.getChildren().add((Node) pane);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
-  public void buttonDashboardAction(ActionEvent actionEvent) {
-    dashboardPane.getChildren().clear();
-    paneLeftDetails.getChildren().clear();
-    try {
-      final var pane = FXMLLoader.load(
-          Objects.requireNonNull(Application.class.getResource("viewsRefactor/ChartsDashboard.fxml")));
-      dashboardPane.getChildren().add((Node) pane);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
 }
