@@ -76,22 +76,24 @@
 		CONSTRAINT fk_SalaP FOREIGN KEY (IdSalaFk) REFERENCES SALA(IdSala)
 	);
 	
-	CREATE TABLE POSTO_PRENOTATO(
-		IdPostoPrenotato SERIAL PRIMARY KEY,
-		IdPostoFk INTEGER NOT NULL,
-		IdProiezioneFk INTEGER NOT NULL,
-		CONSTRAINT fk_Posto FOREIGN KEY (IdPostoFk) REFERENCES POSTO(IdPosto),
-		CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione)
-	);
-	
 		CREATE TABLE Biglietto(
 		IdBiglietto SERIAL PRIMARY KEY,
 		Prezzo FLOAT NOT NULL,
 		IdProiezioneFk INTEGER NOT NULL,
 		IdPostoFk INTEGER NOT NULL,
-		CONSTRAINT fk_Posto FOREIGN KEY (IdPostoFk) REFERENCES POSTO_PRENOTATO (IdPostoPrenotato),
 		CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione)
 	);
+	
+	CREATE TABLE POSTO_PRENOTATO(
+		IdPostoPrenotato SERIAL PRIMARY KEY,
+		IdPostoFk INTEGER NOT NULL,
+		IdProiezioneFk INTEGER NOT NULL,
+		IdBigliettoFk INTEGER NOT NULL,
+		CONSTRAINT fk_Posto FOREIGN KEY (IdPostoFk) REFERENCES POSTO(IdPosto),
+		CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione),
+		CONSTRAINT fk_Biglietto FOREIGN KEY (IdBigliettoFk) REFERENCES BIGLIETTO(IdBiglietto)
+	);
+	
 
 
 
@@ -208,7 +210,7 @@
 	EXECUTE PROCEDURE assignsFasciaOraria();
 
 	---Funzione e Trigger che una volta comprato un biglietto, imposti automaticamente il campo DisponibilePosto da TRUE a FALSE
-
+	/*
 	DROP TRIGGER IF EXISTS checkDisponibilePosto ON BIGLIETTO;
 	DROP FUNCTION IF EXISTS checkDisponibilePosto();
 
@@ -230,7 +232,7 @@
 	AFTER INSERT on BIGLIETTO
 	FOR EACH ROW
 	EXECUTE PROCEDURE checkDisponibilePosto();  
-
+	*/
 
 	----------------------------------------------------------------------------------------------------------
 
@@ -257,15 +259,24 @@
 	('2022-02-16',DEFAULT,'20:00','22:30',1,1),
 	('2022-02-16',DEFAULT,'17:00','19:00',2,1);
 	
-	INSERT INTO POSTO_PRENOTATO(IdPostoFk,IdProiezioneFk)
-	VALUES
-	(1,1),
-	(2,1);
-	
 	INSERT INTO BIGLIETTO(Prezzo,IdProiezioneFk,IdPostoFk)
 	VALUES
 	(10.00,1,1),
-	(7.00,1,2);
+	(10.00,1,2),
+	(10.00,1,10),
+	(10.00,1,11),
+	(10.00,2,1),
+	(10.00,2,2);
+	
+	INSERT INTO POSTO_PRENOTATO(IdPostoFk,IdProiezioneFk,IdBigliettoFk)
+	VALUES
+	(1,1,1),
+	(2,1,2),
+	(10,1,3),
+	(11,1,4),
+	(1,2,5),
+	(2,2,6);
+	
 	
 
 	--QUERY lista di film più remunerativi
