@@ -1,6 +1,7 @@
 	drop view if exists Max_affluenza;
 	drop view if exists List_affluenza;
-	drop table if exists Biglietto ;
+	drop table if exists Biglietto;
+	drop table if exists Posto_Prenotato;
 	drop table if exists proiezione;
 	drop table if exists film;
 	drop type if exists genere;
@@ -74,17 +75,25 @@
 		CONSTRAINT fk_Film FOREIGN KEY (IdFilmFk) REFERENCES FILM(IdFilm),
 		CONSTRAINT fk_SalaP FOREIGN KEY (IdSalaFk) REFERENCES SALA(IdSala)
 	);
-
-	CREATE TABLE BIGLIETTO(
+	
+	CREATE TABLE POSTO_PRENOTATO(
+		IdPostoPrenotato SERIAL PRIMARY KEY,
+		IdPostoFk INTEGER NOT NULL,
+		IdProiezioneFk INTEGER NOT NULL,
+		CONSTRAINT fk_Posto FOREIGN KEY (IdPostoFk) REFERENCES POSTO(IdPosto),
+		CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione)
+	);
+	
+		CREATE TABLE Biglietto(
 		IdBiglietto SERIAL PRIMARY KEY,
 		Prezzo FLOAT NOT NULL,
 		IdProiezioneFk INTEGER NOT NULL,
-		IdSalaFk INTEGER NOT NULL,
 		IdPostoFk INTEGER NOT NULL,
-		CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione),
-		CONSTRAINT fk_Sala FOREIGN KEY (IdSalaFk) REFERENCES SALA(IdSala),
-		CONSTRAINT fk_Posto FOREIGN KEY (IdPostoFk) REFERENCES POSTO(IdPosto)
+		CONSTRAINT fk_Posto FOREIGN KEY (IdPostoFk) REFERENCES POSTO_PRENOTATO (IdPostoPrenotato),
+		CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione)
 	);
+
+
 
 
 
@@ -248,21 +257,17 @@
 	('2022-02-16',DEFAULT,'20:00','22:30',1,1),
 	('2022-02-16',DEFAULT,'17:00','19:00',2,1);
 	
-
-	INSERT INTO BIGLIETTO (prezzo,idproiezionefk,idsalafk,idpostofk)
+	INSERT INTO POSTO_PRENOTATO(IdPostoFk,IdProiezioneFk)
 	VALUES
-	(10.00,1,1,1),
-	(10.00,1,1,2),
-	(10.00,1,1,3),
-	(10.00,1,1,4),
-	(10.00,1,1,5),
-	(10.00,1,1,6),
-	(10.00,1,1,7),
-	(10.00,1,1,8),
-	(10.00,1,1,9),
-	(10.00,1,1,10),
-	(8.00,2,1,1);
+	(1,1),
+	(2,1);
 	
+	INSERT INTO BIGLIETTO(Prezzo,IdProiezioneFk,IdPostoFk)
+	VALUES
+	(10.00,1,1),
+	(7.00,1,2);
+	
+
 	--QUERY lista di film più remunerativi
 	SELECT f.titolo AS Film, SUM(b.prezzo) AS Ricavi
 	FROM film AS f INNER JOIN proiezione AS pr ON f.idfilm=pr.idfilmfk INNER JOIN biglietto AS b ON pr.idproiezione = b.idproiezionefk
