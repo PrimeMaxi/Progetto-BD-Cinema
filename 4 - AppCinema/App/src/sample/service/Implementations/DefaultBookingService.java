@@ -25,8 +25,14 @@ public class DefaultBookingService implements BookingService {
     ticketList = ticketDao.queryTicket(dataProiezione);
     var filmList = ticketList.stream().map(Ticket::getTitolo).collect(Collectors.toList());
     listFilmTicket.setItems(FXCollections.observableList(filmList));
-    var orariList = ticketList.stream().map(Ticket::getOrarioProiezione).collect(Collectors.toList());
-    listOrarioTicket.setItems(FXCollections.observableList(orariList));
+    List<Ticket> finalTicketList = ticketList;
+    listFilmTicket.setOnAction((actionEvent -> {
+      String selectedFilm = listFilmTicket.getSelectionModel().getSelectedItem();
+      var selectedOrario = finalTicketList.stream().filter(src->src.getTitolo().equals(selectedFilm)).collect(
+          Collectors.toList());
+      listOrarioTicket.setItems(FXCollections.observableList(selectedOrario.stream().map(Ticket::getOrarioProiezione).collect(
+          Collectors.toList())));
+    }));
   }
   public void setChoicheBoxListFilmOrari(DatePicker dataTicket,List<Ticket> ticketList, ChoiceBox<String> listFilmTicket, ChoiceBox<String> listOrarioTicket,
       TicketDao ticketDao) {
@@ -34,7 +40,13 @@ public class DefaultBookingService implements BookingService {
     ticketList = ticketDao.queryTicket();
     var filmList = ticketList.stream().map(Ticket::getTitolo).collect(Collectors.toList());
     listFilmTicket.setItems(FXCollections.observableList(filmList));
-    var orariList = ticketList.stream().map(Ticket::getOrarioProiezione).collect(Collectors.toList());
-    listOrarioTicket.setItems(FXCollections.observableList(orariList));
+    List<Ticket> finalTicketList = ticketList;
+    listFilmTicket.setOnAction((actionEvent -> {
+      String selectedFilm = listFilmTicket.getSelectionModel().getSelectedItem();
+      var selectedOrario = finalTicketList.stream().filter(src->src.getTitolo().equals(selectedFilm)).collect(
+          Collectors.toList());
+      listOrarioTicket.setItems(FXCollections.observableList(selectedOrario.stream().map(Ticket::getOrarioProiezione).collect(
+          Collectors.toList())));
+    }));
   }
 }
