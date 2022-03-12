@@ -10,4 +10,8 @@ public class SeatController extends TicketController {
   public void buttonClickedSeat(MouseEvent mouseEvent) {
 
   }
+
+  public void setNumberSeat(Integer numberSeat) {
+    this.numberSeat.setText(numberSeat.toString());
+  }
 }

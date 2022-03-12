@@ -66,4 +66,12 @@ public class Ticket {
         ", titolo='" + titolo + '\'' +
         '}';
   }
+
+  public void setIdSalaFk(Integer idSalaFk) {
+    IdSalaFk = idSalaFk;
+  }
+
+  public Integer getIdSalaFk() {
+    return IdSalaFk;
+  }
 }

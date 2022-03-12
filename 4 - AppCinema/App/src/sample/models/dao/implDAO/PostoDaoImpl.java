@@ -13,7 +13,7 @@ import sample.models.entity.Posto;
 public class PostoDaoImpl implements PostoDao {
 
   private static final String sqlRetrivePosto = "SELECT * FROM POSTO";
-  private static final String sqlRetrivePostiByIdSala="select * from posto where idsalafk=1";
+  private static final String sqlRetrivePostiByIdSala="select * from posto where idsalafk=?";
 
   private PreparedStatement queryRetrivePosto;
   private PreparedStatement queryRetrivePostiByIdSala;

@@ -53,9 +53,11 @@ public class BookingController extends TicketController implements Initializable
   public void buttonCerca(ActionEvent actionEvent) {
     if(listFilmTicket.getSelectionModel().isEmpty() || listOrarioTicket.getSelectionModel().isEmpty()){
       JOptionPane.showMessageDialog(null,"Errore: non hai selezionato il film o l'orario");
+    } else {
+      var data = bookingService.convertToDateViaSqlDate(dataTicket.getValue());
+      var ticket =
+          ticketDao.queryTicketOne(data, listFilmTicket.getValue(), listOrarioTicket.getValue());
+      super.setTicket(ticket);
     }
-    var data = bookingService.convertToDateViaSqlDate(dataTicket.getValue());
-    var ticket = ticketDao.queryTicketOne(data,listFilmTicket.getValue(),listOrarioTicket.getValue());
-    super.setTicket(ticket);
   }
 }
