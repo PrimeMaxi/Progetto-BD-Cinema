@@ -1,19 +1,24 @@
 package sample.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.chrono.Chronology;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javax.swing.JOptionPane;
+import sample.Application;
 import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.TicketDaoImpl;
 import sample.models.dao.interfaceDAO.TicketDao;
@@ -32,6 +37,7 @@ public class BookingController extends TicketController implements Initializable
   private List<Ticket> ticketList;
   private TicketController ticketController;
   private final BookingService bookingService = new DefaultBookingService();
+  private DashboardController dashboardController;
 
 
   @Override
@@ -57,7 +63,11 @@ public class BookingController extends TicketController implements Initializable
       var data = bookingService.convertToDateViaSqlDate(dataTicket.getValue());
       var ticket =
           ticketDao.queryTicketOne(data, listFilmTicket.getValue(), listOrarioTicket.getValue());
-      super.setTicket(ticket);
+      ticketController.setTicket(ticket);
     }
+  }
+
+  public void setTicketController(TicketController ticketController) {
+    this.ticketController = ticketController;
   }
 }
