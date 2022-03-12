@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javax.swing.JOptionPane;
 import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.TicketDaoImpl;
 import sample.models.dao.interfaceDAO.TicketDao;
@@ -50,6 +51,11 @@ public class BookingController extends TicketController implements Initializable
   }
 
   public void buttonCerca(ActionEvent actionEvent) {
-
+    if(listFilmTicket.getSelectionModel().isEmpty() || listOrarioTicket.getSelectionModel().isEmpty()){
+      JOptionPane.showMessageDialog(null,"Errore: non hai selezionato il film o l'orario");
+    }
+    var data = bookingService.convertToDateViaSqlDate(dataTicket.getValue());
+    var ticket = ticketDao.queryTicketOne(data,listFilmTicket.getValue(),listOrarioTicket.getValue());
+    super.setTicket(ticket);
   }
 }

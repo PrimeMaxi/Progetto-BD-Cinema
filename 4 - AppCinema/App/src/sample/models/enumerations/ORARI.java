@@ -21,7 +21,11 @@ public enum ORARI {
     return fascia;
   }
 
-  public List<ORARI> getListORARI(){
+  public static List<ORARI> getListORARI(){
     return new ArrayList<>(Arrays.asList(ORARI.values()));
+  }
+
+  public static ORARI getORARI(String orario){
+    return Arrays.stream(ORARI.values()).filter(src->src.toString().equals(orario)).findFirst().get();
   }
 }

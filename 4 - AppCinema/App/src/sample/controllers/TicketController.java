@@ -29,6 +29,7 @@ public class TicketController implements Initializable {
   private PostoDao postoDao;
   private AnchorPane seatItem;
   private TicketService ticketService = new DefaultTicketService();
+  private Ticket ticket;
 
 
   @Override
@@ -39,5 +40,10 @@ public class TicketController implements Initializable {
     postoDao = new PostoDaoImpl(DatabaseConnection.getConnection());
     final var postiList = postoDao.queryRetrivePosto();
 
+  }
+
+  public void setTicket(Ticket ticket) {
+    this.ticket = ticket;
+    System.out.println(ticket);
   }
 }

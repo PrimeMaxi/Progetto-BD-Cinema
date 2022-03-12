@@ -4,22 +4,28 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
+import javax.swing.JOptionPane;
 import sample.models.dao.interfaceDAO.TicketDao;
 import sample.models.entity.Ticket;
+import sample.models.enumerations.ORARI;
 
 public class TicketDaoImpl implements TicketDao {
 
   private static final String sqlTicket = "select pr.idproiezione, pr.orarioproiezione, f.idfilm, f.titolo, pr.idsalafk from proiezione as pr inner join film as f on pr.idfilmfk = f.idfilm where pr.iniziodata <= ? and pr.finedata >= ?";
+  private static final String sqlTicketOne = "select pr.idproiezione, pr.orarioproiezione, f.idfilm, f.titolo, pr.idsalafk from proiezione as pr inner join film as f on pr.idfilmfk = f.idfilm where pr.iniziodata <= ? and pr.finedata >= ? and f.titolo=? and pr.orarioproiezione=?";
 
   private PreparedStatement queryTicket;
+  private PreparedStatement queryTicketOne;
 
   public TicketDaoImpl(Connection connection){
     try {
       queryTicket = connection.prepareStatement(sqlTicket);
+      queryTicketOne = connection.prepareStatement(sqlTicketOne);
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -43,6 +49,7 @@ public class TicketDaoImpl implements TicketDao {
       }
       return ticketList;
     } catch (SQLException e) {
+      JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
       e.printStackTrace();
     }
     return Collections.emptyList();
@@ -51,5 +58,29 @@ public class TicketDaoImpl implements TicketDao {
   @Override
   public List<Ticket> queryTicket(){
     return queryTicket(new Date(Calendar.getInstance().getTime().getTime()));
+  }
+
+  @Override
+  public Ticket queryTicketOne(Date date, String film, String orario){
+    try {
+      queryTicketOne.setDate(1,date);
+      queryTicketOne.setDate(2,date);
+      queryTicketOne.setString(3,film);
+      queryTicketOne.setObject(4,ORARI.getORARI(orario), Types.OTHER);
+      var rs = queryTicketOne.executeQuery();
+      while(rs.next()){
+        return new Ticket(
+            rs.getInt(1), //idProiezione
+            rs.getString(2),  //OrarioProiezione
+            rs.getInt(3),     //IdFilm
+            rs.getString(4),   //TitoloFilm
+            rs.getInt(5)      //idSala
+        );
+      }
+    } catch (SQLException e) {
+      JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
+      e.printStackTrace();
+    }
+    return null;
   }
 }

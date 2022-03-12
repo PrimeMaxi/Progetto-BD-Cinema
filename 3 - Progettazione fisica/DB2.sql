@@ -1,7 +1,7 @@
 	drop view if exists Max_affluenza;
 	drop view if exists List_affluenza;
-	drop table if exists Biglietto;
 	drop table if exists Posto_Prenotato;
+	drop table if exists Biglietto;
 	drop table if exists proiezione;
 	drop table if exists film;
 	drop type if exists genere;
@@ -43,7 +43,6 @@
 		IdPosto SERIAL PRIMARY KEY,
 		FilaX CHAR(1) NOT NULL, --CHECK (UPPER(FilaX) = FilaX) restituisce errore se non si inserisce il carrattere in UPPER
 		PostoY SMALLINT CHECK(PostoY BETWEEN 1 AND 28) NOT NULL,
-		DisponibilePosto BOOLEAN DEFAULT 'True' NOT NULL,
 		IdSalaFk INTEGER NOT NULL,
 		CONSTRAINT fk_Sala FOREIGN KEY (IdSalaFk) REFERENCES SALA(IdSala) ON DELETE CASCADE ON UPDATE CASCADE
 	);
@@ -72,6 +71,7 @@
 		OrarioProiezione FASCIORARI DEFAULT NULL, ---Trigger gestito
 		IdFilmFk INTEGER NOT NULL,
 		IdSalaFk INTEGER NOT NULL,
+		UNIQUE (IdFilmFk,IdSalaFk,OraInizio), ---Vincolo che stabile che non è possibile avere due proiezione nella stessa sala
 		CONSTRAINT fk_Film FOREIGN KEY (IdFilmFk) REFERENCES FILM(IdFilm),
 		CONSTRAINT fk_SalaP FOREIGN KEY (IdSalaFk) REFERENCES SALA(IdSala)
 	);
@@ -81,6 +81,8 @@
 		Prezzo FLOAT NOT NULL,
 		IdProiezioneFk INTEGER NOT NULL,
 		IdPostoFk INTEGER NOT NULL,
+		DisponibilePosto BOOLEAN DEFAULT 'True' NOT NULL,
+		DataBiglietto TIMESTAMP DEFAULT CURRENT_DATE,
 		CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione)
 	);
 	
