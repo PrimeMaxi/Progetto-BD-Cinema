@@ -73,6 +73,7 @@ public class TicketController implements Initializable {
 
   public void setTicket(Ticket ticket) {
     this.ticket = ticket;
+    System.out.println(ticket);
     setGridPosti();
   }
 }

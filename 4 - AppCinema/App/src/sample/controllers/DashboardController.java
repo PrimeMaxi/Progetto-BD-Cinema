@@ -35,6 +35,8 @@ public class DashboardController implements Initializable {
   public Pane paneLeftDetails;
   private CinemaDAO cinemaDAO;
   private ActionListener actionListener;
+  private TicketController ticketController;
+  private BookingController bookingController;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -69,12 +71,25 @@ public class DashboardController implements Initializable {
     paneLeftDetails.getChildren().clear();
     dashboardPane.getChildren().clear();
     try {
-      final var pane = FXMLLoader.load(
-          Objects.requireNonNull(Application.class.getResource("viewsRefactor/Ticket.fxml")));
+//      final var pane = FXMLLoader.load(
+//          Objects.requireNonNull(Application.class.getResource("viewsRefactor/Ticket.fxml")));
+//      dashboardPane.getChildren().add((Node) pane);
+
+      FXMLLoader ticketLoader = new FXMLLoader();
+      ticketLoader.setLocation(Application.class.getResource("viewsRefactor/Ticket.fxml"));
+      var pane = ticketLoader.load();
       dashboardPane.getChildren().add((Node) pane);
-      var paneCinemaDetails = FXMLLoader.load(
-          Objects.requireNonNull(Application.class.getResource("viewsRefactor/Booking.fxml")));
+      ticketController = ticketLoader.getController();
+
+//      var paneCinemaDetails = FXMLLoader.load(
+//          Objects.requireNonNull(Application.class.getResource("viewsRefactor/Booking.fxml")));
+//      paneLeftDetails.getChildren().add((Node) paneCinemaDetails);
+      FXMLLoader bookingLoader = new FXMLLoader();
+      bookingLoader.setLocation(Application.class.getResource("viewsRefactor/Booking.fxml"));
+      var paneCinemaDetails = bookingLoader.load();
       paneLeftDetails.getChildren().add((Node) paneCinemaDetails);
+      bookingController = bookingLoader.getController();
+      bookingController.setTicketController(ticketController);
     } catch (IOException e) {
       e.printStackTrace();
     }
