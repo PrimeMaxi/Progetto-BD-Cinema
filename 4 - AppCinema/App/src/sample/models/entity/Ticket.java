@@ -6,6 +6,16 @@ public class Ticket {
   private String orarioProiezione;
   private Integer idFilm;
   private String titolo;
+  private Integer IdSalaFk;
+
+  public Ticket(Integer idProiezione, String orarioProiezione, Integer idFilm,
+      String titolo, Integer idSalaFk) {
+    this.idProiezione = idProiezione;
+    this.orarioProiezione = orarioProiezione;
+    this.idFilm = idFilm;
+    this.titolo = titolo;
+    IdSalaFk = idSalaFk;
+  }
 
   public Ticket(Integer idProiezione, String orarioProiezione, Integer idFilm,
       String titolo) {

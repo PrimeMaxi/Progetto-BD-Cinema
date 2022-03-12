@@ -13,7 +13,7 @@ import sample.models.entity.Ticket;
 
 public class TicketDaoImpl implements TicketDao {
 
-  private static final String sqlTicket = "select pr.idproiezione, pr.orarioproiezione, f.idfilm, f.titolo from proiezione as pr inner join film as f on pr.idfilmfk = f.idfilm where pr.iniziodata <= ? and pr.finedata >= ?";
+  private static final String sqlTicket = "select pr.idproiezione, pr.orarioproiezione, f.idfilm, f.titolo, pr.idsalafk from proiezione as pr inner join film as f on pr.idfilmfk = f.idfilm where pr.iniziodata <= ? and pr.finedata >= ?";
 
   private PreparedStatement queryTicket;
 
@@ -37,7 +37,8 @@ public class TicketDaoImpl implements TicketDao {
             rs.getInt(1), //idProiezione
             rs.getString(2),  //OrarioProiezione
             rs.getInt(3),     //IdFilm
-            rs.getString(4)   //TitoloFilm
+            rs.getString(4),   //TitoloFilm
+            rs.getInt(5)      //idSala
         ));
       }
       return ticketList;

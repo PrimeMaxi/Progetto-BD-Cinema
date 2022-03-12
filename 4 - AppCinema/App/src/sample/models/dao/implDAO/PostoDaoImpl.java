@@ -37,13 +37,13 @@ public class PostoDaoImpl implements PostoDao {
             rs.getInt(1), //IdPosto
             rs.getInt(3), //PostoY
             rs.getString(2).charAt(0), //PostoX
-            rs.getBoolean(4), //DisponibilePosto
-            rs.getInt(5)      //idSala
+            rs.getInt(4)      //idSala
         ));
       }
       return postoList;
     } catch (SQLException e) {
       JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
+      e.printStackTrace();
     }
     return Collections.emptyList();
   }
@@ -59,13 +59,13 @@ public class PostoDaoImpl implements PostoDao {
             rs.getInt(1), //IdPosto
             rs.getInt(3), //PostoY
             rs.getString(2).charAt(0), //PostoX
-            rs.getBoolean(4), //DisponibilePosto
-            rs.getInt(5)      //idSala
+            rs.getInt(4)      //idSala
         ));
       }
       return postoList;
     } catch (SQLException e) {
       JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
+      e.printStackTrace();
     }
     return Collections.emptyList();
   }

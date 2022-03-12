@@ -4,22 +4,19 @@ public class Posto {
   private Integer idPosto;
   private Integer postoY;
   private Character filaX;
-  private boolean disponibile;
   private Sala sala;
 
-  public Posto(Integer idPosto, Integer postoY, Character filaX, boolean disponibile,
+  public Posto(Integer idPosto, Integer postoY, Character filaX,
       Integer idSala) {
     this.idPosto = idPosto;
     this.postoY = postoY;
     this.filaX = filaX;
-    this.disponibile = disponibile;
     this.sala = new Sala(idSala);
   }
 
-  public Posto(Integer postoY, char filaX, boolean disponibile) {
+  public Posto(Integer postoY, char filaX) {
     this.postoY = postoY;
     this.filaX = filaX;
-    this.disponibile = disponibile;
   }
 
   public Integer getIdPosto() {
@@ -44,14 +41,6 @@ public class Posto {
 
   public void setFilaX(Character filaX) {
     this.filaX = filaX;
-  }
-
-  public boolean isDisponibile() {
-    return disponibile;
-  }
-
-  public void setDisponibile(boolean disponibile) {
-    this.disponibile = disponibile;
   }
 
   public Sala getSala() {
