@@ -69,6 +69,7 @@
 		OraInizio TIME NOT NULL,
 		OraFine TIME NOT NULL, --Trigger che imposta automaticamente l'orario di fine proiezione
 		OrarioProiezione FASCIORARI DEFAULT NULL, ---Trigger gestito
+		Prezzo FLOAT NOT NULL,
 		IdFilmFk INTEGER NOT NULL,
 		IdSalaFk INTEGER NOT NULL,
 		UNIQUE (IdFilmFk,IdSalaFk,OraInizio), ---Vincolo che stabile che non è possibile avere due proiezione nella stessa sala
@@ -78,7 +79,6 @@
 	
 		CREATE TABLE Biglietto(
 		IdBiglietto SERIAL PRIMARY KEY,
-		Prezzo FLOAT NOT NULL,
 		IdProiezioneFk INTEGER NOT NULL,
 		IdPostoFk INTEGER NOT NULL,
 		DisponibilePosto BOOLEAN DEFAULT 'True' NOT NULL,
@@ -256,19 +256,19 @@
 	('House of Gucci',DEFAULT,'Ridley Scott',2021,'02:38:00','Drammatico'),
 	('No Time To Die',DEFAULT,'Cary Fukunaga',2021,'02:43:00','Azione');
 
-	INSERT INTO PROIEZIONE (InizioData,FineData,orainizio,orafine,idfilmfk,idsalafk)
+	INSERT INTO PROIEZIONE (InizioData,FineData,orainizio,orafine,Prezzo,idfilmfk,idsalafk)
 	VALUES
-	('2022-02-16',DEFAULT,'20:00','22:30',1,1),
-	('2022-02-16',DEFAULT,'17:00','19:00',2,1);
+	('2022-02-16',DEFAULT,'20:00','22:30',10.00,1,1),
+	('2022-02-16',DEFAULT,'17:00','19:00',7.00,2,1);
 	
-	INSERT INTO BIGLIETTO(Prezzo,IdProiezioneFk,IdPostoFk)
+	INSERT INTO BIGLIETTO(IdProiezioneFk,IdPostoFk)
 	VALUES
-	(10.00,1,1),
-	(10.00,1,2),
-	(10.00,1,10),
-	(10.00,1,11),
-	(10.00,2,1),
-	(10.00,2,2);
+	(1,1),
+	(1,2),
+	(1,10),
+	(1,11),
+	(2,1),
+	(2,2);
 	
 	INSERT INTO POSTO_PRENOTATO(IdPostoFk,IdProiezioneFk,IdBigliettoFk)
 	VALUES
@@ -282,7 +282,7 @@
 	
 
 	--QUERY lista di film più remunerativi
-	SELECT f.titolo AS Film, SUM(b.prezzo) AS Ricavi
+	SELECT f.titolo AS Film, SUM(pr.prezzo) AS Ricavi
 	FROM film AS f INNER JOIN proiezione AS pr ON f.idfilm=pr.idfilmfk INNER JOIN biglietto AS b ON pr.idproiezione = b.idproiezionefk
 	GROUP BY f.titolo 
 	ORDER BY Ricavi DESC;

@@ -3,6 +3,7 @@ package sample.controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.time.chrono.Chronology;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -50,6 +51,7 @@ public class TicketController implements Initializable {
     var listOccupiedSeats = ticketDao.queryListOccupiedSeats(ticket.getIdProiezione(),ticket.getOrarioProiezione(),ticket.getIdSalaFk());
     var sala = postoDao.queryRetrivePostiByIdSala(ticket.getIdSalaFk());
     var listFila = sala.stream().map(Posto::getFilaX).distinct().collect(Collectors.toList());
+    var listSeatControllers = new ArrayList<SeatController>();
 
     int column = 0;
     int row = 1;
@@ -77,6 +79,7 @@ public class TicketController implements Initializable {
         AnchorPane anchorPane = fxmlLoader.load();
 
         SeatController seatController = fxmlLoader.getController();
+        listSeatControllers.add(seatController);
         seatController.setNumberSeat(item.getPostoY());
         seatController.setPosto(item.getPostoY());
         seatController.setFila(item.getFilaX());
@@ -97,6 +100,10 @@ public class TicketController implements Initializable {
         e.printStackTrace();
       }
     }
+  }
+
+  public void insertBiglietto(){
+
   }
 
   public void setTicket(Ticket ticket) {

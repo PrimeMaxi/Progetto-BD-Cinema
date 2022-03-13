@@ -15,7 +15,7 @@ import sample.models.entity.SalaAmount;
 
 public class ChartDAOImpl implements ChartDAO {
 
-  private final static String sqlRicavi = "select f.titolo as Film, SUM(b.prezzo) as Ricavi from film as f inner join proiezione as pr on f.idfilm=pr.idfilmfk inner join biglietto as b on pr.idproiezione = b.idproiezionefk GROUP BY f.titolo ORDER BY Ricavi DESC";
+  private final static String sqlRicavi = "select f.titolo as Film, SUM(pr.prezzo) as Ricavi from film as f inner join proiezione as pr on f.idfilm=pr.idfilmfk inner join biglietto as b on pr.idproiezione = b.idproiezionefk GROUP BY f.titolo ORDER BY Ricavi DESC";
   private final static String sqlFasciORari = "select pr.orarioproiezione, SUM(b.idproiezionefk) as affluenza from proiezione as pr inner join biglietto as b on pr.idproiezione = b.idproiezionefk  group by pr.orarioproiezione ORDER by affluenza DESC";
   private final static String sqlChartSalaOrari = "select pr.idsalafk ,pr.orarioproiezione, SUM(b.idproiezionefk) as MAXaffluenza from proiezione as pr inner join biglietto as b on pr.idproiezione = b.idproiezionefk inner join sala as s on pr.idsalafk = s.idsala group by pr.orarioproiezione , pr.idsalafk ORDER by MAXaffluenza DESC";
   private final static String sqlAmountSala = "select idsala from sala";

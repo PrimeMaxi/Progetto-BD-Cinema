@@ -18,7 +18,7 @@ public class TicketDaoImpl implements TicketDao {
 
   private static final String sqlTicket = "select pr.idproiezione, pr.orarioproiezione, f.idfilm, f.titolo, pr.idsalafk from proiezione as pr inner join film as f on pr.idfilmfk = f.idfilm where pr.iniziodata <= ? and pr.finedata >= ?";
   private static final String sqlTicketOne = "select pr.idproiezione, pr.orarioproiezione, f.idfilm, f.titolo, pr.idsalafk from proiezione as pr inner join film as f on pr.idfilmfk = f.idfilm where pr.iniziodata <= ? and pr.finedata >= ? and f.titolo=? and pr.orarioproiezione=?";
-  private static final String sqlOccupiedSeats = "select b.idbiglietto,b.prezzo,b.idproiezionefk, b.databiglietto,ps.filax,ps.postoy from biglietto as b inner join posto_prenotato as pp on b.idbiglietto=pp.idbigliettofk inner join proiezione as p on b.idproiezionefk=p.idproiezione inner join posto as ps on pp.idpostofk=ps.idposto where b.idproiezionefk=? and p.orarioproiezione=? and p.idsalafk=?";
+  private static final String sqlOccupiedSeats = "select b.idbiglietto,p.prezzo,b.idproiezionefk, b.databiglietto,ps.filax,ps.postoy from biglietto as b inner join posto_prenotato as pp on b.idbiglietto=pp.idbigliettofk inner join proiezione as p on b.idproiezionefk=p.idproiezione inner join posto as ps on pp.idpostofk=ps.idposto where b.idproiezionefk=? and p.orarioproiezione=? and p.idsalafk=?";
 
   private PreparedStatement queryTicket;
   private PreparedStatement queryTicketOne;

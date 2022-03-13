@@ -10,10 +10,12 @@ public class SeatController extends TicketController {
   public JFXTogglePane seatItem;
   private Character fila;
   private Integer posto;
+  private Boolean selected;
 
   public void buttonClickedSeat(MouseEvent mouseEvent) {
     if (!seatItem.isDisabled()) {
       seatItem.setStyle("-fx-background-color:#00ac00");
+      selected=true;
     }
   }
 
@@ -33,5 +35,9 @@ public class SeatController extends TicketController {
 
   public void setPosto(Integer posto) {
     this.posto = posto;
+  }
+
+  public Boolean getSelected() {
+    return selected;
   }
 }
