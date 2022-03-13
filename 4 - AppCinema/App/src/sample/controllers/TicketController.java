@@ -45,9 +45,26 @@ public class TicketController implements Initializable {
   public void setGridPosti(){
     postoDao = new PostoDaoImpl(DatabaseConnection.getConnection());
     var sala = postoDao.queryRetrivePostiByIdSala(ticket.getIdSalaFk());
+    var listFila = sala.stream().map(Posto::getFilaX).distinct().collect(Collectors.toList());
 
     int column = 0;
     int row = 1;
+
+    for(Character fila : listFila){
+      FXMLLoader fxmlLoader = new FXMLLoader();
+      fxmlLoader.setLocation(Application.class.getResource("viewsRefactor/FilaItem.fxml"));
+      try {
+        AnchorPane anchorPane = fxmlLoader.load();
+        FilaItemController filaItemController = fxmlLoader.getController();
+        filaItemController.setFilaSeat(fila);
+        gridPosti.add(anchorPane,column,row++);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+
+    }
+    column = 1;
+    row = 1;
 
     for(Posto item : sala){
       try {
@@ -59,7 +76,7 @@ public class TicketController implements Initializable {
         seatController.setNumberSeat(item.getPostoY());
 
         if(column == 15){
-          column=0;
+          column=1;
           row++;
         }
 
