@@ -22,7 +22,7 @@
                               <Font name="Arial Nova" size="35.0" />
                            </font>
                         </Label>
-                        <Label fx:id="salaNumeroDetailsCinema" text="10">
+                        <Label fx:id="salaNumeroDetailsCinema" text="-">
                            <font>
                               <Font name="Arial Nova Cond" size="41.0" />
                            </font>
@@ -39,7 +39,7 @@
                               <Font size="26.0" />
                            </font>
                         </Label>
-                        <Label fx:id="totNumero" text="10">
+                        <Label fx:id="totNumero" text="-">
                            <font>
                               <Font size="29.0" />
                            </font>
@@ -53,7 +53,7 @@
                               <Font size="26.0" />
                            </font>
                         </Label>
-                        <Label fx:id="dispNumero" text="10">
+                        <Label fx:id="dispNumero" text="-">
                            <font>
                               <Font size="29.0" />
                            </font>
@@ -67,7 +67,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="tecnInfo" text="IMAX">
+                        <Label fx:id="tecnInfo" text="-">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -81,7 +81,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="audioInfo" text="IMAX">
+                        <Label fx:id="audioInfo" text="-">
                            <font>
                               <Font size="20.0" />
                            </font>

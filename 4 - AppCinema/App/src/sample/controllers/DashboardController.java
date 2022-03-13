@@ -37,6 +37,8 @@ public class DashboardController implements Initializable {
   private ActionListener actionListener;
   private TicketController ticketController;
   private BookingController bookingController;
+  private CinemaDashboardController cinemaDashboardController;
+  private PaneDetailsCinemaController paneDetailsCinemaController;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -52,12 +54,25 @@ public class DashboardController implements Initializable {
     paneLeftDetails.getChildren().clear();
     dashboardPane.getChildren().clear();
     try {
-      final var pane = FXMLLoader.load(
-          Objects.requireNonNull(Application.class.getResource("viewsRefactor/CinemaDashboard.fxml")));
+//      final var pane = FXMLLoader.load(
+//          Objects.requireNonNull(Application.class.getResource("viewsRefactor/CinemaDashboard.fxml")));
+//      dashboardPane.getChildren().add((Node) pane);
+
+      FXMLLoader cinemaLoader = new FXMLLoader();
+      cinemaLoader.setLocation(Application.class.getResource("viewsRefactor/CinemaDashboard.fxml"));
+      var pane = cinemaLoader.load();
       dashboardPane.getChildren().add((Node) pane);
-      var paneCinemaDetails = FXMLLoader.load(
-          Objects.requireNonNull(Application.class.getResource("viewsRefactor/TastoCinema/paneDetailsCinema.fxml")));
+      cinemaDashboardController = cinemaLoader.getController();
+
+//      var paneCinemaDetails = FXMLLoader.load(
+//          Objects.requireNonNull(Application.class.getResource("viewsRefactor/TastoCinema/paneDetailsCinema.fxml")));
+//      paneLeftDetails.getChildren().add((Node) paneCinemaDetails);
+      FXMLLoader detailsCinemaLoader = new FXMLLoader();
+      detailsCinemaLoader.setLocation(Application.class.getResource("viewsRefactor/TastoCinema/paneDetailsCinema.fxml"));
+      var paneCinemaDetails = detailsCinemaLoader.load();
       paneLeftDetails.getChildren().add((Node) paneCinemaDetails);
+      paneDetailsCinemaController = detailsCinemaLoader.getController();
+
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -71,19 +86,12 @@ public class DashboardController implements Initializable {
     paneLeftDetails.getChildren().clear();
     dashboardPane.getChildren().clear();
     try {
-//      final var pane = FXMLLoader.load(
-//          Objects.requireNonNull(Application.class.getResource("viewsRefactor/Ticket.fxml")));
-//      dashboardPane.getChildren().add((Node) pane);
-
       FXMLLoader ticketLoader = new FXMLLoader();
       ticketLoader.setLocation(Application.class.getResource("viewsRefactor/Ticket.fxml"));
       var pane = ticketLoader.load();
       dashboardPane.getChildren().add((Node) pane);
       ticketController = ticketLoader.getController();
 
-//      var paneCinemaDetails = FXMLLoader.load(
-//          Objects.requireNonNull(Application.class.getResource("viewsRefactor/Booking.fxml")));
-//      paneLeftDetails.getChildren().add((Node) paneCinemaDetails);
       FXMLLoader bookingLoader = new FXMLLoader();
       bookingLoader.setLocation(Application.class.getResource("viewsRefactor/Booking.fxml"));
       var paneCinemaDetails = bookingLoader.load();

@@ -17,6 +17,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import sample.Application;
 import sample.controllers.Items.ItemSala2Controller;
+import sample.controllers.Items.PaneDetailsCinemaController;
 import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.FilmDaoImpl;
 import sample.models.dao.implDAO.ProiezioneDAOImpl;
@@ -28,7 +29,7 @@ import sample.models.entity.Proiezione;
 import sample.models.entity.Sala;
 import sample.models.enumerations.ORARI;
 
-public class CinemaDashboardController implements Initializable {
+public class CinemaDashboardController extends PaneDetailsCinemaController implements Initializable {
 
   public GridPane gridPaneCinema;
   private SalaDAO salaDAO;
