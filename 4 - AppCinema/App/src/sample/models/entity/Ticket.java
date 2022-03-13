@@ -1,5 +1,7 @@
 package sample.models.entity;
 
+import java.sql.Date;
+
 public class Ticket {
 
   private Integer idProiezione;
@@ -7,6 +9,21 @@ public class Ticket {
   private Integer idFilm;
   private String titolo;
   private Integer IdSalaFk;
+  private Integer idBiglietto;
+  private Double prezzo;
+  private Date dataBiglietto;
+  private Character fila;
+  private Integer posto;
+
+  public Ticket( Integer idBiglietto, Double prezzo, Integer idProiezione, Date dataBiglietto,
+      Character fila, Integer posto) {
+    this.idProiezione = idProiezione;
+    this.idBiglietto = idBiglietto;
+    this.prezzo = prezzo;
+    this.dataBiglietto = dataBiglietto;
+    this.fila = fila;
+    this.posto = posto;
+  }
 
   public Ticket(Integer idProiezione, String orarioProiezione, Integer idFilm,
       String titolo, Integer idSalaFk) {
@@ -55,6 +72,14 @@ public class Ticket {
 
   public void setTitolo(String titolo) {
     this.titolo = titolo;
+  }
+
+  public Character getFila() {
+    return fila;
+  }
+
+  public Integer getPosto() {
+    return posto;
   }
 
   @Override

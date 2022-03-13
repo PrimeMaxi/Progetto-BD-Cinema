@@ -11,4 +11,6 @@ public interface TicketDao {
   List<Ticket> queryTicket();
 
   Ticket queryTicketOne(Date date, String film, String orario);
+
+  List<Ticket> queryListOccupiedSeats(Integer idProiezione, String orario, Integer idSala);
 }

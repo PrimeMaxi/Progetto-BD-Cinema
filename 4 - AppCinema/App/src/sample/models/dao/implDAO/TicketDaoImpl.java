@@ -18,14 +18,17 @@ public class TicketDaoImpl implements TicketDao {
 
   private static final String sqlTicket = "select pr.idproiezione, pr.orarioproiezione, f.idfilm, f.titolo, pr.idsalafk from proiezione as pr inner join film as f on pr.idfilmfk = f.idfilm where pr.iniziodata <= ? and pr.finedata >= ?";
   private static final String sqlTicketOne = "select pr.idproiezione, pr.orarioproiezione, f.idfilm, f.titolo, pr.idsalafk from proiezione as pr inner join film as f on pr.idfilmfk = f.idfilm where pr.iniziodata <= ? and pr.finedata >= ? and f.titolo=? and pr.orarioproiezione=?";
+  private static final String sqlOccupiedSeats = "select b.idbiglietto,b.prezzo,b.idproiezionefk, b.databiglietto,ps.filax,ps.postoy from biglietto as b inner join posto_prenotato as pp on b.idbiglietto=pp.idbigliettofk inner join proiezione as p on b.idproiezionefk=p.idproiezione inner join posto as ps on pp.idpostofk=ps.idposto where b.idproiezionefk=? and p.orarioproiezione=? and p.idsalafk=?";
 
   private PreparedStatement queryTicket;
   private PreparedStatement queryTicketOne;
+  private PreparedStatement queryOccupiedSeats;
 
   public TicketDaoImpl(Connection connection){
     try {
       queryTicket = connection.prepareStatement(sqlTicket);
       queryTicketOne = connection.prepareStatement(sqlTicketOne);
+      queryOccupiedSeats = connection.prepareStatement(sqlOccupiedSeats);
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -82,5 +85,31 @@ public class TicketDaoImpl implements TicketDao {
       e.printStackTrace();
     }
     return null;
+  }
+
+  @Override
+  public List<Ticket> queryListOccupiedSeats(Integer idProiezione, String orario, Integer idSala){
+    var listTicket = new ArrayList<Ticket>();
+    try {
+      queryOccupiedSeats.setInt(1,idProiezione);
+      queryOccupiedSeats.setObject(2,ORARI.getORARI(orario),Types.OTHER);
+      queryOccupiedSeats.setInt(3,idSala);
+      var rs = queryOccupiedSeats.executeQuery();
+      while(rs.next()){
+        listTicket.add(new Ticket(
+            rs.getInt(1), //idBiglietto
+            rs.getDouble(2), //Prezzo
+            rs.getInt(3), //idProiezione
+            rs.getDate(4),//data biglietto
+            rs.getString(5).charAt(0),//fila
+            rs.getInt(6) //posto
+        ));
+      }
+      return listTicket;
+    } catch (SQLException e) {
+      JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
+      e.printStackTrace();
+    }
+    return Collections.emptyList();
   }
 }

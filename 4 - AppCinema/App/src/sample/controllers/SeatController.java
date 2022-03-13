@@ -24,9 +24,9 @@ public class SeatController extends TicketController {
     this.numberSeat.setText(numberSeat.toString());
   }
 
-  public void setNumberSeat(Character fila){
-    this.numberSeat.setText(fila.toString());
-    this.seatItem.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+  public void setOccupiedSeat(){
+    seatItem.setStyle("-fx-background-color: #ff0000");
+    System.out.println("Posto occupato");
   }
 
   public void setFila(Character fila) {

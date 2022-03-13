@@ -5,6 +5,7 @@ import java.net.URL;
 import java.time.chrono.Chronology;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
@@ -33,6 +34,7 @@ public class TicketController implements Initializable {
 
   public GridPane gridPosti;
   private PostoDao postoDao;
+  private TicketDao ticketDao;
   private AnchorPane seatItem;
   private TicketService ticketService = new DefaultTicketService();
   private Ticket ticket;
@@ -44,6 +46,8 @@ public class TicketController implements Initializable {
 
   public void setGridPosti(){
     postoDao = new PostoDaoImpl(DatabaseConnection.getConnection());
+    ticketDao = new TicketDaoImpl(DatabaseConnection.getConnection());
+    var listOccupiedSeats = ticketDao.queryListOccupiedSeats(ticket.getIdProiezione(),ticket.getOrarioProiezione(),ticket.getIdSalaFk());
     var sala = postoDao.queryRetrivePostiByIdSala(ticket.getIdSalaFk());
     var listFila = sala.stream().map(Posto::getFilaX).distinct().collect(Collectors.toList());
 
@@ -76,6 +80,11 @@ public class TicketController implements Initializable {
         seatController.setNumberSeat(item.getPostoY());
         seatController.setPosto(item.getPostoY());
         seatController.setFila(item.getFilaX());
+
+        if(listOccupiedSeats.stream().anyMatch(src-> Objects.equals(src.getPosto(), item.getPostoY())
+            && src.getFila().equals(item.getFilaX()))){
+          seatController.setOccupiedSeat();
+        }
 
         if(column == 15){
           column=1;
