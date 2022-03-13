@@ -1,12 +1,7 @@
 package sample.controllers;
 
 import com.jfoenix.controls.JFXTogglePane;
-import javafx.geometry.Insets;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 public class SeatController extends TicketController {
@@ -17,7 +12,9 @@ public class SeatController extends TicketController {
   private Integer posto;
 
   public void buttonClickedSeat(MouseEvent mouseEvent) {
-    seatItem.setStyle("-fx-background-color:#00ac00");
+    if (!seatItem.isDisabled()) {
+      seatItem.setStyle("-fx-background-color:#00ac00");
+    }
   }
 
   public void setNumberSeat(Integer numberSeat) {
@@ -26,6 +23,7 @@ public class SeatController extends TicketController {
 
   public void setOccupiedSeat(){
     seatItem.setStyle("-fx-background-color: #ff0000");
+    seatItem.setDisable(true);
     System.out.println("Posto occupato");
   }
 
