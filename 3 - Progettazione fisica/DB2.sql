@@ -85,9 +85,21 @@
 		DataBiglietto TIMESTAMP DEFAULT CURRENT_DATE,
 		CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione)
 	);
+	/*
+	
+	Dovrebbe essere una tabella che contiene solo chiavi esterne.
 	
 	CREATE TABLE POSTO_PRENOTATO(
 		IdPostoPrenotato SERIAL PRIMARY KEY,
+		IdPostoFk INTEGER NOT NULL,
+		IdProiezioneFk INTEGER NOT NULL,
+		IdBigliettoFk INTEGER NOT NULL,
+		CONSTRAINT fk_Posto FOREIGN KEY (IdPostoFk) REFERENCES POSTO(IdPosto),
+		CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione),
+		CONSTRAINT fk_Biglietto FOREIGN KEY (IdBigliettoFk) REFERENCES BIGLIETTO(IdBiglietto)
+	);
+	*/
+		CREATE TABLE POSTO_PRENOTATO(
 		IdPostoFk INTEGER NOT NULL,
 		IdProiezioneFk INTEGER NOT NULL,
 		IdBigliettoFk INTEGER NOT NULL,
@@ -210,6 +222,28 @@
 	AFTER INSERT on PROIEZIONE
 	FOR EACH ROW
 	EXECUTE PROCEDURE assignsFasciaOraria();
+	
+	---Funzione e Trigger che inserisce automaticamente records ogni nuovo biglietto
+	DROP TRIGGER IF EXISTS insertPostPrenotato ON BIGLIETTO;
+	DROP FUNCTION IF EXISTS insertPostPrenotato();
+	
+	CREATE OR REPLACE FUNCTION insertPostPrenotato() 
+	RETURNS TRIGGER AS 
+	$$
+	DECLARE
+	BEGIN
+		INSERT INTO POSTO_PRENOTATO(IdPostoFk,IdProiezioneFk,IdBigliettoFk)
+		VALUES
+		(NEW.IdPostoFk,NEW.IdProiezioneFk,NEW.IdBiglietto);
+		RETURN NEW;
+	END;
+	$$
+	LANGUAGE PLPGSQL;
+
+	CREATE TRIGGER insertPostPrenotato
+	AFTER INSERT on BIGLIETTO
+	FOR EACH ROW
+	EXECUTE PROCEDURE insertPostPrenotato();
 
 	---Funzione e Trigger che una volta comprato un biglietto, imposti automaticamente il campo DisponibilePosto da TRUE a FALSE
 	/*
@@ -269,7 +303,7 @@
 	(1,11),
 	(2,1),
 	(2,2);
-	
+	/*
 	INSERT INTO POSTO_PRENOTATO(IdPostoFk,IdProiezioneFk,IdBigliettoFk)
 	VALUES
 	(1,1,1),
@@ -278,7 +312,7 @@
 	(11,1,4),
 	(1,2,5),
 	(2,2,6);
-	
+	*/
 	
 
 	--QUERY lista di film più remunerativi
