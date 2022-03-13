@@ -3,10 +3,17 @@ package sample.models.entity;
 public class Biglietto {
   private String idBiglietto;
   private Float prezzo;
+  private Integer idProiezione;
+  private Integer idPosto;
   private Proiezione proiezione;
 
   public Biglietto(Float prezzo) {
     this.prezzo = prezzo;
+  }
+
+  public Biglietto(Integer idProiezione, Integer idPosto) {
+    this.idProiezione = idProiezione;
+    this.idPosto = idPosto;
   }
 
   public String getIdBiglietto() {
@@ -31,5 +38,13 @@ public class Biglietto {
 
   public void setProiezione(Proiezione proiezione) {
     this.proiezione = proiezione;
+  }
+
+  public Integer getIdPosto() {
+    return idPosto;
+  }
+
+  public Integer getIdProiezione() {
+    return idProiezione;
   }
 }
