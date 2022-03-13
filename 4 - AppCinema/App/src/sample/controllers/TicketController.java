@@ -74,6 +74,8 @@ public class TicketController implements Initializable {
 
         SeatController seatController = fxmlLoader.getController();
         seatController.setNumberSeat(item.getPostoY());
+        seatController.setPosto(item.getPostoY());
+        seatController.setFila(item.getFilaX());
 
         if(column == 15){
           column=1;
