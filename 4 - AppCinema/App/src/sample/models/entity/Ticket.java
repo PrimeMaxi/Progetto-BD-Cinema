@@ -35,6 +35,16 @@ public class Ticket {
   }
 
   public Ticket(Integer idProiezione, String orarioProiezione, Integer idFilm,
+      String titolo, Integer idSalaFk, Date dataTicket) {
+    this.idProiezione = idProiezione;
+    this.orarioProiezione = orarioProiezione;
+    this.idFilm = idFilm;
+    this.titolo = titolo;
+    IdSalaFk = idSalaFk;
+    this.dataBiglietto=dataTicket;
+  }
+
+  public Ticket(Integer idProiezione, String orarioProiezione, Integer idFilm,
       String titolo) {
     this.idProiezione = idProiezione;
     this.orarioProiezione = orarioProiezione;
@@ -76,6 +86,10 @@ public class Ticket {
 
   public Character getFila() {
     return fila;
+  }
+
+  public Date getDataBiglietto() {
+    return dataBiglietto;
   }
 
   public Integer getPosto() {

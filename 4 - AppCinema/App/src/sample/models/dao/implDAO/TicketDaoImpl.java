@@ -77,7 +77,8 @@ public class TicketDaoImpl implements TicketDao {
             rs.getString(2),  //OrarioProiezione
             rs.getInt(3),     //IdFilm
             rs.getString(4),   //TitoloFilm
-            rs.getInt(5)      //idSala
+            rs.getInt(5), //idSala
+            date                    //dataTicket
         );
       }
     } catch (SQLException e) {

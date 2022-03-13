@@ -82,7 +82,7 @@ public class TicketController implements Initializable {
         seatController.setFila(item.getFilaX());
 
         if(listOccupiedSeats.stream().anyMatch(src-> Objects.equals(src.getPosto(), item.getPostoY())
-            && src.getFila().equals(item.getFilaX()))){
+            && src.getFila().equals(item.getFilaX()) && ticket.getDataBiglietto().toLocalDate().equals(src.getDataBiglietto().toLocalDate()))){
           seatController.setOccupiedSeat();
         }
 
