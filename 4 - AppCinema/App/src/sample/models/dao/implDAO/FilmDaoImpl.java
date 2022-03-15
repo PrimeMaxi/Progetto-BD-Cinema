@@ -19,12 +19,10 @@ public class FilmDaoImpl implements FilmDAO {
 
   private static final String sqlFilm = "select * from film where idfilm=?";
 
-  private Connection connection;
   private PreparedStatement insertFilm, deleteFilm, queryFilmById, updateFilm, queryFilm;
   private Statement queryListFilm, updateFilmTitolo;
 
   public FilmDaoImpl(Connection connection){
-    this.connection=connection;
     try {
       insertFilm = connection.prepareStatement("INSERT INTO FILM (Titolo,Trama,Regia,Anno,Durata,Genere) VALUES (?,?,?,?,?,?)");
       deleteFilm = connection.prepareStatement("DELETE FROM FILM WHERE idfilm = ?");
@@ -122,6 +120,7 @@ public class FilmDaoImpl implements FilmDAO {
     }
   }
 
+  @Override
   public void updateFilm(Film film){
     try {
       updateFilm.setString(1,film.getTitolo());
@@ -162,6 +161,12 @@ public class FilmDaoImpl implements FilmDAO {
     }catch (SQLException e){
       JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
       e.printStackTrace();
+    }finally{
+      try {
+        queryFilm.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
     }
     return null;
   }

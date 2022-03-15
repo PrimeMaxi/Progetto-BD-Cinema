@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="394.0" prefWidth="442.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.DetailsFilmModificaController">
+<AnchorPane fx:id="paneFilmModifica" prefHeight="394.0" prefWidth="442.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.DetailsFilmModificaController">
    <children>
       <VBox prefHeight="394.0" prefWidth="442.0">
          <children>

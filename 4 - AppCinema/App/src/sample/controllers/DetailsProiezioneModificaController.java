@@ -41,6 +41,7 @@ public class DetailsProiezioneModificaController implements Initializable {
       stage.setTitle("Modifica Proiezione");
       stage.setScene(new Scene(detailsFilmModifica.load()));
       DetailsFilmModificaController filmModifica = detailsFilmModifica.getController();
+      filmModifica.setFilm(film);
       stage.show();
     }
     catch (IOException e) {

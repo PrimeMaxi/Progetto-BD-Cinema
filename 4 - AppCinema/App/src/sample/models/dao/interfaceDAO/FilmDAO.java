@@ -10,5 +10,7 @@ public interface FilmDAO {
     public List<Film> queryListFilm();
     public void updateFilmTitolo(String newTitolo, String oldTitolo);
 
+    void updateFilm(Film film);
+
     Film queryFilm(Integer idFilm);
 }
