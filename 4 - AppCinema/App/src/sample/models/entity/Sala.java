@@ -88,4 +88,14 @@ public class Sala {
   public void setProiezioneList(List<Proiezione> proiezioneList) {
     this.proiezioneList = proiezioneList;
   }
+
+  @Override
+  public String toString() {
+    return "Sala{" +
+        "idSala=" + idSala +
+        ", capienza=" + capienza +
+        ", tecnologia=" + tecnologia +
+        ", audio=" + audio +
+        '}';
+  }
 }

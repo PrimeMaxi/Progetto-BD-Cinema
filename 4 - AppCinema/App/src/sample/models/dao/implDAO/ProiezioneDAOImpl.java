@@ -21,6 +21,7 @@ public class ProiezioneDAOImpl implements ProiezioneDAO {
     try {
       queryListProiezioniFilm = connection.createStatement();
     } catch (SQLException e) {
+      JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
       e.printStackTrace();
     }
   }
@@ -44,6 +45,7 @@ public class ProiezioneDAOImpl implements ProiezioneDAO {
       return proiezioniList;
     } catch (SQLException e) {
       JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
+      e.printStackTrace();
     }
     return Collections.emptyList();
   }

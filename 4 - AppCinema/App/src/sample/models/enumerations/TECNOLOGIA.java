@@ -1,5 +1,7 @@
 package sample.models.enumerations;
 
+import java.util.List;
+
 public enum TECNOLOGIA {
   DEFAULT("null"),
   IMAX("IMAX"),
