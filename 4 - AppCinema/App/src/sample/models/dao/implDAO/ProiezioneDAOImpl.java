@@ -13,7 +13,7 @@ import sample.models.entity.Proiezione;
 public class ProiezioneDAOImpl implements ProiezioneDAO {
 
   private static final String sqlProiezioniFilm =
-      "select pr.idproiezione, pr.iniziodata, pr.finedata, pr.orarioproiezione, f.idfilm, f.titolo, pr.idsalafk from proiezione as pr inner join film as f on pr.idfilmfk=f.idfilm";
+      "select pr.idproiezione, pr.iniziodata, pr.finedata, pr.orarioproiezione, f.idfilm, f.titolo,pr.prezzo, pr.idsalafk from proiezione as pr inner join film as f on pr.idfilmfk=f.idfilm";
 
   private Statement queryListProiezioniFilm;
 
@@ -39,7 +39,8 @@ public class ProiezioneDAOImpl implements ProiezioneDAO {
                 rs.getDate(3),
                 rs.getInt(5),
                 rs.getString(6),
-                rs.getInt(7))
+                rs.getInt(7),
+                rs.getInt(8))
         );
       }
       return proiezioniList;

@@ -102,7 +102,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#buttonModificaFilm" text="Modifica" />
+                        <Button mnemonicParsing="false" onAction="#buttonModificaProiezione" text="Modifica" />
                      </children>
                   </HBox>
                </children>

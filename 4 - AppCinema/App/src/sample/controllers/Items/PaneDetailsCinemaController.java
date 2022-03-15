@@ -48,7 +48,8 @@ public class PaneDetailsCinemaController implements Initializable {
     }
     catch (IOException e) {
       Logger logger = Logger.getLogger(getClass().getName());
-      logger.log(Level.SEVERE, "Failed to create new Window.", e);    }
+      logger.log(Level.SEVERE, "Failed to create new Window.", e);
+    }
   }
 
   public void setSalaNumeroDetailsCinema(Integer numero) {

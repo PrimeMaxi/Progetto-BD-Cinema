@@ -1,8 +1,16 @@
 package sample.controllers;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import sample.Application;
 import sample.models.entity.Film;
 import sample.models.entity.Proiezione;
 
@@ -17,7 +25,23 @@ public class PaneDetailsCinemaFilmController {
   private Proiezione proiezione;
   private Film film;
 
-  public void buttonModificaFilm(ActionEvent actionEvent) {
+  public void buttonModificaProiezione(ActionEvent actionEvent) {
+    Parent root;
+    try {
+      FXMLLoader detailsProiezioneModifica = new FXMLLoader();
+      detailsProiezioneModifica.setLocation(Application.class.getResource("viewsRefactor/TastoCinema/DetailsProiezioneModifica.fxml"));
+      Stage stage = new Stage();
+      stage.setTitle("Modifica Proiezione");
+      stage.setScene(new Scene(detailsProiezioneModifica.load()));
+      DetailsProiezioneModificaController proiezioneModifica = detailsProiezioneModifica.getController();
+      proiezioneModifica.setProiezione(proiezione);
+      proiezioneModifica.setFilm(film);
+      stage.show();
+    }
+    catch (IOException e) {
+      Logger logger = Logger.getLogger(getClass().getName());
+      logger.log(Level.SEVERE, "Failed to create new Window.", e);
+    }
   }
 
   public void setProiezione(Proiezione proiezione) {

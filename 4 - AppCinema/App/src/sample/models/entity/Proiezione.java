@@ -13,9 +13,10 @@ public class Proiezione {
   private Sala sala;
   private List<Biglietto> bigliettoList;
   private Film film;
+  private Integer prezzo;
 
   public Proiezione(Integer idProiezione, String orarioProiezione, Date inizioData,
-      Date fineData, Integer idfilm, String titolo, Integer idSala ) {
+      Date fineData, Integer idfilm, String titolo,Integer prezzo, Integer idSala ) {
     this.idProiezione = idProiezione;
     this.orarioProiezione = orarioProiezione;
     this.inizioData = inizioData;
@@ -23,6 +24,7 @@ public class Proiezione {
     this.sala = new Sala(idSala);
     this.film = new Film();
     film.setIdFilm(idfilm);
+    this.prezzo=prezzo;
     film.setTitolo(titolo);
   }
 
@@ -80,5 +82,13 @@ public class Proiezione {
 
   public void setFilm(Film film) {
     this.film = film;
+  }
+
+  public Integer getPrezzo() {
+    return prezzo;
+  }
+
+  public void setPrezzo(Integer prezzo) {
+    this.prezzo = prezzo;
   }
 }
