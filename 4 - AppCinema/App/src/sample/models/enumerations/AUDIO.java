@@ -1,5 +1,7 @@
 package sample.models.enumerations;
 
+import java.util.Arrays;
+
 public enum AUDIO {
   DEFAULT("null"),
   DOLBY_SURROUND("Dolby Digital Surround"),
@@ -18,5 +20,11 @@ public enum AUDIO {
   public String toString() {
     return audio;
   }
+
+  public static AUDIO getEnumByString(String audio){
+    var enumAudio = Arrays.stream(AUDIO.values()).filter(src->src.toString().equals(audio)).findFirst();
+    return enumAudio.orElse(null);
+  }
+
 }
 

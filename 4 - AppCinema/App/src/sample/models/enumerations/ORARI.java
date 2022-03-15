@@ -26,6 +26,6 @@ public enum ORARI {
   }
 
   public static ORARI getORARI(String orario){
-    return Arrays.stream(ORARI.values()).filter(src->src.toString().equals(orario)).findFirst().get();
+    return Arrays.stream(ORARI.values()).filter(src->src.toString().equals(orario)).findFirst().orElse(null);
   }
 }

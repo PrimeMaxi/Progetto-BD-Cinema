@@ -26,8 +26,8 @@
 		CONSTRAINT chk_telefono CHECK (Telefono not like '%[^0-9]%') --Assicura che un numero che inizia con 0 venga inserito nel DB
 	);
 
-	CREATE TYPE TECNOLOGIA AS ENUM ('IMAX','ISense','ScreenX','3D');
-	CREATE TYPE AUDIO AS ENUM ('Dolby Digital Surround','Doby Digital Plus');
+	CREATE TYPE TECNOLOGIA AS ENUM ('null','IMAX','ISense','ScreenX','3D');
+	CREATE TYPE AUDIO AS ENUM ('null','Dolby Digital Surround','Dolby digital plus');
 
 	CREATE TABLE SALA (
 		IdSala INTEGER PRIMARY KEY,

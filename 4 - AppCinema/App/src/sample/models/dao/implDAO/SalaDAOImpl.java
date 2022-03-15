@@ -64,7 +64,7 @@ public class SalaDAOImpl implements SalaDAO {
     try {
       queryUpdate.setInt(1,capienza);
       queryUpdate.setObject(2,tecnologia, Types.OTHER);
-      queryUpdate.setObject(3,audio,Types.OTHER);
+      queryUpdate.setObject(3, audio,Types.OTHER);
       queryUpdate.setInt(4,idSala);
       return queryUpdate.execute();
     } catch (SQLException e) {
