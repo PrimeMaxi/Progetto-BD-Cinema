@@ -72,7 +72,7 @@
 		Prezzo FLOAT NOT NULL,
 		IdFilmFk INTEGER NOT NULL,
 		IdSalaFk INTEGER NOT NULL,
-		UNIQUE (IdFilmFk,IdSalaFk,OraInizio), ---Vincolo che stabile che non è possibile avere due proiezione nella stessa sala
+		UNIQUE (IdSalaFk,OrarioProiezione), ---Vincolo che stabile che non è possibile avere due proiezione nella stessa sala
 		CONSTRAINT fk_Film FOREIGN KEY (IdFilmFk) REFERENCES FILM(IdFilm),
 		CONSTRAINT fk_SalaP FOREIGN KEY (IdSalaFk) REFERENCES SALA(IdSala)
 	);
