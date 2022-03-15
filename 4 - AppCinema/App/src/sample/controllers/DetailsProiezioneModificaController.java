@@ -16,6 +16,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import sample.Application;
+import sample.database.DatabaseConnection;
+import sample.models.dao.implDAO.ProiezioneDAOImpl;
+import sample.models.dao.interfaceDAO.ProiezioneDAO;
 import sample.models.entity.Film;
 import sample.models.entity.Proiezione;
 import sample.models.enumerations.ORARI;
@@ -27,6 +30,7 @@ public class DetailsProiezioneModificaController implements Initializable {
   public AnchorPane paneDetailsModifica;
   private Proiezione proiezione;
   private Film film;
+  private ProiezioneDAO proiezioneDAO;
 
   public void clickModificaFilm(MouseEvent mouseEvent) {
     Parent root;
@@ -46,7 +50,9 @@ public class DetailsProiezioneModificaController implements Initializable {
   }
 
   public void clickConferma(MouseEvent mouseEvent) {
-
+    proiezioneDAO = new ProiezioneDAOImpl(DatabaseConnection.getConnection());
+    proiezioneDAO.queryUpdateProiezione(proiezione.getIdProiezione(),Integer.parseInt(prezzo.getText()),orarioProiezione.getValue());
+    close();
   }
 
   public void clickAnnulla(MouseEvent mouseEvent) {
