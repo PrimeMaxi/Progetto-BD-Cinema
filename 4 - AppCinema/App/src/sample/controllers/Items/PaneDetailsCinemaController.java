@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import sample.models.entity.Sala;
 
 public class PaneDetailsCinemaController implements Initializable {
 
@@ -14,9 +15,9 @@ public class PaneDetailsCinemaController implements Initializable {
   public Pane paneLeftDetails;
   public Label salaNumeroDetailsCinema;
   public Label totNumero;
-  public Label dispNumero;
   public Label tecnInfo;
   public Label audioInfo;
+  private Sala sala;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -30,19 +31,24 @@ public class PaneDetailsCinemaController implements Initializable {
     salaNumeroDetailsCinema.setText(numero.toString());
   }
 
-  public void setTotNumero(Label totNumero) {
-    this.totNumero = totNumero;
+  public void setTotNumero(Integer totNumero) {
+    this.totNumero.setText(totNumero.toString());
   }
 
-  public void setDispNumero(Label dispNumero) {
-    this.dispNumero = dispNumero;
+
+  public void setTecnInfo(String tecnInfo) {
+    this.tecnInfo.setText(tecnInfo!=null ? tecnInfo : "-");
   }
 
-  public void setTecnInfo(Label tecnInfo) {
-    this.tecnInfo = tecnInfo;
+  public void setAudioInfo(String audioInfo) {
+    this.audioInfo.setText(audioInfo!=null ? audioInfo : "-");
   }
 
-  public void setAudioInfo(Label audioInfo) {
-    this.audioInfo = audioInfo;
+  public void setSala(Sala sala) {
+    this.sala = sala;
+    setSalaNumeroDetailsCinema(sala.getIdSala());
+    setTotNumero(sala.getCapienza());
+    setTecnInfo(sala.getTecnologia().toString());
+    setAudioInfo(sala.getAudio().toString());
   }
 }
