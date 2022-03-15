@@ -35,6 +35,8 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
   private SalaDAO salaDAO;
   private ProiezioneDAO proiezioneDAO;
   private PaneDetailsCinemaController paneDetailsCinemaController;
+  private PaneDetailsCinemaFilmController paneDetailsCinemaFilmController;
+  private DashboardController dashboardController;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -131,6 +133,8 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
     var pane = itemProiezioneFXML.load();
     ItemFilmController itemController = itemProiezioneFXML.getController();
     itemController.setNomeFilmItem(item.getFilm().getTitolo());
+    itemController.setIdProiezione(item.getIdProiezione());
+    itemController.setCinemaDashboardController(this);
     return pane;
   }
   private Object getItemNoFilm() throws IOException {
@@ -144,14 +148,31 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
     return currentDate.after(min) && currentDate.before(max);
   }
   public void setItemSalaSelected(Integer numeroSala){
+    dashboardController.loadPaneDetailsCinema();
     salaDAO = new SalaDAOImpl(DatabaseConnection.getConnection());
     var salaList = salaDAO.queryRetriveSala();
     var sala = salaList.stream().filter(src->src.getIdSala()==numeroSala).findFirst().get();
-    paneDetailsCinemaController.setSalaNumeroDetailsCinema(sala.getIdSala());
+    paneDetailsCinemaController.setSala(sala);
+  }
+
+  public void setItemFilmSelected(Integer idProiezione){
+    dashboardController.loadPaneDetailsFilm();
+    proiezioneDAO = new ProiezioneDAOImpl(DatabaseConnection.getConnection());
+    var proiezione = proiezioneDAO.queryListProiezioniFilm().stream().filter(i -> i.getIdProiezione()==idProiezione).findFirst().get();
+    paneDetailsCinemaFilmController.setProiezione(proiezione);
   }
 
   public void setPaneDetailsCinemaController(
       PaneDetailsCinemaController paneDetailsCinemaController) {
     this.paneDetailsCinemaController = paneDetailsCinemaController;
+  }
+
+  public void setPaneDetailsCinemaFilmController(
+      PaneDetailsCinemaFilmController paneDetailsCinemaFilmController) {
+    this.paneDetailsCinemaFilmController = paneDetailsCinemaFilmController;
+  }
+
+  public void setDashboardController(DashboardController dashboardController) {
+    this.dashboardController = dashboardController;
   }
 }

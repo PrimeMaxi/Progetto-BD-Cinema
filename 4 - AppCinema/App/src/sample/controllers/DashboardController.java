@@ -22,7 +22,6 @@ import sample.database.DatabaseConnection;
 import sample.models.dao.implDAO.CinemaDAOImpl;
 import sample.models.dao.interfaceDAO.CinemaDAO;
 import sample.models.entity.Cinema;
-import sample.models.entity.Sala;
 import sample.service.ActionListener;
 import sample.service.SceneCreator;
 
@@ -39,6 +38,8 @@ public class DashboardController implements Initializable {
   private BookingController bookingController;
   private CinemaDashboardController cinemaDashboardController;
   private PaneDetailsCinemaController paneDetailsCinemaController;
+  private PaneDetailsCinemaFilmController paneDetailsCinemaFilmController;
+  private Object paneCinemaDetails;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -54,29 +55,48 @@ public class DashboardController implements Initializable {
     paneLeftDetails.getChildren().clear();
     dashboardPane.getChildren().clear();
     try {
-//      final var pane = FXMLLoader.load(
-//          Objects.requireNonNull(Application.class.getResource("viewsRefactor/CinemaDashboard.fxml")));
-//      dashboardPane.getChildren().add((Node) pane);
-
       FXMLLoader cinemaLoader = new FXMLLoader();
       cinemaLoader.setLocation(Application.class.getResource("viewsRefactor/CinemaDashboard.fxml"));
       var pane = cinemaLoader.load();
       dashboardPane.getChildren().add((Node) pane);
       cinemaDashboardController = cinemaLoader.getController();
 
-//      var paneCinemaDetails = FXMLLoader.load(
-//          Objects.requireNonNull(Application.class.getResource("viewsRefactor/TastoCinema/paneDetailsCinema.fxml")));
-//      paneLeftDetails.getChildren().add((Node) paneCinemaDetails);
       FXMLLoader detailsCinemaLoader = new FXMLLoader();
       detailsCinemaLoader.setLocation(Application.class.getResource("viewsRefactor/TastoCinema/paneDetailsCinema.fxml"));
-      var paneCinemaDetails = detailsCinemaLoader.load();
+      paneCinemaDetails = detailsCinemaLoader.load();
       paneLeftDetails.getChildren().add((Node) paneCinemaDetails);
       paneDetailsCinemaController = detailsCinemaLoader.getController();
       cinemaDashboardController.setPaneDetailsCinemaController(paneDetailsCinemaController);
-
+      cinemaDashboardController.setDashboardController(this);
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  /**
+   * Details FILM
+   * carica il pane dettaglio del film selezionato dalla dashboard di Cinema
+   * **/
+  public void loadPaneDetailsFilm(){
+    paneLeftDetails.getChildren().clear();
+    try{
+      FXMLLoader detailsFilmLoader = new FXMLLoader();
+      detailsFilmLoader.setLocation(Application.class.getResource("viewsRefactor/TastoCinema/paneDetailsFilm.fxml"));
+      var paneFilmDetails = detailsFilmLoader.load();
+      paneLeftDetails.getChildren().add((Node) paneFilmDetails);
+      paneDetailsCinemaFilmController = detailsFilmLoader.getController();
+      cinemaDashboardController.setPaneDetailsCinemaFilmController(paneDetailsCinemaFilmController);
+    }catch (IOException e){
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * Details Cinema
+   * carica il pane dettaglio della sala dopo aver selezionato dalla dashboard di Cinema la sala**/
+  public void loadPaneDetailsCinema(){
+    paneLeftDetails.getChildren().clear();
+    paneLeftDetails.getChildren().add((Node) paneCinemaDetails);
   }
 
   /**
