@@ -27,7 +27,7 @@ public class PaneDetailsCinemaController implements Initializable {
   }
 
   public void setSalaNumeroDetailsCinema(Integer numero) {
-    salaNumeroDetailsCinema.setText("11");
+    salaNumeroDetailsCinema.setText(numero.toString());
   }
 
   public void setTotNumero(Label totNumero) {

@@ -72,6 +72,7 @@ public class DashboardController implements Initializable {
       var paneCinemaDetails = detailsCinemaLoader.load();
       paneLeftDetails.getChildren().add((Node) paneCinemaDetails);
       paneDetailsCinemaController = detailsCinemaLoader.getController();
+      cinemaDashboardController.setPaneDetailsCinemaController(paneDetailsCinemaController);
 
     } catch (IOException e) {
       e.printStackTrace();

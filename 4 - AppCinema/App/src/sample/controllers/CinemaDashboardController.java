@@ -34,6 +34,7 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
   public GridPane gridPaneCinema;
   private SalaDAO salaDAO;
   private ProiezioneDAO proiezioneDAO;
+  private PaneDetailsCinemaController paneDetailsCinemaController;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,7 +60,7 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
         var pane = itemSalaFXML.load();
         ItemSala2Controller itemController = itemSalaFXML.getController();
         itemController.setNumeroSalaITem(item.getIdSala());
-        itemController.setSala(item);
+        itemController.setCinemaDashboardController(this);
         gridPaneCinema.add(
             (Node) pane,
             0,
@@ -141,5 +142,16 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
   private boolean checkLocalDate(java.util.Date min, java.util.Date max){
     var currentDate = Date.valueOf(LocalDate.now());
     return currentDate.after(min) && currentDate.before(max);
+  }
+  public void setItemSalaSelected(Integer numeroSala){
+    salaDAO = new SalaDAOImpl(DatabaseConnection.getConnection());
+    var salaList = salaDAO.queryRetriveSala();
+    var sala = salaList.stream().filter(src->src.getIdSala()==numeroSala).findFirst().get();
+    paneDetailsCinemaController.setSalaNumeroDetailsCinema(sala.getIdSala());
+  }
+
+  public void setPaneDetailsCinemaController(
+      PaneDetailsCinemaController paneDetailsCinemaController) {
+    this.paneDetailsCinemaController = paneDetailsCinemaController;
   }
 }
