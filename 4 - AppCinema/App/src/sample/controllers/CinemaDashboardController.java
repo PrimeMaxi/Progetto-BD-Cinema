@@ -34,6 +34,7 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
   public GridPane gridPaneCinema;
   private SalaDAO salaDAO;
   private ProiezioneDAO proiezioneDAO;
+  private FilmDAO filmDAO;
   private PaneDetailsCinemaController paneDetailsCinemaController;
   private PaneDetailsCinemaFilmController paneDetailsCinemaFilmController;
   private DashboardController dashboardController;
@@ -159,7 +160,10 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
     dashboardController.loadPaneDetailsFilm();
     proiezioneDAO = new ProiezioneDAOImpl(DatabaseConnection.getConnection());
     var proiezione = proiezioneDAO.queryListProiezioniFilm().stream().filter(i -> i.getIdProiezione()==idProiezione).findFirst().get();
+    filmDAO = new FilmDaoImpl(DatabaseConnection.getConnection());
+    var film = filmDAO.queryFilm(proiezione.getFilm().getIdFilm());
     paneDetailsCinemaFilmController.setProiezione(proiezione);
+    paneDetailsCinemaFilmController.setFilm(film);
   }
 
   public void setPaneDetailsCinemaController(

@@ -17,8 +17,10 @@ import sample.models.enumerations.GENERE;
 
 public class FilmDaoImpl implements FilmDAO {
 
+  private static final String sqlFilm = "select * from film where idfilm=?";
+
   private Connection connection;
-  private PreparedStatement insertFilm, deleteFilm, queryFilmById, updateFilm;
+  private PreparedStatement insertFilm, deleteFilm, queryFilmById, updateFilm, queryFilm;
   private Statement queryListFilm, updateFilmTitolo;
 
   public FilmDaoImpl(Connection connection){
@@ -30,6 +32,7 @@ public class FilmDaoImpl implements FilmDAO {
       queryListFilm = connection.createStatement();
       updateFilmTitolo = connection.createStatement();
       updateFilm = connection.prepareStatement("UPDATE FILM SET titolo=?,trama=?,regia=?,anno=?,durata=?,genere=? where idfilm=?");
+      queryFilm = connection.prepareStatement(sqlFilm);
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -113,6 +116,7 @@ public class FilmDaoImpl implements FilmDAO {
       try {
         updateFilmTitolo.close();
       } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
         e.printStackTrace();
       }
     }
@@ -129,6 +133,7 @@ public class FilmDaoImpl implements FilmDAO {
       updateFilm.setInt(7,film.getIdFilm());
       updateFilm.executeUpdate();
     } catch (SQLException e) {
+      JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
       e.printStackTrace();
     }finally{
       try {
@@ -137,5 +142,27 @@ public class FilmDaoImpl implements FilmDAO {
         e.printStackTrace();
       }
     }
+  }
+
+  @Override
+  public Film queryFilm(Integer idFilm){
+    try{
+      queryFilm.setInt(1,idFilm);
+      var rs = queryFilm.executeQuery();
+      while (rs.next()) {
+        return new Film(
+            rs.getInt(1),
+            rs.getString(2),
+            rs.getString(3),
+            rs.getString(4),
+            rs.getInt(5),
+            rs.getTime(6),
+            rs.getString(7));
+      }
+    }catch (SQLException e){
+      JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
+      e.printStackTrace();
+    }
+    return null;
   }
 }
