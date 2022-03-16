@@ -146,6 +146,7 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
     ItemNOController itemNOController = itemProiezioneFXML.getController();
     itemNOController.setOrari(orari);
     itemNOController.setIdSala(idSala);
+    itemNOController.setCinemaDashboardController(this);
     return pane;
   }
   private boolean checkLocalDate(java.util.Date min, java.util.Date max){
@@ -182,5 +183,9 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
 
   public void setDashboardController(DashboardController dashboardController) {
     this.dashboardController = dashboardController;
+  }
+
+  public void refresh(){
+    setGridPaneCinema();
   }
 }

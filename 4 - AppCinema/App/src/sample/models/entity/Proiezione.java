@@ -91,4 +91,17 @@ public class Proiezione {
   public void setPrezzo(Integer prezzo) {
     this.prezzo = prezzo;
   }
+
+  @Override
+  public String toString() {
+    return "Proiezione{" +
+        "idProiezione=" + idProiezione +
+        ", orarioProiezione='" + orarioProiezione + '\'' +
+        ", inizioData=" + inizioData +
+        ", fineData=" + fineData +
+        ", sala=" + sala.getIdSala() +
+        ", film=" + film.getTitolo() +
+        ", prezzo=" + prezzo +
+        "}\n";
+  }
 }

@@ -67,9 +67,12 @@ public class FilmDaoImpl implements FilmDAO {
     try {
       queryFilmById.setString(1,titolo);
       ResultSet resultQuery = queryFilmById.executeQuery();
-      return resultQuery.getInt(1);
+      while (resultQuery.next()){
+        return resultQuery.getInt(1);
+      }
     } catch (SQLException e) {
       JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
+      e.printStackTrace();
     }
     return 0;
   }

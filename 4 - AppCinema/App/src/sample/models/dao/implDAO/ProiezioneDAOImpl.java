@@ -1,11 +1,13 @@
 package sample.models.dao.implDAO;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
 import java.sql.Types;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -19,7 +21,7 @@ public class ProiezioneDAOImpl implements ProiezioneDAO {
   private static final String sqlProiezioniFilm =
       "select pr.idproiezione, pr.iniziodata, pr.finedata, pr.orarioproiezione, f.idfilm, f.titolo,pr.prezzo, pr.idsalafk from proiezione as pr inner join film as f on pr.idfilmfk=f.idfilm";
   private static final String sqlUpdateProiezione = "update proiezione set prezzo=?, orarioproiezione=? where idproiezione=?";
-  private static final String sqlInsertProiezione = "INSERT INTO PROIEZIONE (InizioData,FineData,orainizio,orafine,OrarioProiezione,Prezzo,idfilmfk,idsalafk) VALUES (CURRENT_DATE,CURRENT_DATE,?,?,?,?,?,?)";
+  private static final String sqlInsertProiezione = "INSERT INTO PROIEZIONE (FineData,orainizio,orafine,OrarioProiezione,Prezzo,idfilmfk,idsalafk) VALUES (?,?,?,?,?,?,?)";
 
   private Statement queryListProiezioniFilm;
   private PreparedStatement queryUpdateProiezione,queryInsertProiezione;
@@ -75,14 +77,16 @@ public class ProiezioneDAOImpl implements ProiezioneDAO {
   }
 
   @Override
-  public boolean queryInsertProiezione(Time oraInizio, Time oraFine, ORARI orari, Integer prezzo, Integer idFilmFk, Integer idSalaFk){
+  public boolean queryInsertProiezione(Time oraInizio, Time oraFine, ORARI orari, Integer prezzo,
+      Integer idFilmFk, Integer idSalaFk){
     try {
-      queryInsertProiezione.setTime(1,oraInizio);
-      queryInsertProiezione.setTime(2,oraFine);
-      queryInsertProiezione.setObject(3,orari,Types.OTHER);
-      queryUpdateProiezione.setInt(4,prezzo);
-      queryUpdateProiezione.setInt(5,idFilmFk);
-      queryUpdateProiezione.setInt(6,idSalaFk);
+      queryInsertProiezione.setDate(1, Date.valueOf(LocalDate.now()));
+      queryInsertProiezione.setTime(2,oraInizio);
+      queryInsertProiezione.setTime(3,oraFine);
+      queryInsertProiezione.setObject(4,orari,Types.OTHER);
+      queryInsertProiezione.setInt(5,prezzo);
+      queryInsertProiezione.setInt(6,idFilmFk);
+      queryInsertProiezione.setInt(7,idSalaFk);
       return queryInsertProiezione.execute();
     } catch (SQLException e) {
       JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());

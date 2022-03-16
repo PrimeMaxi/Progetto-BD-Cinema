@@ -15,6 +15,7 @@ public class ItemNOController {
 
   private ORARI orari;
   private Integer idSala;
+  private CinemaDashboardController cinemaDashboardController;
 
   public void insertProiezione(MouseEvent mouseEvent) {
     Parent root;
@@ -27,6 +28,7 @@ public class ItemNOController {
       InsertProiezioneController insertProiezione = insertProiezioneLoader.getController();
       insertProiezione.setOrari(orari);
       insertProiezione.setIdSala(idSala);
+      insertProiezione.setCinemaDashboardController(cinemaDashboardController);
       stage.show();
     }
     catch (IOException e) {
@@ -41,5 +43,10 @@ public class ItemNOController {
 
   public void setIdSala(Integer idSala) {
     this.idSala = idSala;
+  }
+
+  public void setCinemaDashboardController(
+      CinemaDashboardController cinemaDashboardController) {
+    this.cinemaDashboardController = cinemaDashboardController;
   }
 }
