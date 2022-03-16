@@ -89,7 +89,7 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
     try {
       if(listProiezioniCurrent.isEmpty()){
         for (int i = 0; i < 4; i++) {
-          var pane = getItemNoFilm();
+          var pane = getItemNoFilm(ORARI.getListORARI().get(i),idSala);
           gridPaneCinema.add(
               (Node) pane,
               column++,
@@ -106,7 +106,7 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
                 column++,
                 row);
           }else{
-            var paneNoImage = getItemNoFilm();
+            var paneNoImage = getItemNoFilm(orario,idSala);
             gridPaneCinema.add(
                 (Node) paneNoImage,
                 column++,
@@ -138,11 +138,15 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
     itemController.setCinemaDashboardController(this);
     return pane;
   }
-  private Object getItemNoFilm() throws IOException {
+  private Object getItemNoFilm(ORARI orari,Integer idSala) throws IOException {
     FXMLLoader itemProiezioneFXML = new FXMLLoader();
     itemProiezioneFXML.setLocation(
         Application.class.getResource("viewsRefactor/ItemNO.fxml"));
-    return itemProiezioneFXML.load();
+    var pane = itemProiezioneFXML.load();
+    ItemNOController itemNOController = itemProiezioneFXML.getController();
+    itemNOController.setOrari(orari);
+    itemNOController.setIdSala(idSala);
+    return pane;
   }
   private boolean checkLocalDate(java.util.Date min, java.util.Date max){
     var currentDate = Date.valueOf(LocalDate.now());
