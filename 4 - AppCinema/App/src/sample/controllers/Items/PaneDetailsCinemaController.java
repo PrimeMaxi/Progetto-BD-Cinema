@@ -16,7 +16,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import sample.Application;
+import sample.controllers.CinemaDashboardController;
 import sample.controllers.DetailsDalaModificaController;
+import sample.database.DatabaseConnection;
+import sample.models.dao.implDAO.SalaDAOImpl;
+import sample.models.dao.interfaceDAO.SalaDAO;
 import sample.models.entity.Sala;
 
 public class PaneDetailsCinemaController implements Initializable {
@@ -28,6 +32,8 @@ public class PaneDetailsCinemaController implements Initializable {
   public Label tecnInfo;
   public Label audioInfo;
   private Sala sala;
+  private SalaDAO salaDAO;
+  private CinemaDashboardController cinemaDashboardController;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -77,6 +83,14 @@ public class PaneDetailsCinemaController implements Initializable {
     setAudioInfo(sala.getAudio().toString());
   }
 
+  public void setCinemaDashboardController(
+      CinemaDashboardController cinemaDashboardController) {
+    this.cinemaDashboardController = cinemaDashboardController;
+  }
+
   public void cancellaSala(ActionEvent actionEvent) {
+    salaDAO = new SalaDAOImpl(DatabaseConnection.getConnection());
+    salaDAO.queryDelete(sala.getIdSala());
+    cinemaDashboardController.refresh();
   }
 }

@@ -10,4 +10,6 @@ public interface SalaDAO {
   List<Sala> queryRetriveSala();
 
   boolean queryUpdate(Integer idSala, Integer capienza, TECNOLOGIA tecnologia, AUDIO audio);
+
+  boolean queryDelete(Integer idSala);
 }

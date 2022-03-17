@@ -182,6 +182,7 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
   public void setPaneDetailsCinemaController(
       PaneDetailsCinemaController paneDetailsCinemaController) {
     this.paneDetailsCinemaController = paneDetailsCinemaController;
+    paneDetailsCinemaController.setCinemaDashboardController(this);
   }
 
   public void setPaneDetailsCinemaFilmController(

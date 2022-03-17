@@ -18,14 +18,16 @@ public class SalaDAOImpl implements SalaDAO {
 
   private static final String sqlRetriveSala = "select idsala,capienza,tecnologia,audio from sala";
   private static final String sqlUpdateSala = "update sala set capienza=?, tecnologia=?, audio=? where idsala=?";
+  private static final String sqlDeleteSala = "Delete from sala where idsala=?";
 
   private Statement queryRetriveSala;
-  private PreparedStatement queryUpdate;
+  private PreparedStatement queryUpdate, queryDelete;
 
   public SalaDAOImpl(Connection connection){
     try {
       queryRetriveSala = connection.createStatement();
       queryUpdate = connection.prepareStatement(sqlUpdateSala);
+      queryDelete = connection.prepareStatement(sqlDeleteSala);
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -74,4 +76,21 @@ public class SalaDAOImpl implements SalaDAO {
     }
   }
 
+  @Override
+  public boolean queryDelete(Integer idSala){
+    try {
+      queryDelete.setInt(1,idSala);
+      return queryDelete.execute();
+    } catch (SQLException e) {
+      JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
+      e.printStackTrace();
+    }finally{
+      try {
+        queryDelete.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+    }
+    return false;
+  }
 }
