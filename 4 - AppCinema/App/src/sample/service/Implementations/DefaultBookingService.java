@@ -28,7 +28,7 @@ public class DefaultBookingService implements BookingService {
     //Restituisce la lista di proiezioni per la data selezionata
     ticketList = ticketDao.queryTicket(dataProiezione);
     //Creo una lista di Titoli
-    var filmList = ticketList.stream().map(Ticket::getTitolo).collect(Collectors.toList());
+    var filmList = ticketList.stream().map(Ticket::getTitolo).distinct().collect(Collectors.toList());
     //Imposto i titoli al CoicheBox dei film
     listFilmTicket.setItems(FXCollections.observableList(filmList));
     List<Ticket> finalTicketList = ticketList;
@@ -50,7 +50,7 @@ public class DefaultBookingService implements BookingService {
       TicketDao ticketDao) {
     dataTicket.setChronology(Chronology.ofLocale(Locale.ITALIAN));
     ticketList = ticketDao.queryTicket();
-    var filmList = ticketList.stream().map(Ticket::getTitolo).collect(Collectors.toList());
+    var filmList = ticketList.stream().map(Ticket::getTitolo).distinct().collect(Collectors.toList());
     listFilmTicket.setItems(FXCollections.observableList(filmList));
     List<Ticket> finalTicketList = ticketList;
     listFilmTicket.setOnAction((actionEvent -> {

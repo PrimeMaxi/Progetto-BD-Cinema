@@ -53,7 +53,7 @@ public class ModificaCinema implements Initializable {
     cinema.setTelefono(Integer.parseInt(telefono.getText()));
     cinema.setProvincia(Provincia.getText());
     cinemaDAO.updateCinema(cinema);
-    SceneCreator.launchScene("viewsRefactor/Dashboard.fxmjaf");
+    SceneCreator.launchScene("viewsRefactor/Dashboard.fxml");
   }
 
   public void cancelCinema(ActionEvent actionEvent) {
