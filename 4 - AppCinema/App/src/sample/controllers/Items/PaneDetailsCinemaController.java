@@ -76,4 +76,7 @@ public class PaneDetailsCinemaController implements Initializable {
     setTecnInfo(sala.getTecnologia().toString());
     setAudioInfo(sala.getAudio().toString());
   }
+
+  public void cancellaSala(ActionEvent actionEvent) {
+  }
 }

@@ -1,6 +1,7 @@
 package sample.models.entity;
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 import javafx.scene.layout.BackgroundImage;
 import sample.models.enumerations.ORARI;
@@ -10,17 +11,23 @@ public class Proiezione {
   private String orarioProiezione;
   private Date inizioData;
   private Date fineData;
+  private Time oraInizio;
+  private Time oraFine;
   private Sala sala;
   private List<Biglietto> bigliettoList;
   private Film film;
   private Integer prezzo;
 
+
+
   public Proiezione(Integer idProiezione, String orarioProiezione, Date inizioData,
-      Date fineData, Integer idfilm, String titolo,Integer prezzo, Integer idSala ) {
+      Date fineData, Integer idfilm, String titolo,Integer prezzo, Integer idSala, Time oraInizio, Time oraFine ) {
     this.idProiezione = idProiezione;
     this.orarioProiezione = orarioProiezione;
     this.inizioData = inizioData;
     this.fineData = fineData;
+    this.oraInizio=oraInizio;
+    this.oraFine=oraFine;
     this.sala = new Sala(idSala);
     this.film = new Film();
     film.setIdFilm(idfilm);
@@ -90,6 +97,22 @@ public class Proiezione {
 
   public void setPrezzo(Integer prezzo) {
     this.prezzo = prezzo;
+  }
+
+  public Time getOraInizio() {
+    return oraInizio;
+  }
+
+  public void setOraInizio(Time oraInizio) {
+    this.oraInizio = oraInizio;
+  }
+
+  public Time getOraFine() {
+    return oraFine;
+  }
+
+  public void setOraFine(Time oraFine) {
+    this.oraFine = oraFine;
   }
 
   @Override

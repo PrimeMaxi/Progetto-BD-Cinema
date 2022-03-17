@@ -13,4 +13,8 @@ public interface ProiezioneDAO {
 
   boolean queryInsertProiezione(Time oraInizio, Time oraFine, ORARI orari, Integer prezzo,
       Integer idFilmFk, Integer idSalaFk);
+
+  boolean queryUpdate(Proiezione proiezione);
+
+  boolean queryDeleteProiezione(Proiezione proiezione);
 }

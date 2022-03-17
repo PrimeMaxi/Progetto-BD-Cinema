@@ -74,9 +74,14 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER" prefHeight="86.0" prefWidth="208.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#buttonModificaDetailsCinema" text="Modifica" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="86.0" prefWidth="208.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#cancellaSala" text="Cancella" />
                      </children>
                   </HBox>
                </children>

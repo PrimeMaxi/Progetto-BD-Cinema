@@ -11,6 +11,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.Application;
+import sample.database.DatabaseConnection;
+import sample.database.DatabaseUtil;
+import sample.models.dao.implDAO.ProiezioneDAOImpl;
+import sample.models.dao.interfaceDAO.ProiezioneDAO;
 import sample.models.entity.Film;
 import sample.models.entity.Proiezione;
 
@@ -24,6 +28,7 @@ public class PaneDetailsCinemaFilmController {
   public Text textGenere;
   private Proiezione proiezione;
   private Film film;
+  private ProiezioneDAO proiezioneDAO;
 
   public void buttonModificaProiezione(ActionEvent actionEvent) {
     Parent root;
@@ -59,5 +64,10 @@ public class PaneDetailsCinemaFilmController {
     this.textGenere.setText(film.getGenere().toString());
     this.textAnno.setText(film.getAnnoUscita().toString());
     this.textRegia.setText(film.getRegia());
+  }
+
+  public void cancellaProiezione(ActionEvent actionEvent) {
+    proiezioneDAO = new ProiezioneDAOImpl(DatabaseConnection.getConnection());
+    proiezioneDAO.queryDeleteProiezione(proiezione);
   }
 }
