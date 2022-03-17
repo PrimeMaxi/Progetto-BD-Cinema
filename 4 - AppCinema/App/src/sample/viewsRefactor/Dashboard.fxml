@@ -172,7 +172,8 @@
                   <Insets right="10.0" />
                </BorderPane.margin>
                <children>
-                  <Pane fx:id="dashboardPane" prefHeight="601.0" prefWidth="734.0" AnchorPane.rightAnchor="0.0" />
+                  <Pane fx:id="dashboardPane" prefHeight="559.0" prefWidth="743.0" AnchorPane.rightAnchor="2.0" />
+                  <Pane fx:id="paneOperazioniCinema" layoutY="559.0" prefHeight="42.0" prefWidth="745.0" />
                </children>
             </AnchorPane>
          </center>

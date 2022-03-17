@@ -32,6 +32,7 @@ public class DashboardController implements Initializable {
   public HBox loadCinema;
   public Pane dashboardPane;
   public Pane paneLeftDetails;
+  public Pane paneOperazioniCinema;
   private CinemaDAO cinemaDAO;
   private ActionListener actionListener;
   private TicketController ticketController;
@@ -54,6 +55,7 @@ public class DashboardController implements Initializable {
   public void buttonCinemaAction(ActionEvent actionEvent) {
     paneLeftDetails.getChildren().clear();
     dashboardPane.getChildren().clear();
+    paneOperazioniCinema.getChildren().clear();
     try {
       FXMLLoader cinemaLoader = new FXMLLoader();
       cinemaLoader.setLocation(Application.class.getResource("viewsRefactor/CinemaDashboard.fxml"));
@@ -68,6 +70,11 @@ public class DashboardController implements Initializable {
       paneDetailsCinemaController = detailsCinemaLoader.getController();
       cinemaDashboardController.setPaneDetailsCinemaController(paneDetailsCinemaController);
       cinemaDashboardController.setDashboardController(this);
+
+      FXMLLoader operazioniCinemaLoader = new FXMLLoader();
+      operazioniCinemaLoader.setLocation(Application.class.getResource("viewsRefactor/CinemaBottomOperazioni.fxml"));
+      var paneOperazioni = operazioniCinemaLoader.load();
+      paneOperazioniCinema.getChildren().add((Node) paneOperazioni);
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -106,6 +113,7 @@ public class DashboardController implements Initializable {
   public void buttonTicketAction(ActionEvent actionEvent) {
     paneLeftDetails.getChildren().clear();
     dashboardPane.getChildren().clear();
+    paneOperazioniCinema.getChildren().clear();
     try {
       FXMLLoader ticketLoader = new FXMLLoader();
       ticketLoader.setLocation(Application.class.getResource("viewsRefactor/Ticket.fxml"));
@@ -145,6 +153,7 @@ public class DashboardController implements Initializable {
   public void buttonDashboardAction(ActionEvent actionEvent) {
     dashboardPane.getChildren().clear();
     paneLeftDetails.getChildren().clear();
+    paneOperazioniCinema.getChildren().clear();
     try {
       final var pane = FXMLLoader.load(
           Objects.requireNonNull(Application.class.getResource("viewsRefactor/ChartsDashboard.fxml")));
