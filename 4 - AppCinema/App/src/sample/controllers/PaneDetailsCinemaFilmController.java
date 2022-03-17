@@ -29,6 +29,7 @@ public class PaneDetailsCinemaFilmController {
   private Proiezione proiezione;
   private Film film;
   private ProiezioneDAO proiezioneDAO;
+  private CinemaDashboardController cinemaDashboardController;
 
   public void buttonModificaProiezione(ActionEvent actionEvent) {
     Parent root;
@@ -69,5 +70,11 @@ public class PaneDetailsCinemaFilmController {
   public void cancellaProiezione(ActionEvent actionEvent) {
     proiezioneDAO = new ProiezioneDAOImpl(DatabaseConnection.getConnection());
     proiezioneDAO.queryDeleteProiezione(proiezione);
+    cinemaDashboardController.refresh();
+  }
+
+  public void setCinemaDashboardController(
+      CinemaDashboardController cinemaDashboardController) {
+    this.cinemaDashboardController = cinemaDashboardController;
   }
 }

@@ -155,6 +155,9 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
     return currentDate.after(min) && currentDate.before(max);
   }
   private boolean checkLocalDateInclusive(java.util.Date min, java.util.Date max){
+    if(min==null || max==null){
+      return false;
+    }
     var currentDate = Date.valueOf(LocalDate.now());
     return currentDate.compareTo(min) >= 0 && currentDate.compareTo(max) <=0;
   }
@@ -184,6 +187,7 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
   public void setPaneDetailsCinemaFilmController(
       PaneDetailsCinemaFilmController paneDetailsCinemaFilmController) {
     this.paneDetailsCinemaFilmController = paneDetailsCinemaFilmController;
+    paneDetailsCinemaFilmController.setCinemaDashboardController(this);
   }
 
   public void setDashboardController(DashboardController dashboardController) {

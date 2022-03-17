@@ -92,8 +92,8 @@ public class ProiezioneDAOImpl implements ProiezioneDAO {
   private boolean queryInsertProiezione(Time oraInizio, Time oraFine, ORARI orari, Integer prezzo,
       Integer idFilmFk, Integer idSalaFk, Date inizioData, Date fineData ){
     try {
-      queryInsertProiezione.setDate(1,inizioData);
-      queryInsertProiezione.setDate(2,fineData);
+      queryInsertProiezione.setDate(1,inizioData!=null? inizioData : Date.valueOf(LocalDate.now()));
+      queryInsertProiezione.setDate(2, fineData!=null ? fineData : Date.valueOf(LocalDate.now()));
       queryInsertProiezione.setTime(3,oraInizio);
       queryInsertProiezione.setTime(4,oraFine);
       queryInsertProiezione.setObject(5,orari,Types.OTHER);

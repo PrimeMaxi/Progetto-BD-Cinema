@@ -20,6 +20,7 @@ import sample.models.dao.implDAO.FilmDaoImpl;
 import sample.models.dao.implDAO.ProiezioneDAOImpl;
 import sample.models.dao.interfaceDAO.FilmDAO;
 import sample.models.dao.interfaceDAO.ProiezioneDAO;
+import sample.models.entity.Film;
 import sample.models.enumerations.ORARI;
 
 public class InsertProiezioneController implements Initializable {
@@ -58,10 +59,22 @@ public class InsertProiezioneController implements Initializable {
   public void start(){
     proiezioneDAO = new ProiezioneDAOImpl(DatabaseConnection.getConnection());
     var listProiezioni = proiezioneDAO.queryListProiezioniFilm();
-    var proiezioniValidi = listProiezioni.stream().filter(src-> DatabaseUtil.checkLocalDate(src.getInizioData(),src.getFineData())).collect(
-        Collectors.toList());
-    films.setItems(FXCollections.observableList(proiezioniValidi.stream().map(src-> src.getFilm().getTitolo()).collect(
-        Collectors.toList())));
+    if (listProiezioni.isEmpty()) {
+      var proiezioniValidi =
+          listProiezioni.stream()
+              .filter(src -> DatabaseUtil.checkLocalDate(src.getInizioData(), src.getFineData()))
+              .collect(Collectors.toList());
+      films.setItems(
+          FXCollections.observableList(
+              proiezioniValidi.stream()
+                  .map(src -> src.getFilm().getTitolo())
+                  .collect(Collectors.toList())));
+    }else{
+      filmDAO = new FilmDaoImpl(DatabaseConnection.getConnection());
+      final var listFilms = filmDAO.queryListFilm();
+      films.setItems(FXCollections.observableList(listFilms.stream().map(Film::getTitolo).collect(
+          Collectors.toList())));
+    }
   }
 
   public void setOrari(ORARI orari) {
