@@ -72,9 +72,8 @@
 		Prezzo FLOAT NOT NULL,
 		IdFilmFk INTEGER NOT NULL,
 		IdSalaFk INTEGER NOT NULL,
-		UNIQUE (IdSalaFk,OrarioProiezione), ---Vincolo che stabile che non è possibile avere due proiezione nella stessa sala
 		CONSTRAINT fk_Film FOREIGN KEY (IdFilmFk) REFERENCES FILM(IdFilm),
-		CONSTRAINT fk_SalaP FOREIGN KEY (IdSalaFk) REFERENCES SALA(IdSala)
+		CONSTRAINT fk_SalaP FOREIGN KEY (IdSalaFk) REFERENCES SALA(IdSala) ON DELETE CASCADE
 	);
 	
 		CREATE TABLE Biglietto(
@@ -83,7 +82,7 @@
 		IdPostoFk INTEGER NOT NULL,
 		DisponibilePosto BOOLEAN DEFAULT 'True' NOT NULL,
 		DataBiglietto TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-		CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione)
+		CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione) ON DELETE CASCADE
 	);
 	/*
 	
@@ -103,8 +102,8 @@
 		IdPostoFk INTEGER NOT NULL,
 		IdProiezioneFk INTEGER NOT NULL,
 		IdBigliettoFk INTEGER NOT NULL,
-		CONSTRAINT fk_Posto FOREIGN KEY (IdPostoFk) REFERENCES POSTO(IdPosto),
-		CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione),
+		CONSTRAINT fk_Posto FOREIGN KEY (IdPostoFk) REFERENCES POSTO(IdPosto) ON DELETE CASCADE,
+		CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione) ON DELETE CASCADE,
 		CONSTRAINT fk_Biglietto FOREIGN KEY (IdBigliettoFk) REFERENCES BIGLIETTO(IdBiglietto)
 	);
 	
@@ -244,6 +243,8 @@
 	AFTER INSERT on BIGLIETTO
 	FOR EACH ROW
 	EXECUTE PROCEDURE insertPostPrenotato();
+	
+	---Funzione e Trigger che solleva errore se esiste una proiezione nello stesso orario e nello stesso giorno
 
 	---Funzione e Trigger che una volta comprato un biglietto, imposti automaticamente il campo DisponibilePosto da TRUE a FALSE
 	/*

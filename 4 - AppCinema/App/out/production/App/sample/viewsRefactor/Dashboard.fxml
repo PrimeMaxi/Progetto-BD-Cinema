@@ -35,6 +35,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -172,8 +173,12 @@
                   <Insets right="10.0" />
                </BorderPane.margin>
                <children>
-                  <Pane fx:id="dashboardPane" prefHeight="559.0" prefWidth="743.0" AnchorPane.rightAnchor="2.0" />
-                  <Pane fx:id="paneOperazioniCinema" layoutY="559.0" prefHeight="42.0" prefWidth="745.0" />
+                  <ScrollPane prefHeight="533.0" prefWidth="750.0">
+                     <content>
+                        <Pane fx:id="dashboardPane" prefHeight="520.0" prefWidth="746.0" />
+                     </content>
+                  </ScrollPane>
+                  <Pane fx:id="paneOperazioniCinema" layoutY="529.0" prefHeight="76.0" prefWidth="752.0" style="-fx-background-color: #ff0000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" />
                </children>
             </AnchorPane>
          </center>
