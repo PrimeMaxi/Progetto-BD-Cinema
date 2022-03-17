@@ -81,7 +81,7 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
     int column =1;
     int row = idSala-1;
     var listProiezioniCurrent = listProiezioni.stream().filter(src-> Objects.equals(
-        src.getSala().getIdSala(), idSala) && checkLocalDate(src.getInizioData(),src.getFineData())).collect(Collectors.toList());
+        src.getSala().getIdSala(), idSala) && checkLocalDateInclusive(src.getInizioData(),src.getFineData())).collect(Collectors.toList());
     listProiezioni.removeAll(listProiezioniCurrent);
     var size = listProiezioniCurrent.size();
     var listOrari = listProiezioniCurrent.stream().map(Proiezione::getOrarioProiezione).toList();
@@ -152,6 +152,10 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
   private boolean checkLocalDate(java.util.Date min, java.util.Date max){
     var currentDate = Date.valueOf(LocalDate.now());
     return currentDate.after(min) && currentDate.before(max);
+  }
+  private boolean checkLocalDateInclusive(java.util.Date min, java.util.Date max){
+    var currentDate = Date.valueOf(LocalDate.now());
+    return currentDate.compareTo(min) >= 0 && currentDate.compareTo(max) <=0;
   }
   public void setItemSalaSelected(Integer numeroSala){
     dashboardController.loadPaneDetailsCinema();

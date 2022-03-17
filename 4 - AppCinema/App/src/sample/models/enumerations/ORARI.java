@@ -51,7 +51,7 @@ public enum ORARI {
     if(orari.toString().equals("22-24")){
       var time = new Time[2];
       time[0] = Time.valueOf(LocalTime.of(22, 0, 0));
-      time[1] = Time.valueOf(LocalTime.of(24, 0, 0));
+      time[1] = Time.valueOf(LocalTime.of(23, 0, 0));
       return time;    }
     return null;
   }
