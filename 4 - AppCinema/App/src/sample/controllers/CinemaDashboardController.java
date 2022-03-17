@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -190,6 +191,6 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
   }
 
   public void refresh(){
-    setGridPaneCinema();
+    dashboardController.buttonCinemaAction(new ActionEvent());
   }
 }
