@@ -18,8 +18,9 @@ import sample.models.enumerations.GENERE;
 public class FilmDaoImpl implements FilmDAO {
 
   private static final String sqlFilm = "select * from film where idfilm=?";
+  private static final String sqlInsertFilm = "INSERT INTO FILM (Titolo,Trama,Regia,Anno,Durata,Genere) VALUES (?,?,?,?,?,?)";
 
-  private PreparedStatement insertFilm, deleteFilm, queryFilmById, updateFilm, queryFilm;
+  private PreparedStatement insertFilm, deleteFilm, queryFilmById, updateFilm, queryFilm, querySave;
   private Statement queryListFilm, updateFilmTitolo;
 
   public FilmDaoImpl(Connection connection){
@@ -31,6 +32,7 @@ public class FilmDaoImpl implements FilmDAO {
       updateFilmTitolo = connection.createStatement();
       updateFilm = connection.prepareStatement("UPDATE FILM SET titolo=?,trama=?,regia=?,anno=?,durata=?,genere=? where idfilm=?");
       queryFilm = connection.prepareStatement(sqlFilm);
+      querySave = connection.prepareStatement(sqlInsertFilm);
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -141,6 +143,7 @@ public class FilmDaoImpl implements FilmDAO {
       try {
         updateFilm.close();
       } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
         e.printStackTrace();
       }
     }
@@ -172,5 +175,22 @@ public class FilmDaoImpl implements FilmDAO {
       }
     }
     return null;
+  }
+
+  @Override
+  public boolean querySave(Film film){
+    try {
+      querySave.setString(1,film.getTitolo());
+      querySave.setString(2,film.getTrama());
+      querySave.setString(3,film.getRegia());
+      querySave.setInt(4,film.getAnnoUscita().getValue());
+      querySave.setTime(5,film.getDurataFilm());
+      querySave.setObject(6,film.getGenere(),Types.OTHER);
+      return querySave.execute();
+    } catch (SQLException e) {
+      JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
+      e.printStackTrace();
+    }
+    return false;
   }
 }

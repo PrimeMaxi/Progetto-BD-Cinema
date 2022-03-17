@@ -54,7 +54,7 @@ public class Film {
   }
 
   public String getTrama() {
-    return trama;
+    return trama!=null ? trama : "DEFAULT";
   }
 
   public void setTrama(String trama) {
@@ -62,7 +62,7 @@ public class Film {
   }
 
   public String getRegia() {
-    return regia;
+    return regia!=null ? regia : "DEFAULT";
   }
 
   public void setRegia(String regia) {

@@ -13,4 +13,6 @@ public interface FilmDAO {
     void updateFilm(Film film);
 
     Film queryFilm(Integer idFilm);
+
+  boolean querySave(Film film);
 }
