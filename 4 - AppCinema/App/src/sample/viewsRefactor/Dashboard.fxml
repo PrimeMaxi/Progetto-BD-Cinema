@@ -48,7 +48,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="969.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.DashboardController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="969.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.DashboardController">
    <children>
       <BorderPane prefHeight="672.0" prefWidth="949.0" AnchorPane.bottomAnchor="-11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -173,12 +173,12 @@
                   <Insets right="10.0" />
                </BorderPane.margin>
                <children>
-                  <ScrollPane prefHeight="533.0" prefWidth="750.0">
+                  <ScrollPane prefHeight="555.0" prefWidth="750.0">
                      <content>
-                        <Pane fx:id="dashboardPane" prefHeight="520.0" prefWidth="746.0" />
+                        <Pane fx:id="dashboardPane" prefHeight="547.0" prefWidth="746.0" />
                      </content>
                   </ScrollPane>
-                  <Pane fx:id="paneOperazioniCinema" layoutY="529.0" prefHeight="76.0" prefWidth="752.0" style="-fx-background-color: #ff0000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" />
+                  <Pane fx:id="paneOperazioniCinema" layoutY="555.0" prefHeight="70.0" prefWidth="752.0" style="-fx-background-color: #ff0000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" />
                </children>
             </AnchorPane>
          </center>

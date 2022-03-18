@@ -12,7 +12,6 @@ import sample.service.SceneCreator;
 
 public class CinemaDAOImpl implements CinemaDAO {
 
-  Connection connection;
   private PreparedStatement updateCinema, updateNumeroSala;
   private Statement retriveCinema;
   private final static String sqlRetriveCinema = "SELECT * FROM CINEMA where idcinema=1";
@@ -20,7 +19,6 @@ public class CinemaDAOImpl implements CinemaDAO {
   private final static String sqlUpdateNumeroSala = "UPDATE CINEMA SET numerosala=? WHERE idcinema=1";
 
   public CinemaDAOImpl(Connection connection){
-    this.connection = connection;
     try {
       retriveCinema = connection.createStatement();
       updateCinema = connection.prepareStatement(sqlUpdateCinema);
