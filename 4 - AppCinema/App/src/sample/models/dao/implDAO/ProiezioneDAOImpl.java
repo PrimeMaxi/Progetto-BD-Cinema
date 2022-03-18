@@ -25,9 +25,10 @@ public class ProiezioneDAOImpl implements ProiezioneDAO {
   private static final String sqlInsertProiezione = "INSERT INTO PROIEZIONE (iniziodata,fineData,orainizio,orafine,OrarioProiezione,Prezzo,idfilmfk,idsalafk) VALUES (?,?,?,?,?,?,?,?)";
   private static final String sqlDeleteProiezione = "DELETE FROM PROIEZIONE WHERE idproiezione = ? ";
   private static final String sqlUpdate = "UPDATE PROIEZIONE SET inizioData=?, fineData=?, oraInizio=?, oraFine=?, orarioProiezione=?, prezzo=?, idFilmFk=?, idSalaFk=? WHERE idproiezione=?";
+  private static final String sqlRangeProiezioni = "select * from proiezione where (iniziodata>= ? or finedata <= ?) and idfilmfk=? and idsalafk=?";
 
   private Statement queryListProiezioniFilm;
-  private PreparedStatement queryUpdateProiezione,queryInsertProiezione, queryDeleteProiezione, queryUpdate;
+  private PreparedStatement queryUpdateProiezione,queryInsertProiezione, queryDeleteProiezione, queryUpdate, queryRangeProiezioni;
 
   public ProiezioneDAOImpl(Connection connection){
     try {
@@ -36,11 +37,49 @@ public class ProiezioneDAOImpl implements ProiezioneDAO {
       queryInsertProiezione = connection.prepareStatement(sqlInsertProiezione);
       queryDeleteProiezione = connection.prepareStatement(sqlDeleteProiezione);
       queryUpdate = connection.prepareStatement(sqlUpdate);
+      queryRangeProiezioni = connection.prepareStatement(sqlRangeProiezioni);
     } catch (SQLException e) {
       JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
       e.printStackTrace();
     }
   }
+
+  @Override
+  public List<Proiezione> queryRangeProiezioni(Date from, Date to, Integer idFilm, Integer idSala){
+    var proiezioni = new ArrayList<Proiezione>();
+    try {
+      queryRangeProiezioni.setDate(1,from);
+      queryRangeProiezioni.setDate(2,to);
+      queryRangeProiezioni.setInt(3,idFilm);
+      queryRangeProiezioni.setInt(4,idSala);
+      final var rs = queryRangeProiezioni.executeQuery();
+      while(rs.next()){
+        proiezioni.add(new Proiezione(
+            rs.getInt(1), //idFilm
+            rs.getDate(2),//iniziodata
+            rs.getDate(3),//finedata
+            rs.getTime(4),//inizioora
+            rs.getTime(5),//fineora
+            rs.getObject(6).toString(),//orarioproiezione
+            rs.getInt(7),//prezzo
+            rs.getInt(8),//idfilm
+            rs.getInt(9)//idsala
+        ));
+      }
+      return proiezioni;
+    } catch (SQLException e) {
+      JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
+      e.printStackTrace();
+    }finally{
+      try {
+        queryRangeProiezioni.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+    }
+    return Collections.emptyList();
+  }
+
   @Override
   public List<Proiezione> queryListProiezioniFilm(){
     var proiezioniList = new ArrayList<Proiezione>();

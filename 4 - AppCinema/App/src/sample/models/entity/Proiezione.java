@@ -9,6 +9,7 @@ import sample.models.enumerations.ORARI;
 public class Proiezione {
   private Integer idProiezione;
   private String orarioProiezione;
+  private ORARI orari;
   private Date inizioData;
   private Date fineData;
   private Time oraInizio;
@@ -18,7 +19,18 @@ public class Proiezione {
   private Film film;
   private Integer prezzo;
 
-
+  public Proiezione(Integer idProiezione, Date inizioData,
+      Date fineData, Time oraInizio, Time oraFine, String orarioProiezione, Integer prezzo, Integer idFilm, Integer idSala) {
+    this.idProiezione = idProiezione;
+    this.orari = ORARI.getORARI(orarioProiezione);
+    this.inizioData = inizioData;
+    this.fineData = fineData;
+    this.oraInizio = oraInizio;
+    this.oraFine = oraFine;
+    this.sala = new Sala(idSala);
+    this.film = new Film(idFilm);
+    this.prezzo = prezzo;
+  }
 
   public Proiezione(Integer idProiezione, String orarioProiezione, Date inizioData,
       Date fineData, Integer idfilm, String titolo,Integer prezzo, Integer idSala, Time oraInizio, Time oraFine ) {
@@ -113,6 +125,10 @@ public class Proiezione {
 
   public void setOraFine(Time oraFine) {
     this.oraFine = oraFine;
+  }
+
+  public ORARI getOrari() {
+    return orari;
   }
 
   @Override

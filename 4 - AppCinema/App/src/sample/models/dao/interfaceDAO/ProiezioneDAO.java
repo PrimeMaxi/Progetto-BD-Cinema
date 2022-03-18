@@ -1,11 +1,14 @@
 package sample.models.dao.interfaceDAO;
 
+import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 import sample.models.entity.Proiezione;
 import sample.models.enumerations.ORARI;
 
 public interface ProiezioneDAO {
+
+  List<Proiezione> queryRangeProiezioni(Date from, Date to, Integer idFilm, Integer idSala);
 
   List<Proiezione> queryListProiezioniFilm();
 

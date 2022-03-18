@@ -18,6 +18,9 @@ public class Film {
 
 
   public Film(){}
+  public Film(Integer idFilm){
+    this.idFilm=idFilm;
+  }
   public Film(Integer idFilm, String titolo, String trama, String regia, Integer anno, Time durataFilm, String genere){
     this.idFilm=idFilm;
     this.titolo=titolo;

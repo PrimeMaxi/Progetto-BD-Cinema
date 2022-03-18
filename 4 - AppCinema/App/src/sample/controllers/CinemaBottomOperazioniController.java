@@ -24,7 +24,12 @@ public class CinemaBottomOperazioniController {
     stage.show();
   }
 
-  public void proiezione(ActionEvent actionEvent) {
+  public void proiezione(ActionEvent actionEvent) throws IOException {
+    final var loader = StageHelper.getLoaderFxml("TastoCinema/InsertProiezioneCompleto");
+    final var stage = new Stage();
+    stage.setTitle("Inserisci proiezione");
+    stage.setScene(new Scene(loader.load()));
+    stage.show();
   }
 
   public void listFilm(ActionEvent actionEvent) {

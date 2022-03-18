@@ -3,6 +3,7 @@ package sample.controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.time.chrono.Chronology;
 import java.util.List;
 import java.util.Locale;
@@ -45,6 +46,7 @@ public class BookingController extends TicketController implements Initializable
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
+    dataTicket.setValue(LocalDate.now());
     ticketDao = new TicketDaoImpl(DatabaseConnection.getConnection());
     bookingService.setChoicheBoxListFilmOrari(dataTicket,ticketList,listFilmTicket,listOrarioTicket, ticketDao);
   }
