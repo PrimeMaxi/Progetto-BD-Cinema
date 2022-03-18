@@ -7,6 +7,8 @@ import sample.models.enumerations.TECNOLOGIA;
 
 public interface SalaDAO {
 
+  boolean queryInsertSala(Sala sala);
+
   List<Sala> queryRetriveSala();
 
   boolean queryUpdate(Integer idSala, Integer capienza, TECNOLOGIA tecnologia, AUDIO audio);

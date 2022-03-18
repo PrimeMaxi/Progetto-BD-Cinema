@@ -164,12 +164,8 @@ public class DashboardController implements Initializable {
   }
 
   private void initializeCinema(){
-    try{
-      cinemaDAO = new CinemaDAOImpl(DatabaseConnection.getConnection());
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
-    Cinema cinema = cinemaDAO != null ? cinemaDAO.retriveCinema() : null;
+    cinemaDAO = new CinemaDAOImpl(DatabaseConnection.getConnection());
+    final var cinema = cinemaDAO.retriveCinema();
     nomeCinema.setText(cinema != null ? cinema.getNomeCinema() : null);
   }
   private void tastoModifica(){

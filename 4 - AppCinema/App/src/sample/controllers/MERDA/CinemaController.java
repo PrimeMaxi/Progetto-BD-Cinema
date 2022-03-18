@@ -53,12 +53,8 @@ public class CinemaController implements Initializable {
   public void initialize(URL url, ResourceBundle resourceBundle) {
     tableFilms.getColumns().clear();
     CinemaDAO cinemaDAO = null;
-    try {
-      cinemaDAO = new CinemaDAOImpl(DatabaseConnection.getConnection());
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
-    Cinema cinema = cinemaDAO != null ? cinemaDAO.retriveCinema() : null;
+    cinemaDAO = new CinemaDAOImpl(DatabaseConnection.getConnection());
+    final var cinema = cinemaDAO.retriveCinema();
     cinemaName.setText(cinema != null ? cinema.getNomeCinema() : null);
     numeroSala.setText(cinema != null ? cinema.getNumeroSala().toString() : null);
 

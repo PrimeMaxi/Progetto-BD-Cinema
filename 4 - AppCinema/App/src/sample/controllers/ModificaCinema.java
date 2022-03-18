@@ -29,8 +29,7 @@ public class ModificaCinema implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    try {
-      CinemaDAOImpl cinemaDao = new CinemaDAOImpl(DatabaseConnection.getConnection());
+      final var cinemaDao = new CinemaDAOImpl(DatabaseConnection.getConnection());
       var cinema = cinemaDao.retriveCinema();
       NomeCinema.setText(cinema.getNomeCinema());
       Indirizzo.setText(cinema.getIndirizzo());
@@ -38,9 +37,6 @@ public class ModificaCinema implements Initializable {
       numeroSala.setText(cinema.getNumeroSala().toString());
       città.setText(cinema.getCittà());
       telefono.setText("0" + cinema.getTelefono().toString());
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
   }
 
   public void updateCinema(ActionEvent actionEvent) throws SQLException, IOException {

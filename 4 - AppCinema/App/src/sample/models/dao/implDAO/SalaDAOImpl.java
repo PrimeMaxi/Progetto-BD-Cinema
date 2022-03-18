@@ -19,17 +19,41 @@ public class SalaDAOImpl implements SalaDAO {
   private static final String sqlRetriveSala = "select idsala,capienza,tecnologia,audio from sala";
   private static final String sqlUpdateSala = "update sala set capienza=?, tecnologia=?, audio=? where idsala=?";
   private static final String sqlDeleteSala = "Delete from sala where idsala=?";
+  private static final String sqlInsertSala = "INSERT INTO SALA (IdSala,capienza,tecnologia,audio,idcinemafk) VALUES (?,?,?,?,?)";
 
   private Statement queryRetriveSala;
-  private PreparedStatement queryUpdate, queryDelete;
+  private PreparedStatement queryUpdate, queryDelete, queryInsert;
 
   public SalaDAOImpl(Connection connection){
     try {
       queryRetriveSala = connection.createStatement();
       queryUpdate = connection.prepareStatement(sqlUpdateSala);
       queryDelete = connection.prepareStatement(sqlDeleteSala);
+      queryInsert = connection.prepareStatement(sqlInsertSala);
     } catch (SQLException e) {
       e.printStackTrace();
+    }
+  }
+
+  @Override
+  public boolean queryInsertSala(Sala sala){
+    try {
+      queryInsert.setInt(1,sala.getIdSala());
+      queryInsert.setInt(2,sala.getCapienza());
+      queryInsert.setObject(3,sala.getTecnologia(),Types.OTHER);
+      queryInsert.setObject(4,sala.getAudio(),Types.OTHER);
+      queryInsert.setInt(5,1);
+      return queryInsert.execute();
+    } catch (SQLException e) {
+      JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
+      e.printStackTrace();
+      return false;
+    }finally{
+      try {
+        queryInsert.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
     }
   }
 

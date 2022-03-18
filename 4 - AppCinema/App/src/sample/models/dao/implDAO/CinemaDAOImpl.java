@@ -13,15 +13,40 @@ import sample.service.SceneCreator;
 public class CinemaDAOImpl implements CinemaDAO {
 
   Connection connection;
-  private PreparedStatement updateCinema;
-  private final Statement retriveCinema;
+  private PreparedStatement updateCinema, updateNumeroSala;
+  private Statement retriveCinema;
   private final static String sqlRetriveCinema = "SELECT * FROM CINEMA where idcinema=1";
-  private final String sqlUpdateCinema = "UPDATE CINEMA SET nomecinema=?,indirizzo=?,provincia=?,numerosala=?,città=?,telefono=? where idcinema=1";
+  private final static String sqlUpdateCinema = "UPDATE CINEMA SET nomecinema=?,indirizzo=?,provincia=?,numerosala=?,città=?,telefono=? where idcinema=1";
+  private final static String sqlUpdateNumeroSala = "UPDATE CINEMA SET numerosala=? WHERE idcinema=1";
 
-  public CinemaDAOImpl(Connection connection) throws SQLException {
+  public CinemaDAOImpl(Connection connection){
     this.connection = connection;
-    retriveCinema = connection.createStatement();
-    updateCinema = connection.prepareStatement(sqlUpdateCinema);
+    try {
+      retriveCinema = connection.createStatement();
+      updateCinema = connection.prepareStatement(sqlUpdateCinema);
+      updateNumeroSala = connection.prepareStatement(sqlUpdateNumeroSala);
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+  }
+
+  @Override
+  public boolean updatePlusNumeroSala(){
+    var numero = retriveCinema().getNumeroSala();
+    try {
+      updateNumeroSala.setInt(1,++numero);
+      return updateNumeroSala.execute();
+    } catch (SQLException e) {
+      JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
+      e.printStackTrace();
+      return false;
+    }finally{
+      try {
+        updateNumeroSala.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+    }
   }
 
   @Override
@@ -40,6 +65,13 @@ public class CinemaDAOImpl implements CinemaDAO {
       return cinema;
     } catch (SQLException e) {
       JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
+      e.printStackTrace();
+    }finally{
+      try {
+        retriveCinema.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
     }
     return null;
   }
@@ -56,6 +88,13 @@ public class CinemaDAOImpl implements CinemaDAO {
       updateCinema.executeUpdate();
     } catch (SQLException e) {
       JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
+      e.printStackTrace();
+    }finally{
+      try {
+        updateCinema.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
     }
   }
 }
