@@ -75,6 +75,8 @@ public class DashboardController implements Initializable {
       operazioniCinemaLoader.setLocation(Application.class.getResource("viewsRefactor/CinemaBottomOperazioni.fxml"));
       var paneOperazioni = operazioniCinemaLoader.load();
       paneOperazioniCinema.getChildren().add((Node) paneOperazioni);
+      CinemaBottomOperazioniController cinemaBottomOperazioniController = operazioniCinemaLoader.getController();
+      cinemaBottomOperazioniController.setCinemaDashboardController(cinemaDashboardController);
     } catch (IOException e) {
       e.printStackTrace();
     }

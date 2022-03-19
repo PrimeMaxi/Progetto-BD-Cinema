@@ -108,25 +108,7 @@
                      </children>
                   </HBox>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <HBox prefHeight="66.0" prefWidth="65.0" />
-                  <VBox prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="25.0" prefWidth="100.0">
-                           <children>
-                              <Label text="Giorno">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="39.0" prefWidth="100.0">
-                           <children>
-                              <ChoiceBox fx:id="giornoProiezione" prefWidth="150.0" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
+                  <HBox prefHeight="66.0" prefWidth="102.0" />
                   <VBox prefHeight="66.0" prefWidth="133.0">
                      <children>
                         <HBox alignment="CENTER" prefHeight="18.0" prefWidth="198.0">

@@ -127,7 +127,7 @@
 		select NumeroSala into limite from cinema;
 		select count(*) into capienza from sala;
 		
-		if(capienza > limite - 1) then RAISE EXCEPTION $$Non ci sono più sale disponibili$$;
+		if(capienza > limite - 1) then RAISE EXCEPTION 'Non ci sono più sale disponibili';
 			ELSE RETURN NEW;
 		END IF;
 	END;
@@ -245,6 +245,40 @@
 	EXECUTE PROCEDURE insertPostPrenotato();
 	
 	---Funzione e Trigger che solleva errore se esiste una proiezione nello stesso orario e nello stesso giorno
+	
+	DROP TRIGGER if exists checkProiezione ON proiezione;
+	drop function if exists checkProiezione();
+
+	create or replace function checkProiezione()
+	returns trigger as
+	$$
+	DECLARE
+		proiezioni integer;
+	BEGIN
+		select count(*) into proiezioni
+		FROM proiezione 
+		WHERE iniziodata<=NEW.iniziodata and
+			finedata>=NEW.finedata and
+			idsalafk=NEW.idsalafk and
+			(orarioproiezione=NEW.orarioproiezione or 
+			orainizio=NEW.orainizio and orafine=NEW.orafine);
+
+		IF proiezioni=0
+		THEN
+			RAISE info '%',proiezioni;
+			RAISE info 'Proiezione inserita';
+			return new;
+		ELSE
+			RAISE EXCEPTION 'Sala o proiezione già esistente';
+		END IF;
+	END;
+	$$
+	LANGUAGE plpgsql;
+
+	CREATE TRIGGER checkProiezione
+    BEFORE INSERT on proiezione
+	FOR EACH ROW
+	EXECUTE PROCEDURE checkProiezione();
 
 	---Funzione e Trigger che una volta comprato un biglietto, imposti automaticamente il campo DisponibilePosto da TRUE a FALSE
 	/*
@@ -293,8 +327,8 @@
 
 	INSERT INTO PROIEZIONE (InizioData,FineData,orainizio,orafine,Prezzo,idfilmfk,idsalafk)
 	VALUES
-	('2022-02-16',DEFAULT,'20:00','22:30',10.00,1,1),
-	('2022-02-16',DEFAULT,'17:00','19:00',7.00,2,1);
+	('2022-03-18',DEFAULT,'20:00','22:30',10.00,1,1),
+	('2022-03-18',DEFAULT,'17:00','19:00',7.00,2,1);
 	
 	INSERT INTO BIGLIETTO(IdProiezioneFk,IdPostoFk)
 	VALUES
@@ -336,3 +370,5 @@
 	where maxaffluenza = (
 		select MAX(Maxaffluenza)
 		from List_affluenza);
+		
+	
