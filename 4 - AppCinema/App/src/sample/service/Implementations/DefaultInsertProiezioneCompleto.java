@@ -25,7 +25,7 @@ public class DefaultInsertProiezioneCompleto implements sample.service.InsertPro
 
   private SalaDAO salaDAO;
   private FilmDAO filmDAO;
-  private ProiezioneDAO proiezioneDAO;
+  private ProiezioneDAO proiezioneDAO = new ProiezioneDAOImpl(DatabaseConnection.getConnection());
 
   @Override
   public void setNumeroSala(ChoiceBox<Integer> numeroSala){
@@ -47,13 +47,24 @@ public class DefaultInsertProiezioneCompleto implements sample.service.InsertPro
   }
 
   @Override
-  public List<ORARI> getOrario(LocalDate from, LocalDate to, Integer idFilm, Integer idSala){
+  public List<ORARI> getOrario(LocalDate from, LocalDate to,Integer idFilm, Integer idSala){
     final var fromDate = Date.valueOf(from);
     final var toDate = Date.valueOf(to);
-    proiezioneDAO = new ProiezioneDAOImpl(DatabaseConnection.getConnection());
-    var proiezioni = proiezioneDAO.queryRangeProiezioni(fromDate,toDate,idFilm,idSala);
+    var proiezioni = proiezioneDAO.queryRangeEsterni(fromDate,toDate,idSala);
     var orari = proiezioni.stream().map(Proiezione::getOrari).collect(Collectors.toList());
     return ORARI.getListORARI().stream().filter(src->!orari.contains(src)).collect(Collectors.toList());
+  }
+
+  public void getProiezioniDisponibili(LocalDate from, LocalDate to, Integer idFilm,Integer idSala){
+    final var fromDate = Date.valueOf(from);
+    final var toDate = Date.valueOf(to);
+    var proiezioni = proiezioneDAO.queryListProiezioniFilm();
+
+    //Caso 1, range inclusive
+    for(Proiezione item : proiezioni){
+
+    }
+
   }
 
 }

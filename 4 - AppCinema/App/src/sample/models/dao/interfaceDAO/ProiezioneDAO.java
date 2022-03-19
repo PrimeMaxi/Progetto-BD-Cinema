@@ -8,6 +8,8 @@ import sample.models.enumerations.ORARI;
 
 public interface ProiezioneDAO {
 
+  List<Proiezione> queryRangeEsterni(Date from, Date to, Integer idSala);
+
   List<Proiezione> queryRangeProiezioni(Date from, Date to, Integer idFilm, Integer idSala);
 
   List<Proiezione> queryListProiezioniFilm();

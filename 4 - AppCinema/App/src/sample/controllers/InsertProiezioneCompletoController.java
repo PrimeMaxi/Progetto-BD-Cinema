@@ -9,10 +9,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Callback;
 import sample.database.DatabaseConnection;
 import sample.helpers.StageHelper;
 import sample.models.dao.implDAO.FilmDaoImpl;
@@ -57,6 +59,25 @@ public class InsertProiezioneCompletoController implements Initializable {
 
 
   public void datafrom(ActionEvent actionEvent) {
+    final var dayCellFactory = new Callback<DatePicker, DateCell>(){
+      @Override
+      public DateCell call(DatePicker datePicker) {
+        return new DateCell(){
+          @Override
+          public void updateItem(LocalDate localDate, boolean b) {
+            super.updateItem(localDate, b);
+
+            if(localDate.isBefore(
+                dataFrom.getValue()
+            )){
+              setDisable(true);
+              setStyle("-fx-background-color: #ffc0cb;");
+            }
+          }
+        };
+      }
+    };
+    dataTo.setDayCellFactory(dayCellFactory);
     System.out.println(unlockFasciaOraria());
   }
 
@@ -79,8 +100,8 @@ public class InsertProiezioneCompletoController implements Initializable {
       final var idFilm = filmDAO.queryFilmById(films.getValue());
       final var idSala = numeroSala.getValue();
       System.out.println(from +"  "+ to);
-      final var listSala = insertProiezioneCompleto.getOrario(from,to,idFilm,idSala);
-      fasciaOrari.setItems(FXCollections.observableList(listSala));
+//      final var listSala = insertProiezioneCompleto.getOrario(from,to,idFilm,idSala); NON FUNZIONA
+//      fasciaOrari.setItems(FXCollections.observableList(listSala));
       return true;
     }
     return false;
