@@ -26,7 +26,6 @@ import sample.service.InsertProiezioneCompleto;
 public class InsertProiezioneCompletoController implements Initializable {
 
   public AnchorPane paneInsertCompleto;
-
   public TextField prezzo;
   public ChoiceBox<ORARI> fasciaOrari;
   public ChoiceBox<String> films;
@@ -37,26 +36,17 @@ public class InsertProiezioneCompletoController implements Initializable {
   private FilmDAO filmDAO = new FilmDaoImpl(DatabaseConnection.getConnection());
   private InsertProiezioneCompleto insertProiezioneCompleto = new DefaultInsertProiezioneCompleto();
 
-
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    //Orari
-    fasciaOrari.setItems(FXCollections.observableList(ORARI.getListORARI()));
-    //Sale disponibili
-    insertProiezioneCompleto.setNumeroSala(numeroSala);
-
     // Data To di default
     dataTo.setValue(LocalDate.now());
-
-    //Tutto disabilitato
+    //Fascia oraria disabilitato
     fasciaOrari.setDisable(true);
-
     //Films
     insertProiezioneCompleto.setChoichFilms(films);
-
+    //Sale disabilitato
+    numeroSala.setDisable(true);
   }
-
-
 
   public void datafrom(ActionEvent actionEvent) {
     final var dayCellFactory = new Callback<DatePicker, DateCell>(){
@@ -78,7 +68,9 @@ public class InsertProiezioneCompletoController implements Initializable {
       }
     };
     dataTo.setDayCellFactory(dayCellFactory);
-    System.out.println(unlockFasciaOraria());
+    numeroSala.setDisable(false);
+    final var saleDisponibili = insertProiezioneCompleto.getSaleDisponibili(dataFrom.getValue(),dataTo.getValue());
+    numeroSala.setItems(FXCollections.observableList(saleDisponibili.stream().toList()));
   }
 
   public void dataTo(ActionEvent actionEvent) {
@@ -93,15 +85,12 @@ public class InsertProiezioneCompletoController implements Initializable {
   }
 
   public boolean unlockFasciaOraria(){
-    if(dataFrom.getValue()!=null){
+    if(dataFrom.getValue()!=null && numeroSala.getValue()!=null){
       fasciaOrari.setDisable(false);
-      final var from = dataFrom.getValue();
-      final var to = dataTo.getValue();
-      final var idFilm = filmDAO.queryFilmById(films.getValue());
       final var idSala = numeroSala.getValue();
-      System.out.println(from +"  "+ to);
-//      final var listSala = insertProiezioneCompleto.getOrario(from,to,idFilm,idSala); NON FUNZIONA
-//      fasciaOrari.setItems(FXCollections.observableList(listSala));
+      final var saleDisponibili = insertProiezioneCompleto.getSaleDisponibili(dataFrom.getValue(),dataTo.getValue());
+      final var orariDisponibili = insertProiezioneCompleto.getOrariDisponibili(saleDisponibili,idSala);
+      fasciaOrari.setItems(FXCollections.observableList(orariDisponibili));
       return true;
     }
     return false;
@@ -116,6 +105,6 @@ public class InsertProiezioneCompletoController implements Initializable {
   }
 
   public void salaClicked(MouseEvent mouseEvent) {
-    numeroSala.setOnAction(actionEvent -> unlockFasciaOraria());
+    numeroSala.setOnAction((actionEvent) -> unlockFasciaOraria());
   }
 }

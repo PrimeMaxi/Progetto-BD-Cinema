@@ -3,7 +3,10 @@ package sample.service.Implementations;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.scene.control.ChoiceBox;
@@ -25,7 +28,8 @@ public class DefaultInsertProiezioneCompleto implements sample.service.InsertPro
 
   private SalaDAO salaDAO;
   private FilmDAO filmDAO;
-  private ProiezioneDAO proiezioneDAO = new ProiezioneDAOImpl(DatabaseConnection.getConnection());
+  private List<Proiezione> proiezioni;
+  private ProiezioneDAO proiezioneDAO;
 
   @Override
   public void setNumeroSala(ChoiceBox<Integer> numeroSala){
@@ -48,23 +52,52 @@ public class DefaultInsertProiezioneCompleto implements sample.service.InsertPro
 
   @Override
   public List<ORARI> getOrario(LocalDate from, LocalDate to,Integer idFilm, Integer idSala){
+    proiezioneDAO = new ProiezioneDAOImpl(DatabaseConnection.getConnection());
     final var fromDate = Date.valueOf(from);
     final var toDate = Date.valueOf(to);
-    var proiezioni = proiezioneDAO.queryRangeEsterni(fromDate,toDate,idSala);
+    var proiezioni = proiezioneDAO.queryRangeProiezioni(fromDate,toDate,idFilm,idSala);
     var orari = proiezioni.stream().map(Proiezione::getOrari).collect(Collectors.toList());
     return ORARI.getListORARI().stream().filter(src->!orari.contains(src)).collect(Collectors.toList());
   }
 
-  public void getProiezioniDisponibili(LocalDate from, LocalDate to, Integer idFilm,Integer idSala){
-    final var fromDate = Date.valueOf(from);
-    final var toDate = Date.valueOf(to);
-    var proiezioni = proiezioneDAO.queryListProiezioniFilm();
+  private List<Proiezione> getProiezioniRange(LocalDate from, LocalDate to){
+    proiezioneDAO = new ProiezioneDAOImpl(DatabaseConnection.getConnection());
+    return proiezioneDAO.queryRangeProiezioni(Date.valueOf(from),Date.valueOf(to),null,null);
+  }
 
-    //Caso 1, range inclusive
-    for(Proiezione item : proiezioni){
-
+  /** Sale disponibili se c'è almeno una fascia oraria disponibile* */
+  @Override
+  public HashSet<Integer> getSaleDisponibili(LocalDate from, LocalDate to) {
+    salaDAO = new SalaDAOImpl(DatabaseConnection.getConnection());
+    proiezioni = getProiezioniRange(from,to);
+    final var sale = salaDAO.queryRetriveSala();
+    //Sale che non hanno proiezione
+    salaDAO = new SalaDAOImpl(DatabaseConnection.getConnection());
+    final var saleDisponibili = salaDAO.queryRetriveSala().stream().map(Sala::getIdSala).filter(
+        idSala -> !proiezioni.stream().map(i -> i.getSala().getIdSala())
+            .collect(Collectors.toList()).contains(
+                idSala)
+    ).collect(Collectors.toCollection(HashSet::new));
+    System.out.print(saleDisponibili);
+    //Sale che hanno proiezione ma non in tutte le fasce orarie
+    for (Sala sala : sale){
+      final var count = proiezioni.stream().filter(src->src.getSala().getIdSala() == sala.getIdSala()).count();
+      if(count<4){
+        saleDisponibili.add(sala.getIdSala());
+      }
     }
+    System.out.print(saleDisponibili);
 
+    return saleDisponibili;
+  }
+
+  @Override
+  public List<ORARI> getOrariDisponibili(Set<Integer> saleDisponibili, Integer idSala){
+    final var sale = saleDisponibili.stream().filter(i->i==idSala).collect(Collectors.toSet());
+    proiezioni = proiezioni.stream().filter(i->sale.contains(i.getSala().getIdSala())).collect(Collectors.toList());
+    return ORARI.getListORARI().stream().filter(
+        src->!proiezioni.stream().map(Proiezione::getOrari).collect(Collectors.toList()).contains(src)
+    ).collect(Collectors.toList());
   }
 
 }

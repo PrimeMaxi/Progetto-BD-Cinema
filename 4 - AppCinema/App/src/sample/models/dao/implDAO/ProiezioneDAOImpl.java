@@ -25,7 +25,7 @@ public class ProiezioneDAOImpl implements ProiezioneDAO {
   private static final String sqlInsertProiezione = "INSERT INTO PROIEZIONE (iniziodata,fineData,orainizio,orafine,OrarioProiezione,Prezzo,idfilmfk,idsalafk) VALUES (?,?,?,?,?,?,?,?)";
   private static final String sqlDeleteProiezione = "DELETE FROM PROIEZIONE WHERE idproiezione = ? ";
   private static final String sqlUpdate = "UPDATE PROIEZIONE SET inizioData=?, fineData=?, oraInizio=?, oraFine=?, orarioProiezione=?, prezzo=?, idFilmFk=?, idSalaFk=? WHERE idproiezione=?";
-  private static final String sqlRangeProiezioni = "select * from proiezione where (iniziodata>= ? and finedata <= ?) and idfilmfk=? and idsalafk=?";
+  private static final String sqlRangeProiezioni = "select * from proiezione where iniziodata <= ? and finedata >= ?";
   private static final String sqlRangeEsterni = "select * from proiezione where idproiezione not in (select * from proiezione where (iniziodata>= ? and finedata <=  ?) and idsalafk=?)";
 
   private Statement queryListProiezioniFilm;
@@ -87,8 +87,6 @@ public class ProiezioneDAOImpl implements ProiezioneDAO {
     try {
       queryRangeProiezioni.setDate(1,from);
       queryRangeProiezioni.setDate(2,to);
-      queryRangeProiezioni.setInt(3,idFilm);
-      queryRangeProiezioni.setInt(4,idSala);
       final var rs = queryRangeProiezioni.executeQuery();
       while(rs.next()){
         proiezioni.add(new Proiezione(
@@ -107,12 +105,6 @@ public class ProiezioneDAOImpl implements ProiezioneDAO {
     } catch (SQLException e) {
       JOptionPane.showMessageDialog(null,"Errore: " + e.getMessage());
       e.printStackTrace();
-    }finally{
-      try {
-        queryRangeProiezioni.close();
-      } catch (SQLException e) {
-        e.printStackTrace();
-      }
     }
     return Collections.emptyList();
   }
