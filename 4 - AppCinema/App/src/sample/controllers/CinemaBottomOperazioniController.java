@@ -36,7 +36,12 @@ public class CinemaBottomOperazioniController {
     stage.show();
   }
 
-  public void listFilm(ActionEvent actionEvent) {
+  public void listFilm(ActionEvent actionEvent) throws IOException {
+    final var loader = StageHelper.getLoaderFxml("TastoCinema/ListaFilm");
+    final var stage = new Stage();
+    stage.setTitle("Lista film");
+    stage.setScene(new Scene(loader.load()));
+    stage.show();
   }
 
   public void setCinemaDashboardController(
