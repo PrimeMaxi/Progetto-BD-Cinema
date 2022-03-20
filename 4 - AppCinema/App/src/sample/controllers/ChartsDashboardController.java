@@ -65,13 +65,15 @@ public class ChartsDashboardController implements Initializable {
   private void setBarChart(){
     chartDAO = new ChartDAOImpl(DatabaseConnection.getConnection());
     var listMaxAffluenza = chartDAO.queryChartSalaOrari();
+    System.out.println(listMaxAffluenza);
     var listSala = chartDAO.queryAmountSala();
 
     for(SalaAmount idSala : listSala){
       var series = new XYChart.Series<String,Integer>();
       series.setName(String.format("SALA %d",idSala.getIdSala()));
       for(ORARI fasciaOrario : ORARI.values()){
-        var data = listMaxAffluenza.stream().filter(src -> Objects.equals(src.getFasciaOraria(), fasciaOrario.toString())).findFirst();
+        var data = listMaxAffluenza.stream().filter(src -> Objects.equals(src.getFasciaOraria(), fasciaOrario.toString()) && Objects.equals(
+            src.getSala(), idSala.getIdSala())).findFirst();
         series.getData().add(new XYChart.Data<>(fasciaOrario.toString(),data.isPresent() ? data.get().getSumAffluenza() : 0));
       }
       barChart.getData().add(series);

@@ -35,4 +35,13 @@ public class MaxAffluenza {
   public void setSumAffluenza(Integer sumAffluenza) {
     this.sumAffluenza = sumAffluenza;
   }
+
+  @Override
+  public String toString() {
+    return "MaxAffluenza{" +
+        "sala=" + sala +
+        ", fasciaOraria='" + fasciaOraria + '\'' +
+        ", sumAffluenza=" + sumAffluenza +
+        '}';
+  }
 }
