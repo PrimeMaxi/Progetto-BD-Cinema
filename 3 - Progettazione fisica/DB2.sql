@@ -12,9 +12,6 @@
 	drop table if exists cinema;
 	drop type if exists fasciorari;
 
-
-
-
 	CREATE TABLE CINEMA (
 		IdCinema SERIAL PRIMARY KEY,
 		NomeCinema VARCHAR(50) NOT NULL UNIQUE,
@@ -34,7 +31,6 @@
 		Capienza INTEGER NOT NULL,
 		Tecnologia TECNOLOGIA DEFAULT NULL,
 		Audio AUDIO DEFAULT NULL,
-		DisponibileSala BOOLEAN DEFAULT 'True' NOT NULL,
 		IdCinemaFk INTEGER NOT NULL,
 		CONSTRAINT fk_Cinema FOREIGN KEY (IdCinemaFk) REFERENCES CINEMA(IdCinema)
 	);
@@ -73,31 +69,18 @@
 		IdFilmFk INTEGER NOT NULL,
 		IdSalaFk INTEGER NOT NULL,
 		CONSTRAINT fk_Film FOREIGN KEY (IdFilmFk) REFERENCES FILM(IdFilm) ON DELETE CASCADE ON UPDATE CASCADE,
-		CONSTRAINT fk_SalaP FOREIGN KEY (IdSalaFk) REFERENCES SALA(IdSala) ON DELETE CASCADE
+		CONSTRAINT fk_SalaP FOREIGN KEY (IdSalaFk) REFERENCES SALA(IdSala) ON DELETE CASCADE ON UPDATE CASCADE
 	);
 	
 		CREATE TABLE Biglietto(
 		IdBiglietto SERIAL PRIMARY KEY,
+		DisponibilePosto BOOLEAN DEFAULT 'False' NOT NULL,
+		DataBiglietto TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 		IdProiezioneFk INTEGER NOT NULL,
 		IdPostoFk INTEGER NOT NULL,
-		DisponibilePosto BOOLEAN DEFAULT 'True' NOT NULL,
-		DataBiglietto TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 		CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione) ON DELETE CASCADE
 	);
-	/*
-	
-	Dovrebbe essere una tabella che contiene solo chiavi esterne.
-	
-	CREATE TABLE POSTO_PRENOTATO(
-		IdPostoPrenotato SERIAL PRIMARY KEY,
-		IdPostoFk INTEGER NOT NULL,
-		IdProiezioneFk INTEGER NOT NULL,
-		IdBigliettoFk INTEGER NOT NULL,
-		CONSTRAINT fk_Posto FOREIGN KEY (IdPostoFk) REFERENCES POSTO(IdPosto),
-		CONSTRAINT fk_Proiezione FOREIGN KEY (IdProiezioneFk) REFERENCES PROIEZIONE(IdProiezione),
-		CONSTRAINT fk_Biglietto FOREIGN KEY (IdBigliettoFk) REFERENCES BIGLIETTO(IdBiglietto)
-	);
-	*/
+
 		CREATE TABLE POSTO_PRENOTATO(
 		IdPostoFk INTEGER NOT NULL,
 		IdProiezioneFk INTEGER NOT NULL,
@@ -107,11 +90,6 @@
 		CONSTRAINT fk_Biglietto FOREIGN KEY (IdBigliettoFk) REFERENCES BIGLIETTO(IdBiglietto)
 	);
 	
-
-
-
-
-
 	--TRIGGER E FUNZIONI
 
 
@@ -138,8 +116,8 @@
 	before insert on SALA
 	EXECUTE PROCEDURE limit_sala();
 
-	--Funzione e Trigger che genera il automaticamente le entità POSTO in base alla capienza data dall'entità SALA
 
+	--Funzione e Trigger che genera automaticamente le entità POSTO in base alla capienza data dall'entità SALA
 	DROP TRIGGER if exists generate_posto ON Sala;
 	DROP FUNCTION if exists generate_Posto();
 
@@ -182,9 +160,7 @@
 
 	---Funzione e Trigger che calcola l'ora di fine proiezione in seguito dell'inserimento di tale in base alla durata del film.
 	---Non necessario.
-	
-	---Funzione e Trigger che elimina i posti dopo la proiezione oppure imposta i posti disponibili a true.
-	
+		
 	
 	---Funzione e Trigger che assegna la fascia oraria appropriata per la proiezione.
 	DROP TRIGGER IF EXISTS assignsFasciaOraria ON PROIEZIONE;
@@ -222,6 +198,7 @@
 	FOR EACH ROW
 	EXECUTE PROCEDURE assignsFasciaOraria();
 	
+	
 	---Funzione e Trigger che inserisce automaticamente records ogni nuovo biglietto
 	DROP TRIGGER IF EXISTS insertPostPrenotato ON BIGLIETTO;
 	DROP FUNCTION IF EXISTS insertPostPrenotato();
@@ -244,8 +221,8 @@
 	FOR EACH ROW
 	EXECUTE PROCEDURE insertPostPrenotato();
 	
-	---Funzione e Trigger che solleva errore se esiste una proiezione nello stesso orario e nello stesso giorno
 	
+	---Funzione e Trigger che solleva errore se esiste una proiezione nello stesso orario e nello stesso giorno
 	DROP TRIGGER if exists checkProiezione ON proiezione;
 	drop function if exists checkProiezione();
 
@@ -338,18 +315,9 @@
 	(1,11),
 	(2,1),
 	(2,2);
-	/*
-	INSERT INTO POSTO_PRENOTATO(IdPostoFk,IdProiezioneFk,IdBigliettoFk)
-	VALUES
-	(1,1,1),
-	(2,1,2),
-	(10,1,3),
-	(11,1,4),
-	(1,2,5),
-	(2,2,6);
-	*/
 	
-
+	
+	
 	--QUERY lista di film più remunerativi
 	SELECT f.titolo AS Film, SUM(pr.prezzo) AS Ricavi
 	FROM film AS f INNER JOIN proiezione AS pr ON f.idfilm=pr.idfilmfk INNER JOIN biglietto AS b ON pr.idproiezione = b.idproiezionefk

@@ -1,5 +1,0 @@
--Devo poter inserire un film, dopo averlo inserito controllare la disponibilità delle sale sugli orari
--Devo poter vedere la programmazione dei film nelle sale, giorno per giorno
--Arriva un cliente e mi chiede due biglietti di un film, io seleziono il film, scelgo l'orario prima disponibile e seleziono i posti liberi
--Devo poter eliminare un film, cancellando la proiezione
--Il film in programmazione deve avere una scadenza, superata tale scadenza si rimuove dalla programmazione.

@@ -65,7 +65,6 @@ public class ChartsDashboardController implements Initializable {
   private void setBarChart(){
     chartDAO = new ChartDAOImpl(DatabaseConnection.getConnection());
     var listMaxAffluenza = chartDAO.queryChartSalaOrari();
-    System.out.println(listMaxAffluenza);
     var listSala = chartDAO.queryAmountSala();
 
     for(SalaAmount idSala : listSala){
