@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.control.DatePicker;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import sample.Application;
@@ -33,6 +34,7 @@ import sample.models.enumerations.ORARI;
 public class CinemaDashboardController extends PaneDetailsCinemaController implements Initializable {
 
   public GridPane gridPaneCinema;
+  public DatePicker dataProiezioni;
   private SalaDAO salaDAO;
   private ProiezioneDAO proiezioneDAO;
   private FilmDAO filmDAO;
@@ -53,6 +55,10 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
     final var listSala = salaDAO.queryRetriveSala();
     //Colonna di sale
     setColumnSala(listSala,listProiezioni);
+  }
+
+  public void dataProiezioni(ActionEvent actionEvent) {
+    setGridPaneCinema();
   }
 
   private void setColumnSala(List<Sala> listSala, List<Proiezione> listProiezioni) {
@@ -158,7 +164,7 @@ public class CinemaDashboardController extends PaneDetailsCinemaController imple
     if(min==null || max==null){
       return false;
     }
-    var currentDate = Date.valueOf(LocalDate.now());
+    var currentDate = Date.valueOf(dataProiezioni.getValue()!=null ? dataProiezioni.getValue() : LocalDate.now());
     return currentDate.compareTo(min) >= 0 && currentDate.compareTo(max) <=0;
   }
   public void setItemSalaSelected(Integer numeroSala){

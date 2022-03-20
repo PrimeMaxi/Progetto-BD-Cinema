@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,8 +14,11 @@
    <children>
       <HBox layoutX="6.0" prefHeight="40.0" prefWidth="727.0">
          <children>
-            <VBox prefHeight="40.0" prefWidth="105.0" />
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0">
+            <VBox alignment="CENTER" prefHeight="40.0" prefWidth="107.0">
+               <children>
+                  <DatePicker fx:id="dataProiezioni" onAction="#dataProiezioni" />
+               </children></VBox>
+            <VBox alignment="CENTER" prefHeight="40.0" prefWidth="150.0">
                <children>
                   <Label text="16-18" textFill="RED">
                      <font>
