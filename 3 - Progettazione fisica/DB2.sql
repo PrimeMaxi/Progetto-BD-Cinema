@@ -183,7 +183,7 @@
 				UPDATE PROIEZIONE
 				SET OrarioProiezione = '20-22'::FASCIORARI
 				WHERE IdProiezione = NEW.IdProiezione;
-		ELSIF(NEW.OraInizio >= TIME '22:00:00' AND NEW.OraInizio < TIME '01:00:00') THEN
+		ELSIF(NEW.OraInizio >= TIME '22:00:00' AND NEW.OraInizio < TIME '23:59:00') THEN
 				UPDATE PROIEZIONE
 				SET OrarioProiezione = '22-24'::FASCIORARI
 				WHERE IdProiezione = NEW.IdProiezione;
@@ -305,7 +305,12 @@
 	INSERT INTO PROIEZIONE (InizioData,FineData,orainizio,orafine,Prezzo,idfilmfk,idsalafk)
 	VALUES
 	('2022-03-18',DEFAULT,'20:00','22:30',10.00,1,1),
-	('2022-03-18',DEFAULT,'17:00','19:00',7.00,2,1);
+	('2022-03-18',DEFAULT,'18:00','20:00',7.00,2,1),
+	('2022-03-18',DEFAULT,'16:00','18:30',8.00,3,2),
+	('2022-03-18',DEFAULT,'20:00','22:00',8.00,1,2),
+	('2022-03-18',DEFAULT,'22:00','23:50',10.00,4,2);
+
+
 	
 	INSERT INTO BIGLIETTO(IdProiezioneFk,IdPostoFk)
 	VALUES
@@ -314,7 +319,14 @@
 	(1,10),
 	(1,11),
 	(2,1),
-	(2,2);
+	(2,2),
+	(3,1),
+	(3,2),
+	(3,3),
+	(4,1),
+	(4,7),
+	(4,8),
+	(4,9);
 	
 	
 	
