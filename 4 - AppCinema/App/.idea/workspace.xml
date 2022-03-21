@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="529f7dd7-f1c9-4d69-b676-606a186273fd" name="Changes" comment="modifica progettazione fisica">
+      <change beforePath="$PROJECT_DIR$/../../2 - Progettazione logica/Base di Dati LOGICA .docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3 - Progettazione fisica/Backup/DB.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3 - Progettazione fisica/DB2.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/be4e3d8a-f733-48f0-85dd-9f043631e1fe.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/be4e3d8a-f733-48f0-85dd-9f043631e1fe/storage_v2/_src_/database/cinema.8fLqrg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/be4e3d8a-f733-48f0-85dd-9f043631e1fe/storage_v2/_src_/database/cinema.8fLqrg/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/be4e3d8a-f733-48f0-85dd-9f043631e1fe/storage_v2/_src_/database/cinema.8fLqrg/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/be4e3d8a-f733-48f0-85dd-9f043631e1fe/storage_v2/_src_/database/cinema.8fLqrg/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/be4e3d8a-f733-48f0-85dd-9f043631e1fe/storage_v2/_src_/database/cinema.8fLqrg/schema/public.abK9xQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/google-java-format.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgresql_42_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/BookingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/ChartsDashboardController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/CinemaBottomOperazioniController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/CinemaDashboardController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/DashboardController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/DetailsDalaModificaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/DetailsFilmModificaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/DetailsProiezioneModificaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/FilaItemController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/FilmController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/FilmInsertController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/InsertProiezioneCompletoController$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/InsertProiezioneCompletoController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/InsertProiezioneCompletoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/InsertProiezioneController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/InsertSalaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/ItemFilmController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/ItemNOController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/Items/ItemSala2Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/Items/PaneDetailsCinemaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/ListaFilmController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/ModificaCinema.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/NewFilmController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/PaneDetailsCinemaFilmController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/SeatController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/TicketController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/database/DatabaseConnection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/database/DatabaseUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/helpers/RangeDate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/helpers/StageHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/BigliettoDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/ChartDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/CinemaDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/FilmDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/PostoDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/ProiezioneDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/SalaDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/TicketDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/BigliettoDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/ChartDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/CinemaDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/FilmDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/PostoDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/ProiezioneDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/SalaDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/TicketDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Biglietto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Cinema.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/FasciOrari.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Film.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/MaxAffluenza.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Posto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Proiezione.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Ricavi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Sala.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/SalaAmount.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Ticket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/enumerations/AUDIO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/enumerations/GENERE.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/enumerations/ORARI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/enumerations/TECNOLOGIA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/Icons/Hall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/Icons/Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/Icons/SeatEmpty.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/Icons/SeatOccupato.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/Icons/SeatSelezionato.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/Icons/cinema.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/static/007.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/static/HouseOfGucci.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/static/MatriResurrections.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/static/NoImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/static/Spiderman.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/static/cinema_main.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/ActionListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/BookingService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/DateValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/Implementations/DefaultBookingService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/Implementations/DefaultInsertProiezioneCompleto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/Implementations/DefaultTicketService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/InsertProiezioneCompleto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/SceneCreator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/TicketService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/views/Main.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/views/modificaCinema.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/Booking.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/ChartsDashboard.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/CinemaBottomOperazioni.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/CinemaDashboard.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/Dashboard.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/FilaItem.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/ItemFilm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/ItemNO.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/ItemSala2.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/SeatItem.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/DetailsFilmModifica.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/DetailsProiezioneModifica.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/DetailsSalaModifica.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/FilmInsert.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/InsertProiezione.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/InsertProiezioneCompleto.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/InsertSala.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/ListaFilm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/paneDetailsCinema.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/paneDetailsFilm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/Ticket.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/BookingController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/ChartsDashboardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/CinemaBottomOperazioniController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/CinemaDashboardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/DashboardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/DetailsDalaModificaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/DetailsFilmModificaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/DetailsProiezioneModificaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/FilaItemController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/FilmController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/FilmInsertController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/InsertProiezioneCompletoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/InsertProiezioneController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/InsertSalaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/ItemFilmController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/ItemNOController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/Items/ItemSala2Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/Items/PaneDetailsCinemaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/ListaFilmController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/ModificaCinema.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/NewFilmController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/PaneDetailsCinemaFilmController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/SeatController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controllers/TicketController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/database/DatabaseConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/database/DatabaseUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/helpers/RangeDate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/helpers/StageHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/BigliettoDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/ChartDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/CinemaDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/FilmDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/PostoDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/ProiezioneDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/SalaDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/TicketDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/BigliettoDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/ChartDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/CinemaDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/FilmDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/PostoDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/ProiezioneDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/SalaDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/TicketDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Biglietto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Cinema.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/FasciOrari.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Film.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/MaxAffluenza.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Posto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Proiezione.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Ricavi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Sala.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/SalaAmount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Ticket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/enumerations/AUDIO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/enumerations/GENERE.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/enumerations/ORARI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/enumerations/TECNOLOGIA.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/resources/Icons/Hall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/resources/Icons/Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/resources/Icons/SeatEmpty.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/resources/Icons/SeatOccupato.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/resources/Icons/SeatSelezionato.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/resources/Icons/cinema.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/resources/static/007.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/resources/static/HouseOfGucci.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/resources/static/MatriResurrections.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/resources/static/NoImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/resources/static/Spiderman.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/resources/static/cinema_main.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/resources/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/service/ActionListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/service/BookingService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/service/DateValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/service/Implementations/DefaultBookingService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/service/Implementations/DefaultInsertProiezioneCompleto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/service/Implementations/DefaultTicketService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/service/InsertProiezioneCompleto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/service/SceneCreator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/service/TicketService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/views/Main.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/views/modificaCinema.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/Booking.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/ChartsDashboard.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/CinemaBottomOperazioni.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/CinemaDashboard.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/Dashboard.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/FilaItem.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/ItemFilm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/ItemNO.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/ItemSala2.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/SeatItem.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/DetailsFilmModifica.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/DetailsProiezioneModifica.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/DetailsSalaModifica.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/FilmInsert.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/InsertProiezione.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/InsertProiezioneCompleto.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/InsertSala.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/ListaFilm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/paneDetailsCinema.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/paneDetailsFilm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/Ticket.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/LaTeX-facile.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/Massimo Colucci - Documentazione Basi di dati.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/Massimo Colucci - Documentazione Basi di dati.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/Massimo Colucci - Documentazione Basi di dati.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/Massimo Colucci - Documentazione Basi di dati.synctex.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/Massimo Colucci - Documentazione Basi di dati.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/Massimo Colucci - Documentazione Basi di dati.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/Prova numero 1.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/UML.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/UML1.ps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ispiration/Traccia Cinema.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/__MACOSX/src/._.DS_Store" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/.idea/google-java-format.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/LaboratorioBarra.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/app/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/dao_impl/StudenteDAOOracleImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/dao_impl/StudenteDAOPostgresImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/daos/StudenteDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/dbConfig/DBBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/dbConfig/DBConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/entity/Docente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/entity/Esame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/entity/Studente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/exceptions/ConnectionException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StaraceDocumentazione della base di dati.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Traccia Progetto Cinema/Insieme al progetto.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Traccia Progetto Cinema/traccia_gruppo_singolo.pdf" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="Enum" />
+        <option value="CSS File" />
+        <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$/../.." source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$/../.." source="dev-refactoring" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="feature-Listener" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="2" />
+  </component>
+  <component name="ProjectId" id="24H1rTEBqv1GrVp9M9qiTrJpgEv" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Uni/Cinema_Manager_System/Ysop-JavaFx" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Massimo Colucci\Desktop\BDCinema\AppCinema\App\src\sample\viewsRefactor\TastoCinema" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="sample.service" />
+      <recent name="sample.models.dao.interfaceDAO" />
+      <recent name="sample.service.Implementations" />
+      <recent name="sample.models.dao.implDAO" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sample.Application" />
+      <module name="App" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\JavaFX\javafx-sdk-17.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml " />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.controllers.MERDA.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Application" />
+        <item itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="529f7dd7-f1c9-4d69-b676-606a186273fd" name="Changes" comment="" />
+      <created>1643272897056</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1643272897056</updated>
+      <workItem from="1643272898935" duration="1689000" />
+      <workItem from="1643274620806" duration="27970000" />
+      <workItem from="1643412213756" duration="2705000" />
+      <workItem from="1643453888749" duration="2610000" />
+      <workItem from="1643541963930" duration="19049000" />
+      <workItem from="1643839652083" duration="13327000" />
+      <workItem from="1644003734822" duration="14819000" />
+      <workItem from="1644073682829" duration="19035000" />
+      <workItem from="1644308272872" duration="871000" />
+      <workItem from="1644518090826" duration="2647000" />
+      <workItem from="1644565966660" duration="40000" />
+      <workItem from="1644700477874" duration="16629000" />
+      <workItem from="1644831022795" duration="5910000" />
+      <workItem from="1644933806499" duration="2302000" />
+      <workItem from="1645040564752" duration="5894000" />
+      <workItem from="1645085653359" duration="7545000" />
+      <workItem from="1645095090537" duration="7000" />
+      <workItem from="1645096930979" duration="6868000" />
+      <workItem from="1645118800076" duration="44969000" />
+      <workItem from="1645290094290" duration="7707000" />
+      <workItem from="1645430997728" duration="17083000" />
+      <workItem from="1645984970783" duration="738000" />
+      <workItem from="1646256378507" duration="4014000" />
+      <workItem from="1646425312960" duration="21985000" />
+      <workItem from="1647078159829" duration="67309000" />
+      <workItem from="1647526173464" duration="19204000" />
+      <workItem from="1647598223424" duration="56204000" />
+      <workItem from="1647772114978" duration="827000" />
+      <workItem from="1647775071393" duration="2334000" />
+      <workItem from="1647893249220" duration="3467000" />
+    </task>
+    <task id="LOCAL-00055" summary="Inserimento posti occupati nel gridPane - Bug associazione biglietto-proiezione">
+      <created>1647171007259</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1647171007259</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Fix associazione-Biglietto, inserito controllo data biglietto">
+      <created>1647179764160</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1647179764160</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Posto disabilitato alla seleazione se è occupato">
+      <created>1647180130682</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1647180130682</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Modifica schema UML, campo prezzo da biglietto in proiezione">
+      <created>1647185989241</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1647185989241</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Inserimento Trigger che inserisce automaticamente i record alla tabella posto_prenotato dopo ogni nuovo inserimento di biglietto">
+      <created>1647188470419</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1647188470419</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Inserimento selezione e deselezione del posto, inserimento query per insert Biglietto">
+      <created>1647191820230</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1647191820230</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Inserimento selezione e deselezione del posto, inserimento query per insert Biglietto">
+      <created>1647191837705</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1647191837705</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Fix - Dimensione paneDetailsCinema.fxml">
+      <created>1647192629054</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1647192629054</updated>
+    </task>
+    <task id="LOCAL-00063" summary="First commit per refactoring di detailsCinemaLeft">
+      <created>1647193315579</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1647193315579</updated>
+    </task>
+    <task id="LOCAL-00064" summary="feature - PaneDetailsCinemaController.java funziona correttamente, mostrando i dettagli della sala che si seleziona dalla dashboard del cinema">
+      <created>1647360940184</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1647360940184</updated>
+    </task>
+    <task id="LOCAL-00065" summary="feature - inserito il paneDetailsFilm.fxml per mostrare i dettagli del film selezionato dalla dashboard del cinema">
+      <created>1647366170141</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1647366170141</updated>
+    </task>
+    <task id="LOCAL-00066" summary="feature - inserito il paneDetailsFilm.fxml per mostrare i dettagli del film selezionato dalla dashboard del cinema">
+      <created>1647366195346</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1647366195346</updated>
+    </task>
+    <task id="LOCAL-00067" summary="inserimento informazion nei campi del paneDetailsFilm.fxml">
+      <created>1647367803190</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1647367803190</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Inserimento finestra di modifica della sala + implementazione">
+      <created>1647376682765</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1647376682765</updated>
+    </task>
+    <task id="LOCAL-00069" summary="fix enum di audio e Tecnologia sia in db che in progetto">
+      <created>1647378784652</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1647378784652</updated>
+    </task>
+    <task id="LOCAL-00070" summary="prima parte d'inserimento modifica proiezione">
+      <created>1647381718691</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1647381718691</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Inserimento modifica proiezione, attenzione al vincolo stessa sala e stessa proiezione">
+      <created>1647382979286</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1647382979286</updated>
+    </task>
+    <task id="LOCAL-00072" summary="modifica vincolo stessa proiezione nella stessa sala">
+      <created>1647383049636</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1647383049636</updated>
+    </task>
+    <task id="LOCAL-00073" summary="inserimento modifica dettagli film">
+      <created>1647383989961</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1647383989961</updated>
+    </task>
+    <task id="LOCAL-00074" summary="inserimento d'InsertProiezione.fxml per la gestione di proiezioni non inserite">
+      <created>1647417881500</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1647417881500</updated>
+    </task>
+    <task id="LOCAL-00075" summary="fix - inserimento proiezione ma problema nella ricerca delle Proiezione per data">
+      <created>1647421387699</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1647421387699</updated>
+    </task>
+    <task id="LOCAL-00076" summary="INserimento proizione per le fasce orari vuote">
+      <created>1647525851114</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1647525851114</updated>
+    </task>
+    <task id="LOCAL-00077" summary="INserimento proizione per le fasce orari vuote">
+      <created>1647526064622</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1647526064622</updated>
+    </task>
+    <task id="LOCAL-00078" summary="prova">
+      <created>1647526691066</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1647526691066</updated>
+    </task>
+    <task id="LOCAL-00079" summary="fix bug immagini sovrapposte tra proiezione inserita e proiezione vuota nel pannello CinemaDashboardController">
+      <created>1647527002584</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1647527002584</updated>
+    </task>
+    <task id="LOCAL-00080" summary="fix duplicazione della lista films disponibile per il ticket">
+      <created>1647527582999</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1647527583000</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Inserimento panello bottom per le operazioni sul cinema">
+      <created>1647529172396</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1647529172396</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Inserimento pulsante di cancellazione proiezione- bug lista film per inserire una nuova proiezione">
+      <created>1647550570035</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1647550570035</updated>
+    </task>
+    <task id="LOCAL-00083" summary="fix lista film per inserimento nuova proiezione">
+      <created>1647552055131</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1647552055132</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Inserimento implementazione Cancella Sala">
+      <created>1647552977753</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1647552977753</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Inserimento pulsanti di altre operazioni - Miglioramento front-end">
+      <created>1647554048716</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1647554048716</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Inserimento implementazione per inserire un nuovo film">
+      <created>1647557910172</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1647557910172</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Inserimento StageHelper">
+      <created>1647590630855</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1647590630855</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Implementazione pulsante Sala per inserimento di una nuova sala">
+      <created>1647612836329</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1647612836331</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Allineamento grafica e miglioramento CinemaDAO">
+      <created>1647613704449</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1647613704449</updated>
+    </task>
+    <task id="LOCAL-00090" summary="ENORME LAVORO">
+      <created>1647642702478</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1647642702478</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Inserimento range in DatePicker">
+      <created>1647685565770</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1647685565770</updated>
+    </task>
+    <task id="LOCAL-00092" summary="feature selezione range proiezione">
+      <created>1647702350906</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1647702350906</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Trigger - controllo sala o proiezione già occupata">
+      <created>1647708228051</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1647708228051</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Refresh a ogni inserimento Proiezione dal tasto proiezione">
+      <created>1647709296512</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1647709296512</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Implementazione ListaFilmController">
+      <created>1647712032043</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1647712032043</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Inserimento dataProiezione in CinemaDashboardController">
+      <created>1647771099519</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1647771099520</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Fix - ChartsDashboardController">
+      <created>1647771121406</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1647771121406</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Fix - ChartsDashboardController">
+      <created>1647771165916</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1647771165916</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Ultimo commit">
+      <created>1647771331381</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1647771331381</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Ultimo commit">
+      <created>1647773547853</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1647773547854</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Modifica prog concettuale">
+      <created>1647894448822</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1647894448823</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Modifica prog concettuale">
+      <created>1647894531614</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1647894531614</updated>
+    </task>
+    <task id="LOCAL-00103" summary="modifica progettazione fisica">
+      <created>1647895232175</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1647895232175</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="fix - inserimento proiezione ma problema nella ricerca delle Proiezione per data" />
+    <MESSAGE value="INserimento proizione per le fasce orari vuote" />
+    <MESSAGE value="prova" />
+    <MESSAGE value="fix bug immagini sovrapposte tra proiezione inserita e proiezione vuota nel pannello CinemaDashboardController" />
+    <MESSAGE value="fix duplicazione della lista films disponibile per il ticket" />
+    <MESSAGE value="Inserimento panello bottom per le operazioni sul cinema" />
+    <MESSAGE value="Inserimento pulsante di cancellazione proiezione- bug lista film per inserire una nuova proiezione" />
+    <MESSAGE value="fix lista film per inserimento nuova proiezione" />
+    <MESSAGE value="Inserimento implementazione Cancella Sala" />
+    <MESSAGE value="Inserimento pulsanti di altre operazioni - Miglioramento front-end" />
+    <MESSAGE value="Inserimento implementazione per inserire un nuovo film" />
+    <MESSAGE value="Inserimento StageHelper" />
+    <MESSAGE value="Implementazione pulsante Sala per inserimento di una nuova sala" />
+    <MESSAGE value="Allineamento grafica e miglioramento CinemaDAO" />
+    <MESSAGE value="ENORME LAVORO" />
+    <MESSAGE value="Inserimento range in DatePicker" />
+    <MESSAGE value="feature selezione range proiezione" />
+    <MESSAGE value="Trigger - controllo sala o proiezione già occupata" />
+    <MESSAGE value="Refresh a ogni inserimento Proiezione dal tasto proiezione" />
+    <MESSAGE value="Implementazione ListaFilmController" />
+    <MESSAGE value="Inserimento dataProiezione in CinemaDashboardController" />
+    <MESSAGE value="Fix - ChartsDashboardController" />
+    <MESSAGE value="Ultimo commit" />
+    <MESSAGE value="Modifica prog concettuale" />
+    <MESSAGE value="modifica progettazione fisica" />
+    <option name="LAST_COMMIT_MESSAGE" value="modifica progettazione fisica" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
