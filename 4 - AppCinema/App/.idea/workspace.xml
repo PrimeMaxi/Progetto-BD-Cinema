@@ -4,283 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="529f7dd7-f1c9-4d69-b676-606a186273fd" name="Changes" comment="modifica progettazione fisica">
-      <change beforePath="$PROJECT_DIR$/../../2 - Progettazione logica/Base di Dati LOGICA .docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../3 - Progettazione fisica/Backup/DB.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../3 - Progettazione fisica/DB2.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/be4e3d8a-f733-48f0-85dd-9f043631e1fe.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/be4e3d8a-f733-48f0-85dd-9f043631e1fe/storage_v2/_src_/database/cinema.8fLqrg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/be4e3d8a-f733-48f0-85dd-9f043631e1fe/storage_v2/_src_/database/cinema.8fLqrg/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/be4e3d8a-f733-48f0-85dd-9f043631e1fe/storage_v2/_src_/database/cinema.8fLqrg/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/be4e3d8a-f733-48f0-85dd-9f043631e1fe/storage_v2/_src_/database/cinema.8fLqrg/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/be4e3d8a-f733-48f0-85dd-9f043631e1fe/storage_v2/_src_/database/cinema.8fLqrg/schema/public.abK9xQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/google-java-format.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgresql_42_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+    <list default="true" id="529f7dd7-f1c9-4d69-b676-606a186273fd" name="Changes" comment="Last commit">
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/App.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/BookingController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/ChartsDashboardController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/CinemaBottomOperazioniController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/CinemaDashboardController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/DashboardController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/DetailsDalaModificaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/DetailsFilmModificaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/DetailsProiezioneModificaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/FilaItemController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/FilmController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/FilmInsertController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/InsertProiezioneCompletoController$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/InsertProiezioneCompletoController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/InsertProiezioneCompletoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/InsertProiezioneController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/InsertSalaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/ItemFilmController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/ItemNOController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/Items/ItemSala2Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/Items/PaneDetailsCinemaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/ListaFilmController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/ModificaCinema.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/NewFilmController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/PaneDetailsCinemaFilmController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/SeatController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/controllers/TicketController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/database/DatabaseConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/database/DatabaseUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/helpers/RangeDate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/helpers/StageHelper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/BigliettoDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/ChartDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/CinemaDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/FilmDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/PostoDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/ProiezioneDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/SalaDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/implDAO/TicketDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/BigliettoDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/ChartDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/CinemaDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/FilmDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/PostoDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/ProiezioneDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/SalaDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/dao/interfaceDAO/TicketDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Biglietto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Cinema.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/FasciOrari.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Film.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/MaxAffluenza.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Posto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Proiezione.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Ricavi.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Sala.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/SalaAmount.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/entity/Ticket.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/enumerations/AUDIO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/enumerations/GENERE.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/enumerations/ORARI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/models/enumerations/TECNOLOGIA.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/Icons/Hall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/Icons/Icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/Icons/SeatEmpty.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/Icons/SeatOccupato.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/Icons/SeatSelezionato.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/Icons/cinema.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/static/007.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/static/HouseOfGucci.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/static/MatriResurrections.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/static/NoImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/static/Spiderman.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/static/cinema_main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/resources/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/ActionListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/BookingService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/DateValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/Implementations/DefaultBookingService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/Implementations/DefaultInsertProiezioneCompleto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/Implementations/DefaultTicketService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/InsertProiezioneCompleto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/SceneCreator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/service/TicketService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/views/Main.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/views/modificaCinema.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/Booking.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/ChartsDashboard.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/CinemaBottomOperazioni.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/CinemaDashboard.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/Dashboard.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/FilaItem.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/ItemFilm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/ItemNO.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/ItemSala2.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/SeatItem.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/DetailsFilmModifica.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/DetailsProiezioneModifica.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/DetailsSalaModifica.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/FilmInsert.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/InsertProiezione.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/InsertProiezioneCompleto.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/InsertSala.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/ListaFilm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/paneDetailsCinema.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/TastoCinema/paneDetailsFilm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sample/viewsRefactor/Ticket.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/BookingController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/ChartsDashboardController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/CinemaBottomOperazioniController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/CinemaDashboardController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/DashboardController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/DetailsDalaModificaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/DetailsFilmModificaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/DetailsProiezioneModificaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/FilaItemController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/FilmController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/FilmInsertController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/InsertProiezioneCompletoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/InsertProiezioneController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/InsertSalaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/ItemFilmController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/ItemNOController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/Items/ItemSala2Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/Items/PaneDetailsCinemaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/ListaFilmController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/ModificaCinema.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/NewFilmController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/PaneDetailsCinemaFilmController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/SeatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controllers/TicketController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/database/DatabaseConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/database/DatabaseUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/helpers/RangeDate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/helpers/StageHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/BigliettoDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/ChartDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/CinemaDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/FilmDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/PostoDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/ProiezioneDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/SalaDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/implDAO/TicketDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/BigliettoDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/ChartDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/CinemaDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/FilmDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/PostoDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/ProiezioneDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/SalaDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/dao/interfaceDAO/TicketDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Biglietto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Cinema.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/FasciOrari.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Film.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/MaxAffluenza.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Posto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Proiezione.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Ricavi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Sala.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/SalaAmount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/entity/Ticket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/enumerations/AUDIO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/enumerations/GENERE.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/enumerations/ORARI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/models/enumerations/TECNOLOGIA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/resources/Icons/Hall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/resources/Icons/Icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/resources/Icons/SeatEmpty.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/resources/Icons/SeatOccupato.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/resources/Icons/SeatSelezionato.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/resources/Icons/cinema.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/resources/static/007.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/resources/static/HouseOfGucci.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/resources/static/MatriResurrections.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/resources/static/NoImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/resources/static/Spiderman.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/resources/static/cinema_main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/resources/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/service/ActionListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/service/BookingService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/service/DateValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/service/Implementations/DefaultBookingService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/service/Implementations/DefaultInsertProiezioneCompleto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/service/Implementations/DefaultTicketService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/service/InsertProiezioneCompleto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/service/SceneCreator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/service/TicketService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/Main.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/modificaCinema.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/Booking.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/ChartsDashboard.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/CinemaBottomOperazioni.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/CinemaDashboard.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/Dashboard.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/FilaItem.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/ItemFilm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/ItemNO.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/ItemSala2.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/SeatItem.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/DetailsFilmModifica.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/DetailsProiezioneModifica.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/DetailsSalaModifica.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/FilmInsert.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/InsertProiezione.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/InsertProiezioneCompleto.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/InsertSala.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/ListaFilm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/paneDetailsCinema.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/TastoCinema/paneDetailsFilm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewsRefactor/Ticket.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/LaTeX-facile.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/Massimo Colucci - Documentazione Basi di dati.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/Massimo Colucci - Documentazione Basi di dati.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/Massimo Colucci - Documentazione Basi di dati.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/Massimo Colucci - Documentazione Basi di dati.synctex.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/Massimo Colucci - Documentazione Basi di dati.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/Massimo Colucci - Documentazione Basi di dati.toc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/Prova numero 1.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/UML.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentazione LAteX/UML1.ps" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ispiration/Traccia Cinema.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/__MACOSX/src/._.DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/.idea/google-java-format.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/LaboratorioBarra.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/app/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/dao_impl/StudenteDAOOracleImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/dao_impl/StudenteDAOPostgresImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/daos/StudenteDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/dbConfig/DBBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/dbConfig/DBConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/entity/Docente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/entity/Esame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/entity/Studente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LaboratorioBarra/src/exceptions/ConnectionException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StaraceDocumentazione della base di dati.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Traccia Progetto Cinema/Insieme al progetto.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Traccia Progetto Cinema/traccia_gruppo_singolo.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -360,7 +87,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Uni/Cinema_Manager_System/Ysop-JavaFx" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../4 - Java - AppCinema/App" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -439,21 +166,7 @@
       <workItem from="1647598223424" duration="56204000" />
       <workItem from="1647772114978" duration="827000" />
       <workItem from="1647775071393" duration="2334000" />
-      <workItem from="1647893249220" duration="3467000" />
-    </task>
-    <task id="LOCAL-00055" summary="Inserimento posti occupati nel gridPane - Bug associazione biglietto-proiezione">
-      <created>1647171007259</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1647171007259</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Fix associazione-Biglietto, inserito controllo data biglietto">
-      <created>1647179764160</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1647179764160</updated>
+      <workItem from="1647893249220" duration="3863000" />
     </task>
     <task id="LOCAL-00057" summary="Posto disabilitato alla seleazione se è occupato">
       <created>1647180130682</created>
@@ -784,7 +497,21 @@
       <option name="project" value="LOCAL" />
       <updated>1647895232175</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Last commit">
+      <created>1647898044442</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1647898044442</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Last commit">
+      <created>1647898081352</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1647898081352</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -804,7 +531,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix - inserimento proiezione ma problema nella ricerca delle Proiezione per data" />
     <MESSAGE value="INserimento proizione per le fasce orari vuote" />
     <MESSAGE value="prova" />
     <MESSAGE value="fix bug immagini sovrapposte tra proiezione inserita e proiezione vuota nel pannello CinemaDashboardController" />
@@ -829,7 +555,8 @@
     <MESSAGE value="Ultimo commit" />
     <MESSAGE value="Modifica prog concettuale" />
     <MESSAGE value="modifica progettazione fisica" />
-    <option name="LAST_COMMIT_MESSAGE" value="modifica progettazione fisica" />
+    <MESSAGE value="Last commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last commit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
