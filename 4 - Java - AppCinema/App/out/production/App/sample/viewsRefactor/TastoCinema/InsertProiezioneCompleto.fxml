@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="paneInsertCompleto" prefHeight="261.0" prefWidth="487.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.InsertProiezioneCompletoController">
+   <children>
+      <VBox prefHeight="302.0" prefWidth="487.0">
+         <children>
+            <HBox prefHeight="66.0" prefWidth="487.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="112.0">
+                     <children>
+                        <Label text="Date">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="66.0" prefWidth="198.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="191.0">
+                           <children>
+                              <Label text="Da" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="39.0" prefWidth="184.0">
+                           <children>
+                              <DatePicker fx:id="dataFrom" onAction="#datafrom" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="66.0" prefWidth="198.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="17.0" prefWidth="192.0">
+                           <children>
+                              <Label text="A" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="39.0" prefWidth="184.0">
+                           <children>
+                              <DatePicker fx:id="dataTo" onAction="#dataTo" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Separator prefHeight="15.0" prefWidth="487.0" />
+            <HBox prefHeight="54.0" prefWidth="487.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Film">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="54.0" prefWidth="153.0">
+                     <children>
+                        <ChoiceBox fx:id="films" onMouseClicked="#filmClicked" prefWidth="150.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="54.0" prefWidth="40.0" />
+                  <VBox alignment="CENTER" prefHeight="54.0" prefWidth="70.0">
+                     <children>
+                        <Label text="Sala">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="54.0" prefWidth="70.0">
+                     <children>
+                        <ChoiceBox fx:id="numeroSala" onMouseClicked="#salaClicked" prefWidth="150.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Separator prefHeight="15.0" prefWidth="487.0" />
+            <HBox prefHeight="66.0" prefWidth="487.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="66.0" prefWidth="109.0">
+                     <children>
+                        <Label text="Prezzo">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="66.0" prefWidth="60.0">
+                     <children>
+                        <TextField fx:id="prezzo" prefHeight="26.0" prefWidth="51.0" />
+                     </children>
+                  </HBox>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                  <HBox prefHeight="66.0" prefWidth="102.0" />
+                  <VBox prefHeight="66.0" prefWidth="133.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="18.0" prefWidth="198.0">
+                           <children>
+                              <Label text="Fascia Oraria">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="198.0">
+                           <children>
+                              <ChoiceBox fx:id="fasciaOrari" prefHeight="26.0" prefWidth="78.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox prefHeight="80.0" prefWidth="487.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="80.0" prefWidth="242.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#conferma" text="Conferma" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="80.0" prefWidth="242.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#annulla" text="Annulla" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

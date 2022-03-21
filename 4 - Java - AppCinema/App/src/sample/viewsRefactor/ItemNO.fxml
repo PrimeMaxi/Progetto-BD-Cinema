@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane onMouseClicked="#insertProiezione" prefHeight="142.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ItemNOController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/static/NoImage.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

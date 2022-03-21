@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTogglePane?>
+<?import java.lang.String?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane onMouseClicked="#buttonClickedSeat" prefHeight="28.0" prefWidth="43.0" styleClass="seat-item" stylesheets="@../resources/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.SeatController">
+   <children>
+      <JFXTogglePane fx:id="seatItem" prefHeight="26.0" prefWidth="41.0" stylesheets="@../resources/style.css">
+         <children>
+            <Text fx:id="numberSeat" strokeType="OUTSIDE" strokeWidth="0.0" text="10" />
+         </children>
+         <styleClass>
+            <String fx:value="seat-item" />
+            <String fx:value="toggle-button" />
+         </styleClass>
+      </JFXTogglePane>
+   </children>
+</AnchorPane>
